@@ -22,6 +22,10 @@ public class Client : MonoBehaviour {
 	private float timeInState = 0f;
 	#endregion
 
+	#region go to table vars
+	private Table targetTable;
+	#endregion
+
 	// Use this for initialization
 	void Start () {
 		ChangeState (States.GoToTable);
@@ -37,12 +41,24 @@ public class Client : MonoBehaviour {
 
 	#region go to table
 	private void GoToTable_Start () {
-		//
+		targetTable = TableManager.Instance.GetTable ();
 	}
 	private void GoToTable_Update () {
 		//
 	}
 	private void GoToTable_Exit () {
+		//
+	}
+	#endregion
+
+	#region wait for order
+	private void WaitForOrder_Start () {
+		//
+	}
+	private void WaitForOrder_Update () {
+		//
+	}
+	private void WaitForOrder_Exit () {
 		//
 	}
 	#endregion
@@ -63,7 +79,9 @@ public class Client : MonoBehaviour {
 			GoToTable_Start ();
 			updateState = GoToTable_Update;
 			break;
-		case States.WaitForOrder :
+		case States.WaitForOrder:
+			WaitForOrder_Start ();
+			updateState = WaitForOrder_Update;
 			// la meme pour tous les états
 			break;
 		case States.WaitForDish :
