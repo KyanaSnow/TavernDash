@@ -60,7 +60,25 @@ public class Table : MonoBehaviour {
 		}
 	}
 	public Chair GetChair () {
-		return chairs [clients.Count];
+
+		int n = chairs.Count;  
+		while (n > 1) {  
+			n--;  
+			int k = Random.Range (0, n + 1);
+			Chair value = chairs[k];  
+			chairs[k] = chairs[n];  
+			chairs[n] = value;  
+		}
+
+		foreach ( Chair chair in chairs ) {
+			if (!chair.Occupied) {
+				chair.Occupied = true;
+				return chair;
+			}
+		}
+
+		Debug.LogError ("la chaise est nulle ?");
+		return null;
 	}
 	public void AddChair ( Chair chair ) {
 		chairs.Add (chair);

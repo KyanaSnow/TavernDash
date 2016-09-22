@@ -5,6 +5,8 @@ public class Chair : MonoBehaviour {
 
 	private Transform _transform;
 
+	private bool occupied = false;
+
 	#region table vars
 	[SerializeField]
 	private float distanceToAssignTable = 5f;
@@ -73,4 +75,13 @@ public class Chair : MonoBehaviour {
 //	void OnDrawGizmos () {
 //		Gizmos.DrawWireSphere (this.transform.position, distanceToAssignTable);
 //	}
+
+	public bool Occupied {
+		get {
+			return occupied;
+		}
+		set {
+			occupied = value;
+		}
+	}
 }

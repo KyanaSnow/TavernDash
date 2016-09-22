@@ -1,9 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class ClientManager : MonoBehaviour {
 
 	public static ClientManager Instance;
+
+	private List<Client> clients = new List<Client>();
 
 	void Awake () {
 		Instance = this;
@@ -28,11 +31,16 @@ public class ClientManager : MonoBehaviour {
 		if ( Input.GetKeyDown (KeyCode.A) ) {
 			NewClient ();
 		}
+
+		if ( Input.GetKeyDown (KeyCode.Z) ) {
+			int randomIndex = Random.Range ( 0 , clients.Count );
+		}
 	}
 
-	private void NewClient () {
+	public void NewClient () {
 		GameObject client = Instantiate (clientPrefab) as GameObject;
 		client.transform.position = spawnPoint.position;
+		clients = new List<Client> ();
 	}
 
 	public Transform DoorTransform {

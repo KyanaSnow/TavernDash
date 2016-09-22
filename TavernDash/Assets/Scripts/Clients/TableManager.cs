@@ -23,24 +23,17 @@ public class TableManager : MonoBehaviour {
 	}
 	public Table GetTable () {
 
-		List<Table> tmpsTables = new List<Table> ();
-
-		int n = tmpsTables.Count;  
+			// shuffle de liste que j'ai trouvé sur internet.
+			// je fais pareil avec les chaises.
+			// trop gourmand ?
+		int n = tables.Count;  
 		while (n > 1) {  
 			n--;  
 			int k = Random.Range (0, n + 1);
-			Table value = tmpsTables[k];  
-			tmpsTables[k] = tmpsTables[n];  
-			tmpsTables[n] = value;  
+			Table value = tables[k];  
+			tables[k] = tables[n];  
+			tables[n] = value;  
 		} 
-
-//		int [] indexes = new int[tables.Count];
-//		for (int i = 0; i < indexes.Count; i++) {
-//			int temp = indexes[i];
-//			int randomIndex = Random.Range(i, indexes.Length);
-//			alpha[i] = alpha[randomIndex];
-//			alpha[randomIndex] = temp;
-//		}
 //
 		foreach ( Table table in tables ) {
 			if ( table.HasFreeChairs () ) {

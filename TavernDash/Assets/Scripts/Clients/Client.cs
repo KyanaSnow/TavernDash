@@ -49,18 +49,19 @@ public class Client : MonoBehaviour {
 
 	// patience
 	[SerializeField]
-	private GameObject patienceCloudPrefab;
-	private GameObject patienceCloudObj;
-	private Image patienceImage;
+	private GameObject rageFeedbackPrefab;
+	private GameObject rageFeedbackObj;
+	private Image rageFeedbackImage;
+	[SerializeField]
+	private Sprite lightningSprite;
+
+	private float rageTimer = 1f;
+	[SerializeField]
+	private float timeToNextStep = 5f;
+	private float currentRage = 1;
 
 	[SerializeField]
-	private Sprite enragedSprite;
-
-	[SerializeField]
-	private float patienceDecalY = 1.5f;
-
-	private float currentPatience = 1f;
-	public float timeToEnrage = 10f;
+	private float rageToEnrage = 6;
 
 	// Use this for initialization
 	void Start () {
@@ -69,7 +70,7 @@ public class Client : MonoBehaviour {
 
 		ChangeState (States.GoToTable);
 
-		CreateCloud ();
+		CreateRageFeedback ();
 
 	}
 	
@@ -182,34 +183,52 @@ public class Client : MonoBehaviour {
 	#region enraged
 	private void Enraged_Start () {
 		dialogue.Speak ("GRRRRRRR");
-
-		patienceImage.sprite = enragedSprite;
+		rageFeedbackImage.sprite = lightningSprite;
+		rageFeedbackImage.color = Color.white;
 	}
 	private void Enraged_Update () {
-		//
+		
+		if (timeInState > 2) {
+			rageFeedbackImage.transform.localScale = Vector3.one * (currentRage / rageToEnrage);
+			UIManager.Instance.Place (rageFeedbackImage, dialogue.Anchor.position);
+		}
+
 	}
 	private void Enraged_Exit () {
 		//
 	}
 	#endregion
 
-	#region patience
-	private void CreateCloud () {
-		patienceCloudObj = UIManager.Instance.CreateElement (patienceCloudPrefab, UIManager.CanvasType.Patience);
-		patienceImage = patienceCloudObj.GetComponentInChildren<Image> ();
-		patienceCloudObj.SetActive (false);
+	#region rage
+	private void CreateRageFeedback () {
+		rageFeedbackObj = UIManager.Instance.CreateElement (rageFeedbackPrefab, UIManager.CanvasType.Patience);
+		rageFeedbackImage = rageFeedbackObj.GetComponentInChildren<Image> ();
+		rageFeedbackObj.SetActive (false);
 	}
 	private void UpdatePatience () {
 
-		patienceCloudObj.SetActive (currentPatience > 0);
+			// activate bubble
+		rageFeedbackObj.SetActive (currentRage > 1);
 
-		currentPatience += Time.deltaTime;
+			// lerp colors
+		float l = (currentRage / rageToEnrage);
 
-		if ( currentPatience >= timeToEnrage ) {
-			ChangeState (States.Enraged);
+		rageFeedbackImage.transform.localScale = Vector3.one * (currentRage/rageToEnrage);
+		rageFeedbackImage.color = Color.Lerp ( Color.white , Color.black , l );
+
+		UIManager.Instance.Place (rageFeedbackImage, dialogue.Anchor.position);
+
+		rageTimer += Time.deltaTime;
+
+		if ( rageTimer >= (currentRage*timeToNextStep) ) {
+			
+			++currentRage;
+
+			if ( currentRage == rageToEnrage ) {
+				ChangeState (States.Enraged);
+				return;
+			}
 		}
-		patienceImage.transform.localScale = Vector3.one * ( currentPatience/timeToEnrage);
-		UIManager.Instance.Place (patienceImage, dialogue.Anchor.position);
 
 	}
 	#endregion
