@@ -21,7 +21,7 @@ public class Client : MonoBehaviour {
 	private States previousState;
 	private States currentState;
 
-	delegate void UpdateState();
+	public delegate void UpdateState();
 	UpdateState updateState;
 
 	private float timeInState = 0f;
@@ -47,13 +47,14 @@ public class Client : MonoBehaviour {
 		_transform = this.transform;
 
 		ChangeState (States.GoToTable);
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if ( updateState != null ) {
-			updateState ();
 			timeInState += Time.deltaTime;
+			updateState ();
 		}
 	}
 
@@ -82,12 +83,12 @@ public class Client : MonoBehaviour {
 
 		if (targetTable == null) {
 			Debug.Log ("no table available, client leaving");
-//			ChangeState (States.Leaving);
-			updateState = null;
+			ChangeState (States.Leaving);
 			return;
 		} else {
 			targetChair = targetTable.GetChair ();
 			targetTable.AddClient (this);
+			return;
 		}
 
 
@@ -104,8 +105,6 @@ public class Client : MonoBehaviour {
 
 		GetTransform.position = Vector3.Lerp (lerpInitialPos, targetChair.GetTransform.position + Vector3.up, l);
 		BodyTransform.forward = Vector3.Lerp (lerpInitalRot, (targetTable.GetTransform.position-GetTransform.position).normalized , l);
-//		GetTransform.position = targetChair.GetTransform.position + Vector3.up;
-//		BodyTransform.forward = (targetTable.GetTransform.position - GetTransform.position).normalized;
 	}
 	private void WaitForOrder_Exit () {
 		//
@@ -114,11 +113,19 @@ public class Client : MonoBehaviour {
 
 	#region wait for order
 	private void Leaving_Start () {
-		//
+		
 	}
 	private void Leaving_Update () {
-		Debug.Log ("leaving update");
-		//
+		if (timeInState > 3f) {
+			Vector3 dirToDoor = (ClientManager.Instance.DoorTransform.position - GetTransform.position).normalized;
+			BodyTransform.forward = Vector3.MoveTowards (BodyTransform.forward, dirToDoor, rotationSpeed * Time.deltaTime);
+
+			GetTransform.Translate (BodyTransform.forward * moveSpeed * Time.deltaTime);
+
+			if (Vector3.Distance (GetTransform.position, ClientManager.Instance.DoorTransform.position) < 0.2f) {
+				Destroy (this.gameObject);
+			}
+		}
 	}
 	private void Leaving_Exit () {
 		//
@@ -130,25 +137,23 @@ public class Client : MonoBehaviour {
 		previousState = currentState;
 		currentState = newState;
 
-//		Debug.Log ("new state : " + newState.ToString ());
 		lerpInitalRot = BodyTransform.forward;
 		lerpInitialPos = GetTransform.position;
 
 		timeInState = 0f;
 
-//		ExitState (previousState);
-		EnterState (newState);
+		ExitState ();
+		EnterState ();
 	}
-	private void EnterState (States targetState) {
-		switch (targetState) {
+	private void EnterState () {
+		switch (currentState) {
 		case States.GoToTable:
-			GoToTable_Start ();
-			Debug.Log ("c'eest là que kikouille ne pas peut intervenir");
 			updateState = GoToTable_Update;
+			GoToTable_Start ();
 			break;
 		case States.WaitForOrder:
-			WaitForOrder_Start ();
 			updateState = WaitForOrder_Update;
+			WaitForOrder_Start ();
 			// la meme pour tous les états
 			break;
 		case States.WaitForDish :
@@ -158,9 +163,8 @@ public class Client : MonoBehaviour {
 			//la meme pour tous les états
 			break;
 		case States.Leaving:
-			Leaving_Start ();
 			updateState = Leaving_Update;
-			Debug.Log ("c'eest là que kikouille intervient");
+			Leaving_Start ();
 			break;
 		case States.Enraged :
 			//la meme pour tous les états
@@ -170,8 +174,8 @@ public class Client : MonoBehaviour {
 			break;
 		}
 	}
-	private void ExitState (States targetState) {
-		switch (targetState) {
+	private void ExitState () {
+		switch (previousState) {
 		case States.GoToTable:
 			GoToTable_Exit ();
 			break;

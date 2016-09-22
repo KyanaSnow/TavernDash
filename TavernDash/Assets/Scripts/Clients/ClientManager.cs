@@ -10,7 +10,10 @@ public class ClientManager : MonoBehaviour {
 	}
 
 	[SerializeField]
-	private Transform sawnPoint;
+	private Transform spawnPoint;
+
+	[SerializeField]
+	private Transform doorTransform;
 
 	[SerializeField]
 	private GameObject clientPrefab;
@@ -29,6 +32,15 @@ public class ClientManager : MonoBehaviour {
 
 	private void NewClient () {
 		GameObject client = Instantiate (clientPrefab) as GameObject;
-		client.transform.position = sawnPoint.position;
+		client.transform.position = spawnPoint.position;
+	}
+
+	public Transform DoorTransform {
+		get {
+			return doorTransform;
+		}
+		set {
+			doorTransform = value;
+		}
 	}
 }
