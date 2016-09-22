@@ -23,11 +23,25 @@ public class TableManager : MonoBehaviour {
 	}
 
 	public Table GetTable () {
-		
+		foreach ( Table table in tables ) {
+			if ( table.HasFreeChairs () ) {
+				return table;
+			}
+		}
+
+		return null;
 	}
 
 	public void AddTable ( Table table ) {
 		tables.Add (table);
+	}
 
+	public List<Table> Tables {
+		get {
+			return tables;
+		}
+		set {
+			tables = value;
+		}
 	}
 }
