@@ -21,8 +21,27 @@ public class TableManager : MonoBehaviour {
 	void Update () {
 	
 	}
-
 	public Table GetTable () {
+
+		List<Table> tmpsTables = new List<Table> ();
+
+		int n = tmpsTables.Count;  
+		while (n > 1) {  
+			n--;  
+			int k = Random.Range (0, n + 1);
+			Table value = tmpsTables[k];  
+			tmpsTables[k] = tmpsTables[n];  
+			tmpsTables[n] = value;  
+		} 
+
+//		int [] indexes = new int[tables.Count];
+//		for (int i = 0; i < indexes.Count; i++) {
+//			int temp = indexes[i];
+//			int randomIndex = Random.Range(i, indexes.Length);
+//			alpha[i] = alpha[randomIndex];
+//			alpha[randomIndex] = temp;
+//		}
+//
 		foreach ( Table table in tables ) {
 			if ( table.HasFreeChairs () ) {
 				return table;

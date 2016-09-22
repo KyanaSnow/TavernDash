@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class Client : MonoBehaviour {
@@ -7,6 +8,7 @@ public class Client : MonoBehaviour {
 	private Transform _transform;
 	[SerializeField]
 	private Transform _bodyTransform;
+	private Dialogue dialogue;
 
 	// states
 	public enum States {
@@ -32,7 +34,11 @@ public class Client : MonoBehaviour {
 	[SerializeField]
 	private float moveSpeed = 2f;
 
-	// lerps = 
+	// wait for order
+	bool spoke = false;
+	public float timeToOrder = 4f;
+
+	// lerps
 	Vector3 lerpInitialPos;
 	Vector3 lerpInitalRot;
 
@@ -41,12 +47,29 @@ public class Client : MonoBehaviour {
 	private Chair targetChair;
 	[SerializeField] private float distanceToSitDown = 1f;
 
+	// patience
+	[SerializeField]
+	private GameObject patienceCloudPrefab;
+	private GameObject patienceCloudObj;
+	private Image patienceImage;
+
+	[SerializeField]
+	private Sprite enragedSprite;
+
+	[SerializeField]
+	private float patienceDecalY = 1.5f;
+
+	private float currentPatience = 1f;
+	public float timeToEnrage = 10f;
 
 	// Use this for initialization
 	void Start () {
 		_transform = this.transform;
+		dialogue = GetComponentInChildren<Dialogue> ();
 
 		ChangeState (States.GoToTable);
+
+		CreateCloud ();
 
 	}
 	
@@ -61,6 +84,7 @@ public class Client : MonoBehaviour {
 	#region go to table
 	private void GoToTable_Start () {
 		LookForTable ();
+		dialogue.Speak ("Bonjour !");
 	}
 	private void GoToTable_Update () {
 
@@ -82,7 +106,6 @@ public class Client : MonoBehaviour {
 		targetTable = TableManager.Instance.GetTable ();
 
 		if (targetTable == null) {
-			Debug.Log ("no table available, client leaving");
 			ChangeState (States.Leaving);
 			return;
 		} else {
@@ -90,12 +113,10 @@ public class Client : MonoBehaviour {
 			targetTable.AddClient (this);
 			return;
 		}
-
-
 	}
 	#endregion
 
-	#region wait for orderx
+	#region wait for order
 	private void WaitForOrder_Start () {
 		
 	}
@@ -103,15 +124,39 @@ public class Client : MonoBehaviour {
 
 		float l = timeInState;
 
-		GetTransform.position = Vector3.Lerp (lerpInitialPos, targetChair.GetTransform.position + Vector3.up, l);
+		GetTransform.position = Vector3.Lerp (lerpInitialPos, targetChair.GetTransform.position,l);
 		BodyTransform.forward = Vector3.Lerp (lerpInitalRot, (targetTable.GetTransform.position-GetTransform.position).normalized , l);
+
+		if ( timeInState > timeToOrder ) {
+			if (!spoke) {
+				dialogue.Speak ("J'ai faim !");
+				spoke = true;
+			}
+
+			UpdatePatience ();
+		}
 	}
 	private void WaitForOrder_Exit () {
 		//
 	}
 	#endregion
 
-	#region wait for order
+	#region wait for dish
+	private void WaitForDish_Start () {
+		dialogue.Speak ("et dêpéchez vous !");
+	}
+	private void WaitForDish_Update () {
+		
+		//
+
+		UpdatePatience ();
+	}
+	private void WaitForDish_Exit () {
+		//
+	}
+	#endregion
+
+	#region leaving
 	private void Leaving_Start () {
 		
 	}
@@ -122,6 +167,8 @@ public class Client : MonoBehaviour {
 
 			GetTransform.Translate (BodyTransform.forward * moveSpeed * Time.deltaTime);
 
+			dialogue.Speak ("au revoir");
+
 			if (Vector3.Distance (GetTransform.position, ClientManager.Instance.DoorTransform.position) < 0.2f) {
 				Destroy (this.gameObject);
 			}
@@ -129,6 +176,41 @@ public class Client : MonoBehaviour {
 	}
 	private void Leaving_Exit () {
 		//
+	}
+	#endregion
+
+	#region enraged
+	private void Enraged_Start () {
+		dialogue.Speak ("GRRRRRRR");
+
+		patienceImage.sprite = enragedSprite;
+	}
+	private void Enraged_Update () {
+		//
+	}
+	private void Enraged_Exit () {
+		//
+	}
+	#endregion
+
+	#region patience
+	private void CreateCloud () {
+		patienceCloudObj = UIManager.Instance.CreateElement (patienceCloudPrefab, UIManager.CanvasType.Patience);
+		patienceImage = patienceCloudObj.GetComponentInChildren<Image> ();
+		patienceCloudObj.SetActive (false);
+	}
+	private void UpdatePatience () {
+
+		patienceCloudObj.SetActive (currentPatience > 0);
+
+		currentPatience += Time.deltaTime;
+
+		if ( currentPatience >= timeToEnrage ) {
+			ChangeState (States.Enraged);
+		}
+		patienceImage.transform.localScale = Vector3.one * ( currentPatience/timeToEnrage);
+		UIManager.Instance.Place (patienceImage, dialogue.Anchor.position);
+
 	}
 	#endregion
 
@@ -166,7 +248,9 @@ public class Client : MonoBehaviour {
 			updateState = Leaving_Update;
 			Leaving_Start ();
 			break;
-		case States.Enraged :
+		case States.Enraged:
+			updateState = Enraged_Update;
+			Enraged_Start ();
 			//la meme pour tous les états
 			break;
 		case States.Dead :
@@ -191,8 +275,8 @@ public class Client : MonoBehaviour {
 		case States.Leaving:
 			Leaving_Exit ();
 			break;
-		case States.Enraged :
-			//
+		case States.Enraged:
+			Enraged_Exit ();
 			break;
 		case States.Dead :
 			//
@@ -218,6 +302,6 @@ public class Client : MonoBehaviour {
 			_bodyTransform = value;
 		}
 	}
-
 	#endregion
+
 }
