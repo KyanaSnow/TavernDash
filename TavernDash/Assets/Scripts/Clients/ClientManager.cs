@@ -33,14 +33,24 @@ public class ClientManager : MonoBehaviour {
 		}
 
 		if ( Input.GetKeyDown (KeyCode.Z) ) {
-			int randomIndex = Random.Range ( 0 , clients.Count );
+//			int randomIndex = Random.Range ( 0 , clients.Count );
+
+			if ( clients[0].CurrentState == Client.States.WaitForOrder ) {
+				clients [0].TakeOrder ();
+			} else if ( clients[0].CurrentState == Client.States.WaitForDish ){
+				clients [0].Serve ();
+			}
 		}
 	}
 
 	public void NewClient () {
 		GameObject client = Instantiate (clientPrefab) as GameObject;
 		client.transform.position = spawnPoint.position;
-		clients = new List<Client> ();
+		clients.Add ( client.GetComponent<Client>() );
+	}
+
+	public void RemoveClient ( Client client ) {
+		clients.Remove (client);
 	}
 
 	public Transform DoorTransform {

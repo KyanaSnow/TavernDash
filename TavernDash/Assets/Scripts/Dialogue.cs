@@ -43,7 +43,6 @@ public class Dialogue : MonoBehaviour {
 
 			timer += Time.deltaTime;
 
-
 		}
 			
 	}
@@ -67,6 +66,10 @@ public class Dialogue : MonoBehaviour {
 		speaking = false;
 
 		bubbleObj.SetActive (false);
+	}
+
+	void OnDestroy () {
+		Destroy (bubbleObj);
 	}
 
 	public Transform Anchor {

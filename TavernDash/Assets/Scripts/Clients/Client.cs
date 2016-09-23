@@ -42,6 +42,10 @@ public class Client : MonoBehaviour {
 	Vector3 lerpInitialPos;
 	Vector3 lerpInitalRot;
 
+	// eating
+	[SerializeField]
+	private float eatingDuration = 10f;
+
 	// tables
 	private Table targetTable;
 	private Chair targetChair;
@@ -62,6 +66,10 @@ public class Client : MonoBehaviour {
 
 	[SerializeField]
 	private float rageToEnrage = 6;
+	[SerializeField]
+	private int stepsWhenOrdering = 1;
+	[SerializeField]
+	private int stepsWhenServed = 2;
 
 	// Use this for initialization
 	void Start () {
@@ -140,11 +148,19 @@ public class Client : MonoBehaviour {
 	private void WaitForOrder_Exit () {
 		//
 	}
+	public void TakeOrder () {
+		dialogue.Speak ("apportez moi un café!");
+
+		ChangeState (States.WaitForDish);
+
+		currentRage -= stepsWhenOrdering;
+		UpdatePatience ();
+	}
 	#endregion
 
 	#region wait for dish
 	private void WaitForDish_Start () {
-		dialogue.Speak ("et dêpéchez vous !");
+		
 	}
 	private void WaitForDish_Update () {
 		
@@ -155,6 +171,25 @@ public class Client : MonoBehaviour {
 	private void WaitForDish_Exit () {
 		//
 	}
+	public void Serve () {
+		dialogue.Speak ( "miam !" );
+
+		ChangeState (States.Eating);
+	}
+	#endregion
+
+	#region eating
+	private void Eating_Start () {
+		
+	}
+	private void Eating_Update () {
+		if ( timeInState > eatingDuration ) {
+			ChangeState (States.Leaving);
+		}
+	}
+	private void Eating_Exit () {
+		//
+	}
 	#endregion
 
 	#region leaving
@@ -162,6 +197,7 @@ public class Client : MonoBehaviour {
 		
 	}
 	private void Leaving_Update () {
+		
 		if (timeInState > 3f) {
 			Vector3 dirToDoor = (ClientManager.Instance.DoorTransform.position - GetTransform.position).normalized;
 			BodyTransform.forward = Vector3.MoveTowards (BodyTransform.forward, dirToDoor, rotationSpeed * Time.deltaTime);
@@ -171,9 +207,11 @@ public class Client : MonoBehaviour {
 			dialogue.Speak ("au revoir");
 
 			if (Vector3.Distance (GetTransform.position, ClientManager.Instance.DoorTransform.position) < 0.2f) {
+				ClientManager.Instance.RemoveClient (this);
 				Destroy (this.gameObject);
 			}
 		}
+
 	}
 	private void Leaving_Exit () {
 		//
@@ -255,13 +293,14 @@ public class Client : MonoBehaviour {
 		case States.WaitForOrder:
 			updateState = WaitForOrder_Update;
 			WaitForOrder_Start ();
-			// la meme pour tous les états
 			break;
-		case States.WaitForDish :
-			// la meme pour tous les états
+		case States.WaitForDish:
+			updateState = WaitForDish_Update;
+			WaitForDish_Start ();
 			break;
-		case States.Eating :
-			//la meme pour tous les états
+		case States.Eating:
+			updateState = Eating_Update;
+			Eating_Start ();
 			break;
 		case States.Leaving:
 			updateState = Leaving_Update;
@@ -270,7 +309,6 @@ public class Client : MonoBehaviour {
 		case States.Enraged:
 			updateState = Enraged_Update;
 			Enraged_Start ();
-			//la meme pour tous les états
 			break;
 		case States.Dead :
 			//la meme pour tous les états
@@ -285,11 +323,11 @@ public class Client : MonoBehaviour {
 		case States.WaitForOrder:
 			WaitForOrder_Exit ();
 			break;
-		case States.WaitForDish :
-			//
+		case States.WaitForDish:
+			WaitForOrder_Exit ();
 			break;
-		case States.Eating :
-			//
+		case States.Eating:
+			Eating_Exit ();
 			break;
 		case States.Leaving:
 			Leaving_Exit ();
@@ -319,6 +357,14 @@ public class Client : MonoBehaviour {
 		}
 		set {
 			_bodyTransform = value;
+		}
+	}
+	public States CurrentState {
+		get {
+			return currentState;
+		}
+		set {
+			currentState = value;
 		}
 	}
 	#endregion
