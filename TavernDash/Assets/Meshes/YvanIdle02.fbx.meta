@@ -1,0 +1,1226 @@
+fileFormatVersion: 2
+guid: b714e02f79d35a34089e5e91a955521e
+timeCreated: 1456139187
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: joint1
+    100002: joint2
+    100004: MESH
+    100006: SKELETON
+    100008: Yan_L_Wrist_FK
+    100010: Yan_L_Wrist_IK
+    100012: Yan_L_Wrist_JNT
+    100014: Yan_R_Wrist_FK
+    100016: Yan_R_Wrist_IK
+    100018: Yan_R_Wrist_JNT
+    100020: Yvan
+    100022: Yvan_Bag_JNT
+    100024: Yvan_Head_End_JNT
+    100026: Yvan_Head_JNT
+    100028: Yvan_L_Ankle_JNT
+    100030: Yvan_L_Elbow_FK
+    100032: Yvan_L_Elbow_IK
+    100034: Yvan_L_Elbow_JNT
+    100036: Yvan_L_Eye_JNT
+    100038: Yvan_L_EyesBrows01_High_JNT
+    100040: Yvan_L_EyesBrows01_Low_JNT
+    100042: Yvan_L_EyesBrows02_High_JNT
+    100044: Yvan_L_EyesBrows02_Low_JNT
+    100046: Yvan_L_Index01_JNT
+    100048: Yvan_L_Index02_JNT
+    100050: Yvan_L_Index03_JNT
+    100052: Yvan_L_Knee_JNT
+    100054: Yvan_L_Little01_JNT
+    100056: Yvan_L_Little02_JNT
+    100058: Yvan_L_Little03_JNT
+    100060: Yvan_L_Middle01_JNT
+    100062: Yvan_L_Middle02_JNT
+    100064: Yvan_L_Middle03_JNT
+    100066: Yvan_L_Ring01_JNT
+    100068: Yvan_L_Ring02_JNT
+    100070: Yvan_L_Ring03_JNT
+    100072: Yvan_L_Shoulder_JNT
+    100074: Yvan_L_Thumb01_JNT
+    100076: Yvan_L_Thumb02_JNT
+    100078: Yvan_L_Thumb03_JNT
+    100080: Yvan_L_Toe_End_JNT
+    100082: Yvan_L_Toe_JNT
+    100084: Yvan_L_UpArm_FK
+    100086: Yvan_L_UpArm_IK
+    100088: Yvan_L_UpArm_JNT
+    100090: Yvan_L_Upleg_JNT
+    100092: Yvan_Neck_JNT
+    100094: Yvan_Pelvis_JNT
+    100096: Yvan_R_Ankle_JNT
+    100098: Yvan_R_Elbow_FK
+    100100: Yvan_R_Elbow_IK
+    100102: Yvan_R_Elbow_JNT
+    100104: Yvan_R_Eye_JNT
+    100106: Yvan_R_EyesBrows01_High_JNT
+    100108: Yvan_R_EyesBrows01_Low_JNT
+    100110: Yvan_R_EyesBrows02_High_JNT
+    100112: Yvan_R_EyesBrows02_Low_JNT
+    100114: Yvan_R_Index01_JNT
+    100116: Yvan_R_Index02_JNT
+    100118: Yvan_R_Index03_JNT
+    100120: Yvan_R_Knee_JNT
+    100122: Yvan_R_Little01_JNT
+    100124: Yvan_R_Little02_JNT
+    100126: Yvan_R_Little03_JNT
+    100128: Yvan_R_Middle01_JNT
+    100130: Yvan_R_Middle02_JNT
+    100132: Yvan_R_Middle03_JNT
+    100134: Yvan_R_Ring01_JNT
+    100136: Yvan_R_Ring02_JNT
+    100138: Yvan_R_Ring03_JNT
+    100140: Yvan_R_Shoulder_JNT
+    100142: Yvan_R_Thumb01_JNT
+    100144: Yvan_R_Thumb02_JNT
+    100146: Yvan_R_Thumb03_JNT
+    100148: Yvan_R_Toe_End_JNT
+    100150: Yvan_R_Toe_JNT
+    100152: Yvan_R_UpArm_FK
+    100154: Yvan_R_UpArm_IK
+    100156: Yvan_R_UpArm_JNT
+    100158: Yvan_R_Upleg_JNT
+    100160: Yvan_Spine01_JNT
+    100162: Yvan_Spine02_JNT
+    100164: Yvan_Spine03_JNT
+    100166: YvanBag
+    100168: //RootNode
+    400000: joint1
+    400002: joint2
+    400004: MESH
+    400006: SKELETON
+    400008: Yan_L_Wrist_FK
+    400010: Yan_L_Wrist_IK
+    400012: Yan_L_Wrist_JNT
+    400014: Yan_R_Wrist_FK
+    400016: Yan_R_Wrist_IK
+    400018: Yan_R_Wrist_JNT
+    400020: Yvan
+    400022: Yvan_Bag_JNT
+    400024: Yvan_Head_End_JNT
+    400026: Yvan_Head_JNT
+    400028: Yvan_L_Ankle_JNT
+    400030: Yvan_L_Elbow_FK
+    400032: Yvan_L_Elbow_IK
+    400034: Yvan_L_Elbow_JNT
+    400036: Yvan_L_Eye_JNT
+    400038: Yvan_L_EyesBrows01_High_JNT
+    400040: Yvan_L_EyesBrows01_Low_JNT
+    400042: Yvan_L_EyesBrows02_High_JNT
+    400044: Yvan_L_EyesBrows02_Low_JNT
+    400046: Yvan_L_Index01_JNT
+    400048: Yvan_L_Index02_JNT
+    400050: Yvan_L_Index03_JNT
+    400052: Yvan_L_Knee_JNT
+    400054: Yvan_L_Little01_JNT
+    400056: Yvan_L_Little02_JNT
+    400058: Yvan_L_Little03_JNT
+    400060: Yvan_L_Middle01_JNT
+    400062: Yvan_L_Middle02_JNT
+    400064: Yvan_L_Middle03_JNT
+    400066: Yvan_L_Ring01_JNT
+    400068: Yvan_L_Ring02_JNT
+    400070: Yvan_L_Ring03_JNT
+    400072: Yvan_L_Shoulder_JNT
+    400074: Yvan_L_Thumb01_JNT
+    400076: Yvan_L_Thumb02_JNT
+    400078: Yvan_L_Thumb03_JNT
+    400080: Yvan_L_Toe_End_JNT
+    400082: Yvan_L_Toe_JNT
+    400084: Yvan_L_UpArm_FK
+    400086: Yvan_L_UpArm_IK
+    400088: Yvan_L_UpArm_JNT
+    400090: Yvan_L_Upleg_JNT
+    400092: Yvan_Neck_JNT
+    400094: Yvan_Pelvis_JNT
+    400096: Yvan_R_Ankle_JNT
+    400098: Yvan_R_Elbow_FK
+    400100: Yvan_R_Elbow_IK
+    400102: Yvan_R_Elbow_JNT
+    400104: Yvan_R_Eye_JNT
+    400106: Yvan_R_EyesBrows01_High_JNT
+    400108: Yvan_R_EyesBrows01_Low_JNT
+    400110: Yvan_R_EyesBrows02_High_JNT
+    400112: Yvan_R_EyesBrows02_Low_JNT
+    400114: Yvan_R_Index01_JNT
+    400116: Yvan_R_Index02_JNT
+    400118: Yvan_R_Index03_JNT
+    400120: Yvan_R_Knee_JNT
+    400122: Yvan_R_Little01_JNT
+    400124: Yvan_R_Little02_JNT
+    400126: Yvan_R_Little03_JNT
+    400128: Yvan_R_Middle01_JNT
+    400130: Yvan_R_Middle02_JNT
+    400132: Yvan_R_Middle03_JNT
+    400134: Yvan_R_Ring01_JNT
+    400136: Yvan_R_Ring02_JNT
+    400138: Yvan_R_Ring03_JNT
+    400140: Yvan_R_Shoulder_JNT
+    400142: Yvan_R_Thumb01_JNT
+    400144: Yvan_R_Thumb02_JNT
+    400146: Yvan_R_Thumb03_JNT
+    400148: Yvan_R_Toe_End_JNT
+    400150: Yvan_R_Toe_JNT
+    400152: Yvan_R_UpArm_FK
+    400154: Yvan_R_UpArm_IK
+    400156: Yvan_R_UpArm_JNT
+    400158: Yvan_R_Upleg_JNT
+    400160: Yvan_Spine01_JNT
+    400162: Yvan_Spine02_JNT
+    400164: Yvan_Spine03_JNT
+    400166: YvanBag
+    400168: //RootNode
+    4300000: Yvan
+    4300002: YvanBag
+    7400000: YvanAlternativIdle
+    9500000: //RootNode
+    13700000: Yvan
+    13700002: YvanBag
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: '
+
+      Imported file ''YvanIdle02'' conversion failed: Found duplicate transform ''Yvan_R_Eye_JNT''
+      for human bone ''Jaw'' and ''RightEye''
+
+
+'
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 3
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: YvanAlternativIdle
+      takeName: Take 001
+      firstFrame: 63
+      lastFrame: 150
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: MESH
+        weight: 1
+      - path: MESH/Yvan
+        weight: 1
+      - path: MESH/YvanBag
+        weight: 1
+      - path: SKELETON
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Bag_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_L_Upleg_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_L_Upleg_JNT/Yvan_L_Knee_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_L_Upleg_JNT/Yvan_L_Knee_JNT/Yvan_L_Ankle_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_L_Upleg_JNT/Yvan_L_Knee_JNT/Yvan_L_Ankle_JNT/Yvan_L_Toe_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_L_Upleg_JNT/Yvan_L_Knee_JNT/Yvan_L_Ankle_JNT/Yvan_L_Toe_JNT/Yvan_L_Toe_End_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_R_Upleg_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_R_Upleg_JNT/Yvan_R_Knee_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_R_Upleg_JNT/Yvan_R_Knee_JNT/Yvan_R_Ankle_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_R_Upleg_JNT/Yvan_R_Knee_JNT/Yvan_R_Ankle_JNT/Yvan_R_Toe_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_R_Upleg_JNT/Yvan_R_Knee_JNT/Yvan_R_Ankle_JNT/Yvan_R_Toe_JNT/Yvan_R_Toe_End_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_L_Shoulder_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_L_Shoulder_JNT/Yvan_L_UpArm_FK
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_L_Shoulder_JNT/Yvan_L_UpArm_FK/Yvan_L_Elbow_FK
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_L_Shoulder_JNT/Yvan_L_UpArm_FK/Yvan_L_Elbow_FK/Yan_L_Wrist_FK
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_L_Shoulder_JNT/Yvan_L_UpArm_IK
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_L_Shoulder_JNT/Yvan_L_UpArm_IK/Yvan_L_Elbow_IK
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_L_Shoulder_JNT/Yvan_L_UpArm_IK/Yvan_L_Elbow_IK/Yan_L_Wrist_IK
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_L_Shoulder_JNT/Yvan_L_UpArm_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_L_Shoulder_JNT/Yvan_L_UpArm_JNT/Yvan_L_Elbow_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_L_Shoulder_JNT/Yvan_L_UpArm_JNT/Yvan_L_Elbow_JNT/Yan_L_Wrist_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_L_Shoulder_JNT/Yvan_L_UpArm_JNT/Yvan_L_Elbow_JNT/Yan_L_Wrist_JNT/Yvan_L_Index01_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_L_Shoulder_JNT/Yvan_L_UpArm_JNT/Yvan_L_Elbow_JNT/Yan_L_Wrist_JNT/Yvan_L_Index01_JNT/Yvan_L_Index02_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_L_Shoulder_JNT/Yvan_L_UpArm_JNT/Yvan_L_Elbow_JNT/Yan_L_Wrist_JNT/Yvan_L_Index01_JNT/Yvan_L_Index02_JNT/Yvan_L_Index03_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_L_Shoulder_JNT/Yvan_L_UpArm_JNT/Yvan_L_Elbow_JNT/Yan_L_Wrist_JNT/Yvan_L_Little01_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_L_Shoulder_JNT/Yvan_L_UpArm_JNT/Yvan_L_Elbow_JNT/Yan_L_Wrist_JNT/Yvan_L_Little01_JNT/Yvan_L_Little02_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_L_Shoulder_JNT/Yvan_L_UpArm_JNT/Yvan_L_Elbow_JNT/Yan_L_Wrist_JNT/Yvan_L_Little01_JNT/Yvan_L_Little02_JNT/Yvan_L_Little03_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_L_Shoulder_JNT/Yvan_L_UpArm_JNT/Yvan_L_Elbow_JNT/Yan_L_Wrist_JNT/Yvan_L_Middle01_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_L_Shoulder_JNT/Yvan_L_UpArm_JNT/Yvan_L_Elbow_JNT/Yan_L_Wrist_JNT/Yvan_L_Middle01_JNT/Yvan_L_Middle02_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_L_Shoulder_JNT/Yvan_L_UpArm_JNT/Yvan_L_Elbow_JNT/Yan_L_Wrist_JNT/Yvan_L_Middle01_JNT/Yvan_L_Middle02_JNT/Yvan_L_Middle03_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_L_Shoulder_JNT/Yvan_L_UpArm_JNT/Yvan_L_Elbow_JNT/Yan_L_Wrist_JNT/Yvan_L_Ring01_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_L_Shoulder_JNT/Yvan_L_UpArm_JNT/Yvan_L_Elbow_JNT/Yan_L_Wrist_JNT/Yvan_L_Ring01_JNT/Yvan_L_Ring02_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_L_Shoulder_JNT/Yvan_L_UpArm_JNT/Yvan_L_Elbow_JNT/Yan_L_Wrist_JNT/Yvan_L_Ring01_JNT/Yvan_L_Ring02_JNT/Yvan_L_Ring03_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_L_Shoulder_JNT/Yvan_L_UpArm_JNT/Yvan_L_Elbow_JNT/Yan_L_Wrist_JNT/Yvan_L_Thumb01_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_L_Shoulder_JNT/Yvan_L_UpArm_JNT/Yvan_L_Elbow_JNT/Yan_L_Wrist_JNT/Yvan_L_Thumb01_JNT/Yvan_L_Thumb02_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_L_Shoulder_JNT/Yvan_L_UpArm_JNT/Yvan_L_Elbow_JNT/Yan_L_Wrist_JNT/Yvan_L_Thumb01_JNT/Yvan_L_Thumb02_JNT/Yvan_L_Thumb03_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_Neck_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_Neck_JNT/Yvan_Head_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_Neck_JNT/Yvan_Head_JNT/Yvan_Head_End_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_Neck_JNT/Yvan_Head_JNT/Yvan_L_Eye_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_Neck_JNT/Yvan_Head_JNT/Yvan_L_Eye_JNT/joint1
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_Neck_JNT/Yvan_Head_JNT/Yvan_L_EyesBrows01_High_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_Neck_JNT/Yvan_Head_JNT/Yvan_L_EyesBrows01_High_JNT/Yvan_L_EyesBrows02_High_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_Neck_JNT/Yvan_Head_JNT/Yvan_L_EyesBrows01_Low_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_Neck_JNT/Yvan_Head_JNT/Yvan_L_EyesBrows01_Low_JNT/Yvan_L_EyesBrows02_Low_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_Neck_JNT/Yvan_Head_JNT/Yvan_R_Eye_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_Neck_JNT/Yvan_Head_JNT/Yvan_R_Eye_JNT/joint2
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_Neck_JNT/Yvan_Head_JNT/Yvan_R_EyesBrows01_High_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_Neck_JNT/Yvan_Head_JNT/Yvan_R_EyesBrows01_High_JNT/Yvan_R_EyesBrows02_High_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_Neck_JNT/Yvan_Head_JNT/Yvan_R_EyesBrows01_Low_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_Neck_JNT/Yvan_Head_JNT/Yvan_R_EyesBrows01_Low_JNT/Yvan_R_EyesBrows02_Low_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_R_Shoulder_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_R_Shoulder_JNT/Yvan_R_UpArm_FK
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_R_Shoulder_JNT/Yvan_R_UpArm_FK/Yvan_R_Elbow_FK
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_R_Shoulder_JNT/Yvan_R_UpArm_FK/Yvan_R_Elbow_FK/Yan_R_Wrist_FK
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_R_Shoulder_JNT/Yvan_R_UpArm_IK
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_R_Shoulder_JNT/Yvan_R_UpArm_IK/Yvan_R_Elbow_IK
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_R_Shoulder_JNT/Yvan_R_UpArm_IK/Yvan_R_Elbow_IK/Yan_R_Wrist_IK
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_R_Shoulder_JNT/Yvan_R_UpArm_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_R_Shoulder_JNT/Yvan_R_UpArm_JNT/Yvan_R_Elbow_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_R_Shoulder_JNT/Yvan_R_UpArm_JNT/Yvan_R_Elbow_JNT/Yan_R_Wrist_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_R_Shoulder_JNT/Yvan_R_UpArm_JNT/Yvan_R_Elbow_JNT/Yan_R_Wrist_JNT/Yvan_R_Index01_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_R_Shoulder_JNT/Yvan_R_UpArm_JNT/Yvan_R_Elbow_JNT/Yan_R_Wrist_JNT/Yvan_R_Index01_JNT/Yvan_R_Index02_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_R_Shoulder_JNT/Yvan_R_UpArm_JNT/Yvan_R_Elbow_JNT/Yan_R_Wrist_JNT/Yvan_R_Index01_JNT/Yvan_R_Index02_JNT/Yvan_R_Index03_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_R_Shoulder_JNT/Yvan_R_UpArm_JNT/Yvan_R_Elbow_JNT/Yan_R_Wrist_JNT/Yvan_R_Little01_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_R_Shoulder_JNT/Yvan_R_UpArm_JNT/Yvan_R_Elbow_JNT/Yan_R_Wrist_JNT/Yvan_R_Little01_JNT/Yvan_R_Little02_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_R_Shoulder_JNT/Yvan_R_UpArm_JNT/Yvan_R_Elbow_JNT/Yan_R_Wrist_JNT/Yvan_R_Little01_JNT/Yvan_R_Little02_JNT/Yvan_R_Little03_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_R_Shoulder_JNT/Yvan_R_UpArm_JNT/Yvan_R_Elbow_JNT/Yan_R_Wrist_JNT/Yvan_R_Middle01_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_R_Shoulder_JNT/Yvan_R_UpArm_JNT/Yvan_R_Elbow_JNT/Yan_R_Wrist_JNT/Yvan_R_Middle01_JNT/Yvan_R_Middle02_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_R_Shoulder_JNT/Yvan_R_UpArm_JNT/Yvan_R_Elbow_JNT/Yan_R_Wrist_JNT/Yvan_R_Middle01_JNT/Yvan_R_Middle02_JNT/Yvan_R_Middle03_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_R_Shoulder_JNT/Yvan_R_UpArm_JNT/Yvan_R_Elbow_JNT/Yan_R_Wrist_JNT/Yvan_R_Ring01_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_R_Shoulder_JNT/Yvan_R_UpArm_JNT/Yvan_R_Elbow_JNT/Yan_R_Wrist_JNT/Yvan_R_Ring01_JNT/Yvan_R_Ring02_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_R_Shoulder_JNT/Yvan_R_UpArm_JNT/Yvan_R_Elbow_JNT/Yan_R_Wrist_JNT/Yvan_R_Ring01_JNT/Yvan_R_Ring02_JNT/Yvan_R_Ring03_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_R_Shoulder_JNT/Yvan_R_UpArm_JNT/Yvan_R_Elbow_JNT/Yan_R_Wrist_JNT/Yvan_R_Thumb01_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_R_Shoulder_JNT/Yvan_R_UpArm_JNT/Yvan_R_Elbow_JNT/Yan_R_Wrist_JNT/Yvan_R_Thumb01_JNT/Yvan_R_Thumb02_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_R_Shoulder_JNT/Yvan_R_UpArm_JNT/Yvan_R_Elbow_JNT/Yan_R_Wrist_JNT/Yvan_R_Thumb01_JNT/Yvan_R_Thumb02_JNT/Yvan_R_Thumb03_JNT
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 100
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human:
+    - boneName: Yvan_Pelvis_JNT
+      humanName: Hips
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Yvan_L_Upleg_JNT
+      humanName: LeftUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Yvan_R_Upleg_JNT
+      humanName: RightUpperLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Yvan_L_Knee_JNT
+      humanName: LeftLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Yvan_R_Knee_JNT
+      humanName: RightLowerLeg
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Yvan_L_Ankle_JNT
+      humanName: LeftFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Yvan_R_Ankle_JNT
+      humanName: RightFoot
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Yvan_Spine02_JNT
+      humanName: Spine
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Yvan_Spine03_JNT
+      humanName: Chest
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Yvan_Neck_JNT
+      humanName: Neck
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Yvan_Head_JNT
+      humanName: Head
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Yvan_L_Shoulder_JNT
+      humanName: LeftShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Yvan_R_Shoulder_JNT
+      humanName: RightShoulder
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Yvan_L_UpArm_JNT
+      humanName: LeftUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Yvan_R_UpArm_JNT
+      humanName: RightUpperArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Yvan_L_Elbow_JNT
+      humanName: LeftLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Yvan_R_Elbow_JNT
+      humanName: RightLowerArm
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Yan_L_Wrist_JNT
+      humanName: LeftHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Yan_R_Wrist_JNT
+      humanName: RightHand
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Yvan_L_Toe_JNT
+      humanName: LeftToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Yvan_R_Toe_JNT
+      humanName: RightToes
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Yvan_L_Eye_JNT
+      humanName: LeftEye
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Yvan_R_Eye_JNT
+      humanName: RightEye
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Yvan_R_Eye_JNT
+      humanName: Jaw
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Yvan_L_Thumb01_JNT
+      humanName: Left Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Yvan_L_Thumb02_JNT
+      humanName: Left Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Yvan_L_Index01_JNT
+      humanName: Left Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Yvan_L_Index02_JNT
+      humanName: Left Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Yvan_L_Middle01_JNT
+      humanName: Left Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Yvan_L_Middle02_JNT
+      humanName: Left Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Yvan_L_Ring01_JNT
+      humanName: Left Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Yvan_L_Ring02_JNT
+      humanName: Left Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Yvan_L_Little01_JNT
+      humanName: Left Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Yvan_L_Little02_JNT
+      humanName: Left Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Yvan_R_Thumb01_JNT
+      humanName: Right Thumb Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Yvan_R_Thumb02_JNT
+      humanName: Right Thumb Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Yvan_R_Index01_JNT
+      humanName: Right Index Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Yvan_R_Index02_JNT
+      humanName: Right Index Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Yvan_R_Middle01_JNT
+      humanName: Right Middle Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Yvan_R_Middle02_JNT
+      humanName: Right Middle Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Yvan_R_Ring01_JNT
+      humanName: Right Ring Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Yvan_R_Ring02_JNT
+      humanName: Right Ring Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Yvan_R_Little01_JNT
+      humanName: Right Little Proximal
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    - boneName: Yvan_R_Little02_JNT
+      humanName: Right Little Intermediate
+      limit:
+        min: {x: 0, y: 0, z: 0}
+        max: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 0}
+        length: 0
+        modified: 0
+    skeleton:
+    - name: YvanIdle02(Clone)
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: MESH
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Yvan
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: YvanBag
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: SKELETON
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Yvan_Pelvis_JNT
+      position: {x: -0, y: .85062325, z: -.0271192286}
+      rotation: {x: -.464272797, y: .533339262, z: -.464272797, w: .533339262}
+      scale: {x: .999999702, y: .99999994, z: 1}
+      transformModified: 1
+    - name: Yvan_Spine01_JNT
+      position: {x: -.134599671, y: 3.46944695e-17, z: -3.85185989e-33}
+      rotation: {x: 0, y: 0, z: -.0647284687, w: .99790293}
+      scale: {x: .99999994, y: .999999881, z: .999999881}
+      transformModified: 1
+    - name: Yvan_Spine02_JNT
+      position: {x: -.133320585, y: 7.93353955e-17, z: -1.91214669e-18}
+      rotation: {x: .998728037, y: -.0504215285, z: 0, w: 0}
+      scale: {x: 1.00000024, y: 1.00000024, z: 1.00000012}
+      transformModified: 1
+    - name: Yvan_Spine03_JNT
+      position: {x: -.13373059, y: 9.80118764e-17, z: 3.39106539e-18}
+      rotation: {x: 0, y: 0, z: .0167030692, w: .999860525}
+      scale: {x: .999999881, y: 1.00000012, z: 1.00000012}
+      transformModified: 1
+    - name: Yvan_Neck_JNT
+      position: {x: -.196660325, y: -5.31224071e-16, z: -4.36673642e-17}
+      rotation: {x: -.981662273, y: .190628767, z: 0, w: 0}
+      scale: {x: 1.00000024, y: 1, z: 1}
+      transformModified: 1
+    - name: Yvan_Head_JNT
+      position: {x: -.073378332, y: 4.43563692e-17, z: 1.05355786e-17}
+      rotation: {x: 0, y: 0, z: -.0854882002, w: .996339202}
+      scale: {x: .999999762, y: .999999642, z: .999999881}
+      transformModified: 1
+    - name: Yvan_Head_End_JNT
+      position: {x: -.370357752, y: 3.33066907e-16, z: 7.51108385e-17}
+      rotation: {x: .477830291, y: -.521227598, z: .477830291, w: .521227598}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Yvan_L_Eye_JNT
+      position: {x: -.137647524, y: -.0934283808, z: -.0482695922}
+      rotation: {x: .477830321, y: -.521227598, z: .477830321, w: .521227598}
+      scale: {x: 1.00000024, y: 1.00000024, z: 1.00000024}
+      transformModified: 1
+    - name: joint1
+      position: {x: -.00459722197, y: -.000836337334, z: .0212633014}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Yvan_R_Eye_JNT
+      position: {x: -.137647524, y: -.0934283808, z: .0433858}
+      rotation: {x: .477830321, y: -.521227598, z: .477830321, w: .521227598}
+      scale: {x: 1, y: 1.00000024, z: 1.00000012}
+      transformModified: 1
+    - name: joint2
+      position: {x: .00425455114, y: -.000835428305, z: .0212634001}
+      rotation: {x: 1, y: 0, z: 0, w: -6.12323426e-17}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Yvan_R_EyesBrows01_Low_JNT
+      position: {x: -.192811668, y: -.0370323583, z: .0733030736}
+      rotation: {x: -2.06890031e-17, y: 0, z: .737127125, w: -.67575413}
+      scale: {x: 1, y: 1.00000024, z: 1}
+      transformModified: 1
+    - name: Yvan_R_EyesBrows02_Low_JNT
+      position: {x: .0703478009, y: 0, z: -2.77555756e-17}
+      rotation: {x: -0, y: -.707106829, z: 0, w: .707106829}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Yvan_L_EyesBrows01_Low_JNT
+      position: {x: -.19281368, y: -.0370321535, z: -.0746913552}
+      rotation: {x: 0, y: -8.1772296e-17, z: .67575413, w: .737127125}
+      scale: {x: 1, y: 1.00000024, z: 1.00000012}
+      transformModified: 1
+    - name: Yvan_L_EyesBrows02_Low_JNT
+      position: {x: -.0703477859, y: 0, z: 1.56203463e-17}
+      rotation: {x: -0, y: -.707106829, z: 0, w: .707106829}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Yvan_L_EyesBrows01_High_JNT
+      position: {x: -.196511358, y: -.0351383872, z: -.0400103219}
+      rotation: {x: -2.98023224e-08, y: 2.98023224e-08, z: .694044471, w: .719932199}
+      scale: {x: 1.00000024, y: 1, z: 1.00000012}
+      transformModified: 1
+    - name: Yvan_L_EyesBrows02_High_JNT
+      position: {x: -.0992472172, y: -1.82145965e-17, z: -2.20373091e-17}
+      rotation: {x: -.0177497081, y: -.706884027, z: -.0177497081, w: .706884027}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Yvan_R_EyesBrows01_High_JNT
+      position: {x: -.196511373, y: -.0351384096, z: .0327246413}
+      rotation: {x: -3.53902578e-08, y: -2.98023224e-08, z: .719932199, w: -.694044471}
+      scale: {x: 1, y: 1, z: 1.00000012}
+      transformModified: 1
+    - name: Yvan_R_EyesBrows02_High_JNT
+      position: {x: .0992468223, y: -9.9372096e-07, z: 3.46944695e-17}
+      rotation: {x: -.0177497081, y: -.706884027, z: -.0177497081, w: .706884027}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Yvan_L_Shoulder_JNT
+      position: {x: -.128474012, y: .00594978034, z: .111698247}
+      rotation: {x: -.632843137, y: .583105683, z: .264899105, w: .435115874}
+      scale: {x: 1.00000024, y: 1.00000024, z: 1.00000012}
+      transformModified: 1
+    - name: Yvan_L_UpArm_FK
+      position: {x: -.0478039719, y: -.0256494209, z: -.0510251001}
+      rotation: {x: .12610355, y: .00891782437, z: .519673049, w: .844960511}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Yvan_L_Elbow_FK
+      position: {x: -.296908915, y: -4.95064189e-17, z: 9.97635471e-17}
+      rotation: {x: .124753319, y: .230826735, z: .106269769, w: .959094584}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Yan_L_Wrist_FK
+      position: {x: -.299617618, y: -1.40280713e-16, z: 9.51052961e-17}
+      rotation: {x: .272161841, y: .038751293, z: -.037583448, w: .960736036}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Yvan_L_UpArm_IK
+      position: {x: -.0478039719, y: -.0256494209, z: -.0510251001}
+      rotation: {x: .052233547, y: .130879611, z: .340649575, w: .92956984}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Yvan_L_Elbow_IK
+      position: {x: -.296908915, y: -4.95064189e-17, z: 9.97635471e-17}
+      rotation: {x: .186819434, y: .0792983323, z: -.0195380952, w: .978993654}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Yan_L_Wrist_IK
+      position: {x: -.299617618, y: -1.40280713e-16, z: 9.51052961e-17}
+      rotation: {x: .0393763371, y: .0415000841, z: -.0245294385, w: .998060942}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Yvan_L_UpArm_JNT
+      position: {x: -.0478039719, y: -.0256494209, z: -.0510251001}
+      rotation: {x: .170056269, y: -.207392544, z: .183269694, w: .945770323}
+      scale: {x: .999999881, y: .999999881, z: .999999881}
+      transformModified: 1
+    - name: Yvan_L_Elbow_JNT
+      position: {x: -.296908915, y: -4.95064189e-17, z: 9.97635471e-17}
+      rotation: {x: .182332695, y: .0128927836, z: -.0136251645, w: .983057976}
+      scale: {x: .99999994, y: 1.00000036, z: .999999821}
+      transformModified: 1
+    - name: Yan_L_Wrist_JNT
+      position: {x: -.299617618, y: -1.40280713e-16, z: 9.51052961e-17}
+      rotation: {x: .0393763222, y: .0415000506, z: -.0245294441, w: .998060942}
+      scale: {x: 1.00000012, y: .999999821, z: 1.00000012}
+      transformModified: 1
+    - name: Yvan_L_Thumb01_JNT
+      position: {x: -.0595200285, y: .000979760895, z: .0411107503}
+      rotation: {x: .124905258, y: .204225376, z: -.281287014, w: .929283798}
+      scale: {x: 1, y: 1.00000024, z: .999999583}
+      transformModified: 1
+    - name: Yvan_L_Thumb02_JNT
+      position: {x: -.0371161103, y: 2.3216919e-16, z: -8.61546327e-17}
+      rotation: {x: -.041681122, y: -.0256696269, z: -.0306356214, w: .998331249}
+      scale: {x: .999999881, y: .999999762, z: 1.00000012}
+      transformModified: 1
+    - name: Yvan_L_Thumb03_JNT
+      position: {x: -.0334231332, y: 1.61037189e-16, z: 1.10234803e-17}
+      rotation: {x: -.199126884, y: -.572014093, z: -.261599779, w: .7514745}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Yvan_L_Index01_JNT
+      position: {x: -.134806871, y: .0249763392, z: .0108597549}
+      rotation: {x: -.247328758, y: .0137238102, z: -.0425910093, w: .967897892}
+      scale: {x: .999999881, y: .99999994, z: 1.00000024}
+      transformModified: 1
+    - name: Yvan_L_Index02_JNT
+      position: {x: -.0410598069, y: -.00421843445, z: -.00186213152}
+      rotation: {x: -.12359985, y: .033932101, z: .113142058, w: .985276878}
+      scale: {x: 1, y: .999999762, z: 1}
+      transformModified: 1
+    - name: Yvan_L_Index03_JNT
+      position: {x: -.0507658534, y: .00365516171, z: -.00745009026}
+      rotation: {x: -.48270151, y: -.443352103, z: -.508696616, w: .558270514}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Yvan_L_Middle01_JNT
+      position: {x: -.137575254, y: .015109391, z: -.0103115039}
+      rotation: {x: -.302323014, y: .00854411069, z: .012204919, w: .953089118}
+      scale: {x: .999999881, y: .999999821, z: .99999994}
+      transformModified: 1
+    - name: Yvan_L_Middle02_JNT
+      position: {x: -.0480849929, y: 1.51368401e-16, z: -9.33947461e-18}
+      rotation: {x: -.109227121, y: .0627237484, z: .0473431423, w: .990905523}
+      scale: {x: 1.00000036, y: 1, z: 1}
+      transformModified: 1
+    - name: Yvan_L_Middle03_JNT
+      position: {x: -.0472143181, y: .00174990832, z: -.00699138176}
+      rotation: {x: -.274974257, y: -.49445489, z: -.400751561, w: .720625937}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Yvan_L_Ring01_JNT
+      position: {x: -.134201363, y: .00299278134, z: -.0260066912}
+      rotation: {x: -.365775168, y: .00232384913, z: .00720093027, w: .930672467}
+      scale: {x: 1, y: .999999762, z: 1.00000024}
+      transformModified: 1
+    - name: Yvan_L_Ring02_JNT
+      position: {x: -.0436460227, y: 2.11250317e-05, z: -.00195552595}
+      rotation: {x: -.0136304554, y: .0427524112, z: .0700089633, w: .996536613}
+      scale: {x: 1.00000024, y: .99999994, z: 1}
+      transformModified: 1
+    - name: Yvan_L_Ring03_JNT
+      position: {x: -.0446831621, y: .00287572923, z: -.00635994319}
+      rotation: {x: -.289618999, y: -.485525578, z: -.422563136, w: .708396912}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Yvan_L_Little01_JNT
+      position: {x: -.122878239, y: -.0204259139, z: -.0310788676}
+      rotation: {x: -.292675942, y: -.0175410584, z: .0171854552, w: .955896378}
+      scale: {x: 1.00000024, y: .999999642, z: 1.00000012}
+      transformModified: 1
+    - name: Yvan_L_Little02_JNT
+      position: {x: -.0385865048, y: 1.94513043e-16, z: -1.0159333e-16}
+      rotation: {x: -.151248172, y: .049592454, z: .0232891683, w: .986976266}
+      scale: {x: .999999821, y: .999999881, z: .999999881}
+      transformModified: 1
+    - name: Yvan_L_Little03_JNT
+      position: {x: -.0403169133, y: -.000495407498, z: -.00455704425}
+      rotation: {x: -.26032272, y: -.447615057, z: -.430090129, w: .739523709}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Yvan_R_Shoulder_JNT
+      position: {x: -.128469661, y: .00594923086, z: -.111698002}
+      rotation: {x: .583104014, y: .632844269, z: -.435117245, w: .264897674}
+      scale: {x: 1.00000024, y: .99999994, z: .999999881}
+      transformModified: 1
+    - name: Yvan_R_UpArm_FK
+      position: {x: .0478040017, y: .0256500002, z: .0510251001}
+      rotation: {x: .0807082504, y: .0222166087, z: .527333856, w: .84552449}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Yvan_R_Elbow_FK
+      position: {x: .296904832, y: -3.9865613e-06, z: 1.03771804e-07}
+      rotation: {x: .173549876, y: .253926337, z: .111937165, w: .94491905}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Yan_R_Wrist_FK
+      position: {x: .299617887, y: 8.24580638e-07, z: 1.84554068e-07}
+      rotation: {x: .0952980593, y: -.0267204307, z: -.0135612013, w: .99499768}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Yvan_R_UpArm_IK
+      position: {x: .0478040017, y: .0256500002, z: .0510251001}
+      rotation: {x: .0829292983, y: .198601365, z: .330374599, w: .918984711}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Yvan_R_Elbow_IK
+      position: {x: .296904832, y: -3.9865613e-06, z: 1.03771804e-07}
+      rotation: {x: .183118716, y: .129226491, z: -.032484483, w: .974018931}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Yan_R_Wrist_IK
+      position: {x: .299617887, y: 8.24580638e-07, z: 1.84554068e-07}
+      rotation: {x: .0393763371, y: .0415000841, z: -.0245294385, w: .998060942}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Yvan_R_UpArm_JNT
+      position: {x: .0478040017, y: .0256500002, z: .0510251001}
+      rotation: {x: .17005229, y: -.207392603, z: .18327786, w: .945769429}
+      scale: {x: .999999464, y: 1, z: 1.00000012}
+      transformModified: 1
+    - name: Yvan_R_Elbow_JNT
+      position: {x: .296904832, y: -3.9865613e-06, z: 1.03771804e-07}
+      rotation: {x: .182331949, y: .0128916893, z: -.013631219, w: .983058035}
+      scale: {x: 1.00000048, y: 1.00000036, z: .999999702}
+      transformModified: 1
+    - name: Yan_R_Wrist_JNT
+      position: {x: .299617887, y: 8.24580638e-07, z: 1.84554068e-07}
+      rotation: {x: .0393762924, y: .04150014, z: -.0245293919, w: .998060882}
+      scale: {x: .999999523, y: 1, z: 1}
+      transformModified: 1
+    - name: Yvan_R_Thumb01_JNT
+      position: {x: .0595199354, y: -.000980226323, z: -.0411116369}
+      rotation: {x: .124911465, y: .204234153, z: -.281285107, w: .929281592}
+      scale: {x: 1, y: .999999881, z: .999999762}
+      transformModified: 1
+    - name: Yvan_R_Thumb02_JNT
+      position: {x: .0371163525, y: -3.91343598e-08, z: 7.25169116e-07}
+      rotation: {x: .0256786607, y: -.0416759215, z: -.998330832, w: -.0306467973}
+      scale: {x: .999999762, y: .999999762, z: 1}
+      transformModified: 1
+    - name: Yvan_R_Thumb03_JNT
+      position: {x: -.0334230177, y: -1.08333383e-16, z: 1.10005954e-18}
+      rotation: {x: .572019935, y: -.199129462, z: .751469672, w: .261598855}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Yvan_R_Index01_JNT
+      position: {x: .134807423, y: -.0249763876, z: -.0108598052}
+      rotation: {x: -.247329101, y: .0137202647, z: -.0425950177, w: .967897654}
+      scale: {x: .99999994, y: .999999642, z: .99999994}
+      transformModified: 1
+    - name: Yvan_R_Index02_JNT
+      position: {x: .041059643, y: .00421884842, z: .00186170649}
+      rotation: {x: 1.76876729e-05, y: .327999532, z: -.939751565, w: .0963497832}
+      scale: {x: 1.00000036, y: .999999702, z: 1.00000024}
+      transformModified: 1
+    - name: Yvan_R_Index03_JNT
+      position: {x: -.0514397584, y: -7.49245905e-17, z: -1.26452564e-17}
+      rotation: {x: -.574135363, y: .717115939, z: -.325896114, w: -.223394319}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Yvan_R_Middle01_JNT
+      position: {x: .137575895, y: -.0151095251, z: .0103113307}
+      rotation: {x: -.302323043, y: .00854351372, z: .0122039681, w: .953089118}
+      scale: {x: 1.00000012, y: .999999583, z: 1}
+      transformModified: 1
+    - name: Yvan_R_Middle02_JNT
+      position: {x: .0480849296, y: -9.07903797e-08, z: -1.7286213e-07}
+      rotation: {x: -.00817144755, y: .409791172, z: -.911346376, w: .0381089933}
+      scale: {x: 1.00000036, y: .999999881, z: 1}
+      transformModified: 1
+    - name: Yvan_R_Middle03_JNT
+      position: {x: -.0477604344, y: -4.77511052e-17, z: -1.80519701e-16}
+      rotation: {x: -.569182992, y: .639155149, z: -.509110272, w: -.0912040025}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Yvan_R_Ring01_JNT
+      position: {x: .134201422, y: -.0029930966, z: .0260061901}
+      rotation: {x: -.365774661, y: .00232698, z: .00720078219, w: .930672705}
+      scale: {x: 1.00000024, y: .999999821, z: .999999881}
+      transformModified: 1
+    - name: Yvan_R_Ring02_JNT
+      position: {x: .0436464995, y: -2.12779887e-05, z: .00195609406}
+      rotation: {x: .00734012853, y: .444447905, z: -.894515157, w: .0474838763}
+      scale: {x: 1, y: .999999642, z: 1}
+      transformModified: 1
+    - name: Yvan_R_Ring03_JNT
+      position: {x: -.045224037, y: 2.76148226e-17, z: 1.74581828e-16}
+      rotation: {x: -.566748798, y: .612297058, z: -.534266114, w: -.135822877}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Yvan_R_Little01_JNT
+      position: {x: .122878656, y: .0204254687, z: .0310782902}
+      rotation: {x: -.292676061, y: -.0175414085, z: .0171835274, w: .955896258}
+      scale: {x: 1.00000036, y: .999999642, z: 1.00000024}
+      transformModified: 1
+    - name: Yvan_R_Little02_JNT
+      position: {x: .0385859385, y: 1.08744565e-07, z: -1.50299684e-07}
+      rotation: {x: -.0176275857, y: .46780628, z: -.88298732, w: .0343485624}
+      scale: {x: .999999821, y: .999999285, z: .99999994}
+      transformModified: 1
+    - name: Yvan_R_Little03_JNT
+      position: {x: -.0405766033, y: 6.8414115e-18, z: -2.05344047e-17}
+      rotation: {x: -.548466623, y: .596452057, z: -.552688122, w: -.194846913}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Yvan_L_Upleg_JNT
+      position: {x: .0377754718, y: -.00376080396, z: -.0917226151}
+      rotation: {x: -.000508621335, y: -.190777645, z: .972625196, w: .132679582}
+      scale: {x: 1.00000024, y: 1, z: 1}
+      transformModified: 1
+    - name: Yvan_L_Knee_JNT
+      position: {x: -.321600914, y: 2.34187669e-17, z: -8.50014503e-17}
+      rotation: {x: -.956332684, y: -.145308331, z: -.00453385711, w: .253560394}
+      scale: {x: 1, y: .999999642, z: .999999642}
+      transformModified: 1
+    - name: Yvan_L_Ankle_JNT
+      position: {x: -.403523386, y: -2.16840434e-17, z: 2.08166817e-17}
+      rotation: {x: .856584787, y: .506271064, z: -.0356217511, w: .0931838825}
+      scale: {x: 1.00000024, y: 1.00000012, z: 1.00000024}
+      transformModified: 1
+    - name: Yvan_L_Toe_JNT
+      position: {x: -.1248549, y: -2.01119503e-17, z: 8.67361738e-18}
+      rotation: {x: .0110640377, y: .0337035693, z: -.347064972, w: .937170029}
+      scale: {x: .999999821, y: .999999881, z: .999999821}
+      transformModified: 1
+    - name: Yvan_L_Toe_End_JNT
+      position: {x: -.105450764, y: -5.08703206e-17, z: -9.5411611e-18}
+      rotation: {x: .0132512664, y: -.706982613, z: .0132512664, w: .706982613}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Yvan_R_Upleg_JNT
+      position: {x: .0377754159, y: -.00376079278, z: .0917226002}
+      rotation: {x: .190777645, y: -.000508606434, z: .132679567, w: -.972625196}
+      scale: {x: 1.00000012, y: 1.00000012, z: .999999762}
+      transformModified: 1
+    - name: Yvan_R_Knee_JNT
+      position: {x: .321601391, y: 1.81077141e-07, z: -3.12578749e-07}
+      rotation: {x: -.956332684, y: -.145308331, z: -.00453385711, w: .253560394}
+      scale: {x: 1.00000012, y: 1, z: .999999821}
+      transformModified: 1
+    - name: Yvan_R_Ankle_JNT
+      position: {x: .403522968, y: -3.59264156e-08, z: -5.96290661e-08}
+      rotation: {x: .856584728, y: .506271064, z: -.0356216989, w: .093183808}
+      scale: {x: .999999821, y: 1.00000012, z: 1.00000024}
+      transformModified: 1
+    - name: Yvan_R_Toe_JNT
+      position: {x: .124854885, y: -7.19217352e-09, z: 5.45041246e-07}
+      rotation: {x: .0110639781, y: .0337034762, z: -.347064912, w: .937170029}
+      scale: {x: .999999702, y: 1, z: 1}
+      transformModified: 1
+    - name: Yvan_R_Toe_End_JNT
+      position: {x: .105451167, y: 4.12210284e-08, z: -6.9388939e-17}
+      rotation: {x: .0132512664, y: -.706982613, z: .0132512664, w: .706982613}
+      scale: {x: 1, y: 1, z: 1}
+      transformModified: 1
+    - name: Yvan_Bag_JNT
+      position: {x: -.0850056931, y: .16242677, z: -.137290716}
+      rotation: {x: .464272797, y: -.533339262, z: .464272797, w: .533339262}
+      scale: {x: 1, y: 1.00000012, z: 1}
+      transformModified: 1
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 3
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

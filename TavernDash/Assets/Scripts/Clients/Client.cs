@@ -5,10 +5,14 @@ using System.Collections;
 public class Client : MonoBehaviour {
 
 	// properties
-	private Transform _transform;
+    [Header("Components")]
 	[SerializeField]
 	private Transform _bodyTransform;
-	private Dialogue dialogue;
+	private Transform _transform;
+    [SerializeField]
+    private Animator animator;
+    private Dialogue dialogue;
+    private HeadRotation headRotation;
 
 	// states
 	public enum States {
@@ -28,6 +32,7 @@ public class Client : MonoBehaviour {
 
 	private float timeInState = 0f;
 
+    [Header("Movement")]
 	// movement
 	[SerializeField]
 	private float rotationSpeed = 50f;
@@ -46,11 +51,13 @@ public class Client : MonoBehaviour {
 	[SerializeField]
 	private float eatingDuration = 10f;
 
+    [Header("Tables")]
 	// tables
 	private Table targetTable;
 	private Chair targetChair;
 	[SerializeField] private float distanceToSitDown = 1f;
 
+    [Header("Rage")]
 	// patience
 	[SerializeField]
 	private GameObject rageFeedbackPrefab;
@@ -74,7 +81,10 @@ public class Client : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		_transform = this.transform;
+        
 		dialogue = GetComponentInChildren<Dialogue> ();
+        headRotation = GetComponentInChildren<HeadRotation>();
+        headRotation.TargetPoint = GameObject.FindWithTag("Player").transform;
 
 		ChangeState (States.GoToTable);
 
@@ -84,23 +94,24 @@ public class Client : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
 		if ( updateState != null ) {
+
+            updateState();
+
 			timeInState += Time.deltaTime;
-			updateState ();
-		}
-	}
+
+            MoveTowards(targetPoint);
+        }
+    }
 
 	#region go to table
 	private void GoToTable_Start () {
 		LookForTable ();
 		dialogue.Speak ("Bonjour !");
+        
 	}
 	private void GoToTable_Update () {
-
-		Vector3 dirToChair = (targetChair.GetTransform.position - GetTransform.position).normalized;
-		BodyTransform.forward = Vector3.MoveTowards(BodyTransform.forward , dirToChair , rotationSpeed * Time.deltaTime );
-
-		GetTransform.Translate (BodyTransform.forward * moveSpeed * Time.deltaTime);
 
 		if ( Vector3.Distance ( GetTransform.position , targetChair.GetTransform.position ) < distanceToSitDown ) {
 			ChangeState (States.WaitForOrder);
@@ -120,21 +131,21 @@ public class Client : MonoBehaviour {
 		} else {
 			targetChair = targetTable.GetChair ();
 			targetTable.AddClient (this);
-			return;
+            TargetPoint = targetChair.GetTransform;
+            return;
 		}
 	}
 	#endregion
 
 	#region wait for order
 	private void WaitForOrder_Start () {
-		
+        GetAnimator.SetBool("Order", true);
+        GetAnimator.SetBool("Sit", true);
 	}
 	private void WaitForOrder_Update () {
 
-		float l = timeInState;
-
-		GetTransform.position = Vector3.Lerp (lerpInitialPos, targetChair.GetTransform.position,l);
-		BodyTransform.forward = Vector3.Lerp (lerpInitalRot, (targetTable.GetTransform.position-GetTransform.position).normalized , l);
+        BodyTransform.forward = Vector3.Lerp(lerpInitalRot, targetChair.GetTransform.forward, timeInState);
+		GetTransform.position = Vector3.Lerp( lerpInitialPos , targetChair.ClientAnchor.position , timeInState );
 
 		if ( timeInState > timeToOrder ) {
 			if (!spoke) {
@@ -146,9 +157,9 @@ public class Client : MonoBehaviour {
 		}
 	}
 	private void WaitForOrder_Exit () {
-		//
-	}
-	public void TakeOrder () {
+        GetAnimator.SetTrigger("Eat");
+    }
+    public void TakeOrder () {
 		dialogue.Speak ("apportez moi un café!");
 
 		ChangeState (States.WaitForDish);
@@ -194,16 +205,13 @@ public class Client : MonoBehaviour {
 
 	#region leaving
 	private void Leaving_Start () {
-		
+        TargetPoint = ClientManager.Instance.DoorTransform;
 	}
 	private void Leaving_Update () {
 		
 		if (timeInState > 3f) {
-			Vector3 dirToDoor = (ClientManager.Instance.DoorTransform.position - GetTransform.position).normalized;
-			BodyTransform.forward = Vector3.MoveTowards (BodyTransform.forward, dirToDoor, rotationSpeed * Time.deltaTime);
 
-			GetTransform.Translate (BodyTransform.forward * moveSpeed * Time.deltaTime);
-
+            
 			dialogue.Speak ("au revoir");
 
 			if (Vector3.Distance (GetTransform.position, ClientManager.Instance.DoorTransform.position) < 0.2f) {
@@ -269,10 +277,62 @@ public class Client : MonoBehaviour {
 		}
 
 	}
-	#endregion
+    #endregion
 
-	#region state machine
-	public void ChangeState ( States newState ) {
+    #region movement
+    private float currentSpeed = 0f;
+    [SerializeField]
+    private float acceleration = 1f;
+    [SerializeField]
+    private float maxSpeed = 2f;
+    [SerializeField]
+    private float turnDuration = 1f;
+    [SerializeField]
+    private float distanceToPoint = 1f;
+    [SerializeField]
+    private float distanceToWalls = 1f;
+    [SerializeField]
+    private float collisionDistance = 1f;
+    [SerializeField]
+    private LayerMask collisionLayer;
+    [SerializeField]
+    private Transform targetPoint;
+    private float targetSpeed = 0f;
+
+    private Transform TargetPoint
+    {
+        get
+        {
+            return targetPoint;
+        }
+        set
+        {
+            targetPoint = value;
+        }
+    }
+    private void MoveTowards ( Transform point )
+    {
+       
+
+        Vector3 direction = -(GetTransform.position - point.position).normalized;
+
+        float targetSpeed = Vector3.Distance(GetTransform.position, point.position) < distanceToPoint ? 0f : maxSpeed;
+        currentSpeed = Mathf.MoveTowards ( currentSpeed , targetSpeed, acceleration * Time.deltaTime );
+
+        if (Vector3.Distance(GetTransform.position, point.position) > distanceToPoint)
+        {
+            BodyTransform.forward = Vector3.Lerp(lerpInitalRot, direction, timeInState / turnDuration);
+
+        }
+
+        GetAnimator.SetFloat( "Movement" , currentSpeed/ targetSpeed);
+
+        GetTransform.Translate(direction * currentSpeed * Time.deltaTime);
+    }
+    #endregion
+
+    #region state machine
+    public void ChangeState ( States newState ) {
 		previousState = currentState;
 		currentState = newState;
 
@@ -343,20 +403,31 @@ public class Client : MonoBehaviour {
 	#endregion
 
 	#region properties
+    public float TargetSpeed
+    {
+        get
+        {
+            return targetSpeed;
+        }
+        set
+        {
+            targetSpeed = value;
+        }
+    }
 	public Transform GetTransform {
 		get {
 			return _transform;
 		}
-		set {
-			_transform = value;
-		}
 	}
+    public Animator GetAnimator
+    {
+        get {
+            return animator;
+        }
+    }
 	public Transform BodyTransform {
 		get {
 			return _bodyTransform;
-		}
-		set {
-			_bodyTransform = value;
 		}
 	}
 	public States CurrentState {

@@ -1,0 +1,500 @@
+fileFormatVersion: 2
+guid: 7dab54484337d9e468cedcc7b1ffec09
+timeCreated: 1459697225
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Lily 1
+    100002: Lily_Eyebrows01_JNT
+    100004: Lily_Eyebrows01_JNT1
+    100006: Lily_Eyebrows02_JNT
+    100008: Lily_Eyebrows02_JNT1
+    100010: Lily_Eyebrows03_JNT
+    100012: Lily_Eyebrows03_JNT1
+    100014: Lily_Eyebrows04_JNT
+    100016: Lily_Eyebrows04_JNT1
+    100018: Lily_Hair_JNT
+    100020: Lily_Head_JNT
+    100022: Lily_HeadEnd_JNT
+    100024: //RootNode
+    100026: Lily_L_Ankle_JNT
+    100028: Lily_L_Ball_JNT
+    100030: Lily_L_Braid01_JNT
+    100032: Lily_L_Braid02_JNT
+    100034: Lily_L_BraidEnd_JNT
+    100036: Lily_L_Elbow_Fk
+    100038: Lily_L_Elbow_Ik
+    100040: Lily_L_Elbow_JNT
+    100042: Lily_L_Eye_JNT
+    100044: Lily_L_EyeEnd_JNT
+    100046: Lily_L_Index01_JNT
+    100048: Lily_L_Index02_JNT
+    100050: Lily_L_Index03_JNT
+    100052: Lily_L_IndexEnd_JNT
+    100054: Lily_L_Knee_JNT
+    100056: Lily_L_Little01_JNT
+    100058: Lily_L_Little02_JNT
+    100060: Lily_L_Little03_JNT
+    100062: Lily_L_LittleEnd_JNT
+    100064: Lily_L_Middle01_JNT
+    100066: Lily_L_Middle02_JNT
+    100068: Lily_L_Middle03_JNT
+    100070: Lily_L_MiddleEnd_JNT
+    100072: Lily_L_Ring01_JNT
+    100074: Lily_L_Ring02_JNT
+    100076: Lily_L_Ring03_JNT
+    100078: Lily_L_RingEnd_JNT
+    100080: Lily_L_Shoulder_JNT
+    100082: Lily_L_Thumb01_JNT
+    100084: Lily_L_Thumb02_JNT
+    100086: Lily_L_ThumbEnd_JNT
+    100088: Lily_L_Toe_JNT
+    100090: Lily_L_UpArm_Fk
+    100092: Lily_L_UpArm_Ik
+    100094: Lily_L_UpArm_JNT
+    100096: Lily_L_UpLeg_JNT
+    100098: Lily_L_Wrist_Fk
+    100100: Lily_L_Wrist_Ik
+    100102: Lily_L_Wrist_JNT
+    100104: Lily_Neck_JNT
+    100106: Lily_Pelvis_JNT
+    100108: Lily_R_Ankle_JNT
+    100110: Lily_R_Ball_JNT
+    100112: Lily_R_Braid01_JNT
+    100114: Lily_R_Braid02_JNT
+    100116: Lily_R_BraidEnd_JNT
+    100118: Lily_R_Elbow_Fk
+    100120: Lily_R_Elbow_Ik
+    100122: Lily_R_Elbow_JNT
+    100124: Lily_R_Eye_JNT
+    100126: Lily_R_EyeEbd_JNT
+    100128: Lily_R_Index01_JNT
+    100130: Lily_R_Index02_JNT
+    100132: Lily_R_Index03_JNT
+    100134: Lily_R_IndexEnd_JNT
+    100136: Lily_R_Knee_JNT
+    100138: Lily_R_Little01_JNT
+    100140: Lily_R_Little02_JNT
+    100142: Lily_R_Little03_JNT
+    100144: Lily_R_LittleEnd_JNT
+    100146: Lily_R_Middle01_JNT
+    100148: Lily_R_Middle02_JNT
+    100150: Lily_R_Middle03_JNT
+    100152: Lily_R_MiddleEnd_JNT
+    100154: Lily_R_Ring01_JNT
+    100156: Lily_R_Ring02_JNT
+    100158: Lily_R_Ring03_JNT
+    100160: Lily_R_RingEnd_JNT
+    100162: Lily_R_Shoulder_JNT
+    100164: Lily_R_Thumb01_JNT
+    100166: Lily_R_Thumb02_JNT
+    100168: Lily_R_ThumbEnd_JNT
+    100170: Lily_R_Toe_JNT
+    100172: Lily_R_UpArm_Fk
+    100174: Lily_R_UpArm_Ik
+    100176: Lily_R_UpArm_JNT
+    100178: Lily_R_UpLeg_JNT
+    100180: Lily_R_Wrist_Fk
+    100182: Lily_R_Wrist_Ik
+    100184: Lily_R_Wrist_JNT
+    100186: Lily_Scarf_JNT
+    100188: Lily_ScarfEnd_JNT
+    100190: Lily_Spine01_JNT
+    100192: Lily_Spine02_JNT
+    100194: MESH
+    100196: SKELETON
+    400000: Lily 1
+    400002: Lily_Eyebrows01_JNT
+    400004: Lily_Eyebrows01_JNT1
+    400006: Lily_Eyebrows02_JNT
+    400008: Lily_Eyebrows02_JNT1
+    400010: Lily_Eyebrows03_JNT
+    400012: Lily_Eyebrows03_JNT1
+    400014: Lily_Eyebrows04_JNT
+    400016: Lily_Eyebrows04_JNT1
+    400018: Lily_Hair_JNT
+    400020: Lily_Head_JNT
+    400022: Lily_HeadEnd_JNT
+    400024: //RootNode
+    400026: Lily_L_Ankle_JNT
+    400028: Lily_L_Ball_JNT
+    400030: Lily_L_Braid01_JNT
+    400032: Lily_L_Braid02_JNT
+    400034: Lily_L_BraidEnd_JNT
+    400036: Lily_L_Elbow_Fk
+    400038: Lily_L_Elbow_Ik
+    400040: Lily_L_Elbow_JNT
+    400042: Lily_L_Eye_JNT
+    400044: Lily_L_EyeEnd_JNT
+    400046: Lily_L_Index01_JNT
+    400048: Lily_L_Index02_JNT
+    400050: Lily_L_Index03_JNT
+    400052: Lily_L_IndexEnd_JNT
+    400054: Lily_L_Knee_JNT
+    400056: Lily_L_Little01_JNT
+    400058: Lily_L_Little02_JNT
+    400060: Lily_L_Little03_JNT
+    400062: Lily_L_LittleEnd_JNT
+    400064: Lily_L_Middle01_JNT
+    400066: Lily_L_Middle02_JNT
+    400068: Lily_L_Middle03_JNT
+    400070: Lily_L_MiddleEnd_JNT
+    400072: Lily_L_Ring01_JNT
+    400074: Lily_L_Ring02_JNT
+    400076: Lily_L_Ring03_JNT
+    400078: Lily_L_RingEnd_JNT
+    400080: Lily_L_Shoulder_JNT
+    400082: Lily_L_Thumb01_JNT
+    400084: Lily_L_Thumb02_JNT
+    400086: Lily_L_ThumbEnd_JNT
+    400088: Lily_L_Toe_JNT
+    400090: Lily_L_UpArm_Fk
+    400092: Lily_L_UpArm_Ik
+    400094: Lily_L_UpArm_JNT
+    400096: Lily_L_UpLeg_JNT
+    400098: Lily_L_Wrist_Fk
+    400100: Lily_L_Wrist_Ik
+    400102: Lily_L_Wrist_JNT
+    400104: Lily_Neck_JNT
+    400106: Lily_Pelvis_JNT
+    400108: Lily_R_Ankle_JNT
+    400110: Lily_R_Ball_JNT
+    400112: Lily_R_Braid01_JNT
+    400114: Lily_R_Braid02_JNT
+    400116: Lily_R_BraidEnd_JNT
+    400118: Lily_R_Elbow_Fk
+    400120: Lily_R_Elbow_Ik
+    400122: Lily_R_Elbow_JNT
+    400124: Lily_R_Eye_JNT
+    400126: Lily_R_EyeEbd_JNT
+    400128: Lily_R_Index01_JNT
+    400130: Lily_R_Index02_JNT
+    400132: Lily_R_Index03_JNT
+    400134: Lily_R_IndexEnd_JNT
+    400136: Lily_R_Knee_JNT
+    400138: Lily_R_Little01_JNT
+    400140: Lily_R_Little02_JNT
+    400142: Lily_R_Little03_JNT
+    400144: Lily_R_LittleEnd_JNT
+    400146: Lily_R_Middle01_JNT
+    400148: Lily_R_Middle02_JNT
+    400150: Lily_R_Middle03_JNT
+    400152: Lily_R_MiddleEnd_JNT
+    400154: Lily_R_Ring01_JNT
+    400156: Lily_R_Ring02_JNT
+    400158: Lily_R_Ring03_JNT
+    400160: Lily_R_RingEnd_JNT
+    400162: Lily_R_Shoulder_JNT
+    400164: Lily_R_Thumb01_JNT
+    400166: Lily_R_Thumb02_JNT
+    400168: Lily_R_ThumbEnd_JNT
+    400170: Lily_R_Toe_JNT
+    400172: Lily_R_UpArm_Fk
+    400174: Lily_R_UpArm_Ik
+    400176: Lily_R_UpArm_JNT
+    400178: Lily_R_UpLeg_JNT
+    400180: Lily_R_Wrist_Fk
+    400182: Lily_R_Wrist_Ik
+    400184: Lily_R_Wrist_JNT
+    400186: Lily_Scarf_JNT
+    400188: Lily_ScarfEnd_JNT
+    400190: Lily_Spine01_JNT
+    400192: Lily_Spine02_JNT
+    400194: MESH
+    400196: SKELETON
+    4300000: Lily
+    7400000: LilyHide
+    9500000: //RootNode
+    13700000: Lily 1
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar to
+      improve retargeting quality.\n\t'Lily_Eyebrows01_JNT1' has translation animation
+      that will be discarded.\n"
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 3
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: LilyHide
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 50
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: MESH
+        weight: 1
+      - path: MESH/Lily 1
+        weight: 1
+      - path: SKELETON
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_L_UpLeg_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_L_UpLeg_JNT/Lily_L_Knee_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_L_UpLeg_JNT/Lily_L_Knee_JNT/Lily_L_Ankle_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_L_UpLeg_JNT/Lily_L_Knee_JNT/Lily_L_Ankle_JNT/Lily_L_Ball_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_L_UpLeg_JNT/Lily_L_Knee_JNT/Lily_L_Ankle_JNT/Lily_L_Ball_JNT/Lily_L_Toe_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_R_UpLeg_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_R_UpLeg_JNT/Lily_R_Knee_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_R_UpLeg_JNT/Lily_R_Knee_JNT/Lily_R_Ankle_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_R_UpLeg_JNT/Lily_R_Knee_JNT/Lily_R_Ankle_JNT/Lily_R_Ball_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_R_UpLeg_JNT/Lily_R_Knee_JNT/Lily_R_Ankle_JNT/Lily_R_Ball_JNT/Lily_R_Toe_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_L_Shoulder_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_L_Shoulder_JNT/Lily_L_UpArm_Fk
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_L_Shoulder_JNT/Lily_L_UpArm_Fk/Lily_L_Elbow_Fk
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_L_Shoulder_JNT/Lily_L_UpArm_Fk/Lily_L_Elbow_Fk/Lily_L_Wrist_Fk
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_L_Shoulder_JNT/Lily_L_UpArm_Ik
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_L_Shoulder_JNT/Lily_L_UpArm_Ik/Lily_L_Elbow_Ik
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_L_Shoulder_JNT/Lily_L_UpArm_Ik/Lily_L_Elbow_Ik/Lily_L_Wrist_Ik
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_L_Shoulder_JNT/Lily_L_UpArm_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_L_Shoulder_JNT/Lily_L_UpArm_JNT/Lily_L_Elbow_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_L_Shoulder_JNT/Lily_L_UpArm_JNT/Lily_L_Elbow_JNT/Lily_L_Wrist_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_L_Shoulder_JNT/Lily_L_UpArm_JNT/Lily_L_Elbow_JNT/Lily_L_Wrist_JNT/Lily_L_Index01_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_L_Shoulder_JNT/Lily_L_UpArm_JNT/Lily_L_Elbow_JNT/Lily_L_Wrist_JNT/Lily_L_Index01_JNT/Lily_L_Index02_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_L_Shoulder_JNT/Lily_L_UpArm_JNT/Lily_L_Elbow_JNT/Lily_L_Wrist_JNT/Lily_L_Index01_JNT/Lily_L_Index02_JNT/Lily_L_Index03_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_L_Shoulder_JNT/Lily_L_UpArm_JNT/Lily_L_Elbow_JNT/Lily_L_Wrist_JNT/Lily_L_Index01_JNT/Lily_L_Index02_JNT/Lily_L_Index03_JNT/Lily_L_IndexEnd_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_L_Shoulder_JNT/Lily_L_UpArm_JNT/Lily_L_Elbow_JNT/Lily_L_Wrist_JNT/Lily_L_Little01_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_L_Shoulder_JNT/Lily_L_UpArm_JNT/Lily_L_Elbow_JNT/Lily_L_Wrist_JNT/Lily_L_Little01_JNT/Lily_L_Little02_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_L_Shoulder_JNT/Lily_L_UpArm_JNT/Lily_L_Elbow_JNT/Lily_L_Wrist_JNT/Lily_L_Little01_JNT/Lily_L_Little02_JNT/Lily_L_Little03_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_L_Shoulder_JNT/Lily_L_UpArm_JNT/Lily_L_Elbow_JNT/Lily_L_Wrist_JNT/Lily_L_Little01_JNT/Lily_L_Little02_JNT/Lily_L_Little03_JNT/Lily_L_LittleEnd_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_L_Shoulder_JNT/Lily_L_UpArm_JNT/Lily_L_Elbow_JNT/Lily_L_Wrist_JNT/Lily_L_Middle01_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_L_Shoulder_JNT/Lily_L_UpArm_JNT/Lily_L_Elbow_JNT/Lily_L_Wrist_JNT/Lily_L_Middle01_JNT/Lily_L_Middle02_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_L_Shoulder_JNT/Lily_L_UpArm_JNT/Lily_L_Elbow_JNT/Lily_L_Wrist_JNT/Lily_L_Middle01_JNT/Lily_L_Middle02_JNT/Lily_L_Middle03_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_L_Shoulder_JNT/Lily_L_UpArm_JNT/Lily_L_Elbow_JNT/Lily_L_Wrist_JNT/Lily_L_Middle01_JNT/Lily_L_Middle02_JNT/Lily_L_Middle03_JNT/Lily_L_MiddleEnd_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_L_Shoulder_JNT/Lily_L_UpArm_JNT/Lily_L_Elbow_JNT/Lily_L_Wrist_JNT/Lily_L_Ring01_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_L_Shoulder_JNT/Lily_L_UpArm_JNT/Lily_L_Elbow_JNT/Lily_L_Wrist_JNT/Lily_L_Ring01_JNT/Lily_L_Ring02_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_L_Shoulder_JNT/Lily_L_UpArm_JNT/Lily_L_Elbow_JNT/Lily_L_Wrist_JNT/Lily_L_Ring01_JNT/Lily_L_Ring02_JNT/Lily_L_Ring03_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_L_Shoulder_JNT/Lily_L_UpArm_JNT/Lily_L_Elbow_JNT/Lily_L_Wrist_JNT/Lily_L_Ring01_JNT/Lily_L_Ring02_JNT/Lily_L_Ring03_JNT/Lily_L_RingEnd_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_L_Shoulder_JNT/Lily_L_UpArm_JNT/Lily_L_Elbow_JNT/Lily_L_Wrist_JNT/Lily_L_Thumb01_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_L_Shoulder_JNT/Lily_L_UpArm_JNT/Lily_L_Elbow_JNT/Lily_L_Wrist_JNT/Lily_L_Thumb01_JNT/Lily_L_Thumb02_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_L_Shoulder_JNT/Lily_L_UpArm_JNT/Lily_L_Elbow_JNT/Lily_L_Wrist_JNT/Lily_L_Thumb01_JNT/Lily_L_Thumb02_JNT/Lily_L_ThumbEnd_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_Neck_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_Neck_JNT/Lily_Hair_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_Neck_JNT/Lily_Hair_JNT/Lily_L_Braid01_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_Neck_JNT/Lily_Hair_JNT/Lily_L_Braid01_JNT/Lily_L_Braid02_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_Neck_JNT/Lily_Hair_JNT/Lily_L_Braid01_JNT/Lily_L_Braid02_JNT/Lily_L_BraidEnd_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_Neck_JNT/Lily_Hair_JNT/Lily_R_Braid01_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_Neck_JNT/Lily_Hair_JNT/Lily_R_Braid01_JNT/Lily_R_Braid02_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_Neck_JNT/Lily_Hair_JNT/Lily_R_Braid01_JNT/Lily_R_Braid02_JNT/Lily_R_BraidEnd_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_Neck_JNT/Lily_Head_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_Neck_JNT/Lily_Head_JNT/Lily_Eyebrows01_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_Neck_JNT/Lily_Head_JNT/Lily_Eyebrows01_JNT1
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_Neck_JNT/Lily_Head_JNT/Lily_Eyebrows02_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_Neck_JNT/Lily_Head_JNT/Lily_Eyebrows02_JNT1
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_Neck_JNT/Lily_Head_JNT/Lily_Eyebrows03_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_Neck_JNT/Lily_Head_JNT/Lily_Eyebrows03_JNT1
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_Neck_JNT/Lily_Head_JNT/Lily_Eyebrows04_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_Neck_JNT/Lily_Head_JNT/Lily_Eyebrows04_JNT1
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_Neck_JNT/Lily_Head_JNT/Lily_L_Eye_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_Neck_JNT/Lily_Head_JNT/Lily_L_Eye_JNT/Lily_L_EyeEnd_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_Neck_JNT/Lily_Head_JNT/Lily_R_Eye_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_Neck_JNT/Lily_Head_JNT/Lily_R_Eye_JNT/Lily_R_EyeEbd_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_Neck_JNT/Lily_HeadEnd_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_R_Shoulder_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_R_Shoulder_JNT/Lily_R_UpArm_Fk
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_R_Shoulder_JNT/Lily_R_UpArm_Fk/Lily_R_Elbow_Fk
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_R_Shoulder_JNT/Lily_R_UpArm_Fk/Lily_R_Elbow_Fk/Lily_R_Wrist_Fk
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_R_Shoulder_JNT/Lily_R_UpArm_Ik
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_R_Shoulder_JNT/Lily_R_UpArm_Ik/Lily_R_Elbow_Ik
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_R_Shoulder_JNT/Lily_R_UpArm_Ik/Lily_R_Elbow_Ik/Lily_R_Wrist_Ik
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_R_Shoulder_JNT/Lily_R_UpArm_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_R_Shoulder_JNT/Lily_R_UpArm_JNT/Lily_R_Elbow_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_R_Shoulder_JNT/Lily_R_UpArm_JNT/Lily_R_Elbow_JNT/Lily_R_Wrist_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_R_Shoulder_JNT/Lily_R_UpArm_JNT/Lily_R_Elbow_JNT/Lily_R_Wrist_JNT/Lily_R_Index01_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_R_Shoulder_JNT/Lily_R_UpArm_JNT/Lily_R_Elbow_JNT/Lily_R_Wrist_JNT/Lily_R_Index01_JNT/Lily_R_Index02_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_R_Shoulder_JNT/Lily_R_UpArm_JNT/Lily_R_Elbow_JNT/Lily_R_Wrist_JNT/Lily_R_Index01_JNT/Lily_R_Index02_JNT/Lily_R_Index03_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_R_Shoulder_JNT/Lily_R_UpArm_JNT/Lily_R_Elbow_JNT/Lily_R_Wrist_JNT/Lily_R_Index01_JNT/Lily_R_Index02_JNT/Lily_R_Index03_JNT/Lily_R_IndexEnd_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_R_Shoulder_JNT/Lily_R_UpArm_JNT/Lily_R_Elbow_JNT/Lily_R_Wrist_JNT/Lily_R_Little01_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_R_Shoulder_JNT/Lily_R_UpArm_JNT/Lily_R_Elbow_JNT/Lily_R_Wrist_JNT/Lily_R_Little01_JNT/Lily_R_Little02_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_R_Shoulder_JNT/Lily_R_UpArm_JNT/Lily_R_Elbow_JNT/Lily_R_Wrist_JNT/Lily_R_Little01_JNT/Lily_R_Little02_JNT/Lily_R_Little03_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_R_Shoulder_JNT/Lily_R_UpArm_JNT/Lily_R_Elbow_JNT/Lily_R_Wrist_JNT/Lily_R_Little01_JNT/Lily_R_Little02_JNT/Lily_R_Little03_JNT/Lily_R_LittleEnd_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_R_Shoulder_JNT/Lily_R_UpArm_JNT/Lily_R_Elbow_JNT/Lily_R_Wrist_JNT/Lily_R_Middle01_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_R_Shoulder_JNT/Lily_R_UpArm_JNT/Lily_R_Elbow_JNT/Lily_R_Wrist_JNT/Lily_R_Middle01_JNT/Lily_R_Middle02_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_R_Shoulder_JNT/Lily_R_UpArm_JNT/Lily_R_Elbow_JNT/Lily_R_Wrist_JNT/Lily_R_Middle01_JNT/Lily_R_Middle02_JNT/Lily_R_Middle03_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_R_Shoulder_JNT/Lily_R_UpArm_JNT/Lily_R_Elbow_JNT/Lily_R_Wrist_JNT/Lily_R_Middle01_JNT/Lily_R_Middle02_JNT/Lily_R_Middle03_JNT/Lily_R_MiddleEnd_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_R_Shoulder_JNT/Lily_R_UpArm_JNT/Lily_R_Elbow_JNT/Lily_R_Wrist_JNT/Lily_R_Ring01_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_R_Shoulder_JNT/Lily_R_UpArm_JNT/Lily_R_Elbow_JNT/Lily_R_Wrist_JNT/Lily_R_Ring01_JNT/Lily_R_Ring02_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_R_Shoulder_JNT/Lily_R_UpArm_JNT/Lily_R_Elbow_JNT/Lily_R_Wrist_JNT/Lily_R_Ring01_JNT/Lily_R_Ring02_JNT/Lily_R_Ring03_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_R_Shoulder_JNT/Lily_R_UpArm_JNT/Lily_R_Elbow_JNT/Lily_R_Wrist_JNT/Lily_R_Ring01_JNT/Lily_R_Ring02_JNT/Lily_R_Ring03_JNT/Lily_R_RingEnd_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_R_Shoulder_JNT/Lily_R_UpArm_JNT/Lily_R_Elbow_JNT/Lily_R_Wrist_JNT/Lily_R_Thumb01_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_R_Shoulder_JNT/Lily_R_UpArm_JNT/Lily_R_Elbow_JNT/Lily_R_Wrist_JNT/Lily_R_Thumb01_JNT/Lily_R_Thumb02_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_R_Shoulder_JNT/Lily_R_UpArm_JNT/Lily_R_Elbow_JNT/Lily_R_Wrist_JNT/Lily_R_Thumb01_JNT/Lily_R_Thumb02_JNT/Lily_R_ThumbEnd_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_Scarf_JNT
+        weight: 1
+      - path: SKELETON/Lily_Pelvis_JNT/Lily_Spine01_JNT/Lily_Spine02_JNT/Lily_Scarf_JNT/Lily_ScarfEnd_JNT
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 100
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

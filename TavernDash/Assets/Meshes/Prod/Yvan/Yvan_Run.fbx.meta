@@ -1,0 +1,723 @@
+fileFormatVersion: 2
+guid: baa7a6680db299f44a95a4d35054ef1b
+timeCreated: 1461223712
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: joint1
+    100002: joint2
+    100004: MESH
+    100006: RIG
+    100008: SKELETON
+    100010: Yan_L_Wrist_FK
+    100012: Yan_L_Wrist_IK
+    100014: Yan_L_Wrist_JNT
+    100016: Yan_R_Wrist_FK
+    100018: Yan_R_Wrist_IK
+    100020: Yan_R_Wrist_JNT
+    100022: Yvan 1
+    100024: Yvan_Bag_GRP
+    100026: Yvan_Bag_JNT
+    100028: Yvan_Eyebrows_CTRL
+    100030: Yvan_Eyebrows_GRP
+    100032: Yvan_Eyes_CTRL
+    100034: Yvan_Eyes_GRP
+    100036: Yvan_Head_End_JNT
+    100038: Yvan_Head_JNT
+    100040: Yvan_L_Ankle_CTRL
+    100042: Yvan_L_Ankle_GRP
+    100044: Yvan_L_Ankle_JNT
+    100046: Yvan_L_Ball_IKHL
+    100048: Yvan_L_Elbow_CTRL
+    100050: Yvan_L_Elbow_CTRL 1
+    100052: Yvan_L_Elbow_FK
+    100054: Yvan_L_Elbow_GRP
+    100056: Yvan_L_Elbow_IK
+    100058: Yvan_L_Elbow_IK_GRP
+    100060: Yvan_L_Elbow_IK_LCT
+    100062: Yvan_L_Elbow_JNT
+    100064: Yvan_L_Eye_JNT
+    100066: Yvan_L_EyesBrows01_High_JNT
+    100068: Yvan_L_EyesBrows01_Low_JNT
+    100070: Yvan_L_EyesBrows02_High_JNT
+    100072: Yvan_L_EyesBrows02_Low_JNT
+    100074: Yvan_L_Hand_IK_CTRL
+    100076: Yvan_L_Hand_IK_GRP
+    100078: Yvan_L_Hand_IK_IKHL
+    100080: Yvan_L_IKFK_Switches
+    100082: Yvan_L_IKFK_Switches_CTRL
+    100084: Yvan_L_IKFK_Switches_GRP
+    100086: Yvan_L_Index01_JNT
+    100088: Yvan_L_Index02_JNT
+    100090: Yvan_L_Index03_JNT
+    100092: Yvan_L_Knee_JNT
+    100094: Yvan_L_Knee_LCT
+    100096: Yvan_L_Leg_IKHL
+    100098: Yvan_L_Little01_JNT
+    100100: Yvan_L_Little02_JNT
+    100102: Yvan_L_Little03_JNT
+    100104: Yvan_L_Middle01_JNT
+    100106: Yvan_L_Middle02_JNT
+    100108: Yvan_L_Middle03_JNT
+    100110: Yvan_L_PeelHeel
+    100112: Yvan_L_Ring01_JNT
+    100114: Yvan_L_Ring02_JNT
+    100116: Yvan_L_Ring03_JNT
+    100118: Yvan_L_Shoulder_CTRL
+    100120: Yvan_L_Shoulder_GRP
+    100122: Yvan_L_Shoulder_JNT
+    100124: Yvan_L_TapToe
+    100126: Yvan_L_Thumb01_JNT
+    100128: Yvan_L_Thumb02_JNT
+    100130: Yvan_L_Thumb03_JNT
+    100132: Yvan_L_Toe_End_JNT
+    100134: Yvan_L_Toe_IKHL
+    100136: Yvan_L_Toe_JNT
+    100138: Yvan_L_UpArm_CTRL
+    100140: Yvan_L_UpArm_FK
+    100142: Yvan_L_UpArm_GRP
+    100144: Yvan_L_UpArm_IK
+    100146: Yvan_L_UpArm_JNT
+    100148: Yvan_L_Upleg_JNT
+    100150: Yvan_L_Wrist_CTRL
+    100152: Yvan_L_Wrist_GRP
+    100154: Yvan_Neck_CTRL
+    100156: Yvan_Neck_GRP
+    100158: Yvan_Neck_JNT
+    100160: Yvan_Pelvis_CTRL
+    100162: Yvan_Pelvis_GRP
+    100164: Yvan_Pelvis_JNT
+    100166: Yvan_R_Ankle_CTRL
+    100168: Yvan_R_Ankle_GRP
+    100170: Yvan_R_Ankle_JNT
+    100172: Yvan_R_Ball_IKHL
+    100174: Yvan_R_Elbow_FK
+    100176: Yvan_R_Elbow_GRP
+    100178: Yvan_R_Elbow_IK
+    100180: Yvan_R_Elbow_IK_GRP
+    100182: Yvan_R_Elbow_IK_LCT
+    100184: Yvan_R_Elbow_JNT
+    100186: Yvan_R_Eye_JNT
+    100188: Yvan_R_EyesBrows01_High_JNT
+    100190: Yvan_R_EyesBrows01_Low_JNT
+    100192: Yvan_R_EyesBrows02_High_JNT
+    100194: Yvan_R_EyesBrows02_Low_JNT
+    100196: Yvan_R_Hand_IK_CTRL
+    100198: Yvan_R_Hand_IK_GRP
+    100200: Yvan_R_Hand_IK_IKHL
+    100202: Yvan_R_IKFK_Switches
+    100204: Yvan_R_IKFK_Switches_CTRL
+    100206: Yvan_R_IKFK_Switches_GRP
+    100208: Yvan_R_Index01_JNT
+    100210: Yvan_R_Index02_JNT
+    100212: Yvan_R_Index03_JNT
+    100214: Yvan_R_Knee_JNT
+    100216: Yvan_R_Knee_LCT
+    100218: Yvan_R_Leg_IKHL
+    100220: Yvan_R_Little01_JNT
+    100222: Yvan_R_Little02_JNT
+    100224: Yvan_R_Little03_JNT
+    100226: Yvan_R_Middle01_JNT
+    100228: Yvan_R_Middle02_JNT
+    100230: Yvan_R_Middle03_JNT
+    100232: Yvan_R_PeelHeel
+    100234: Yvan_R_Ring01_JNT
+    100236: Yvan_R_Ring02_JNT
+    100238: Yvan_R_Ring03_JNT
+    100240: Yvan_R_Shoulder_CTRL
+    100242: Yvan_R_Shoulder_GRP
+    100244: Yvan_R_Shoulder_JNT
+    100246: Yvan_R_TapToe
+    100248: Yvan_R_Thumb01_JNT
+    100250: Yvan_R_Thumb02_JNT
+    100252: Yvan_R_Thumb03_JNT
+    100254: Yvan_R_Toe_End_JNT
+    100256: Yvan_R_Toe_IKHL
+    100258: Yvan_R_Toe_JNT
+    100260: Yvan_R_UpArm_CTRL
+    100262: Yvan_R_UpArm_FK
+    100264: Yvan_R_UpArm_GRP
+    100266: Yvan_R_UpArm_IK
+    100268: Yvan_R_UpArm_JNT
+    100270: Yvan_R_Upleg_JNT
+    100272: Yvan_R_Wrist_CTRL
+    100274: Yvan_R_Wrist_GRP
+    100276: //RootNode
+    100278: Yvan_Spine01_CTRL
+    100280: Yvan_Spine01_GRP
+    100282: Yvan_Spine01_JNT
+    100284: Yvan_Spine02_CTRL
+    100286: Yvan_Spine02_GRP
+    100288: Yvan_Spine02_JNT
+    100290: Yvan_Spine03_CTRL
+    100292: Yvan_Spine03_GRP
+    100294: Yvan_Spine03_JNT
+    100296: Yvan_Ultimate_CTRL
+    100298: Yvan_Ultimate_GRP
+    100300: YvanBag
+    100302: YvanBag_CTRL
+    400000: joint1
+    400002: joint2
+    400004: MESH
+    400006: RIG
+    400008: SKELETON
+    400010: Yan_L_Wrist_FK
+    400012: Yan_L_Wrist_IK
+    400014: Yan_L_Wrist_JNT
+    400016: Yan_R_Wrist_FK
+    400018: Yan_R_Wrist_IK
+    400020: Yan_R_Wrist_JNT
+    400022: Yvan 1
+    400024: Yvan_Bag_GRP
+    400026: Yvan_Bag_JNT
+    400028: Yvan_Eyebrows_CTRL
+    400030: Yvan_Eyebrows_GRP
+    400032: Yvan_Eyes_CTRL
+    400034: Yvan_Eyes_GRP
+    400036: Yvan_Head_End_JNT
+    400038: Yvan_Head_JNT
+    400040: Yvan_L_Ankle_CTRL
+    400042: Yvan_L_Ankle_GRP
+    400044: Yvan_L_Ankle_JNT
+    400046: Yvan_L_Ball_IKHL
+    400048: Yvan_L_Elbow_CTRL
+    400050: Yvan_L_Elbow_CTRL 1
+    400052: Yvan_L_Elbow_FK
+    400054: Yvan_L_Elbow_GRP
+    400056: Yvan_L_Elbow_IK
+    400058: Yvan_L_Elbow_IK_GRP
+    400060: Yvan_L_Elbow_IK_LCT
+    400062: Yvan_L_Elbow_JNT
+    400064: Yvan_L_Eye_JNT
+    400066: Yvan_L_EyesBrows01_High_JNT
+    400068: Yvan_L_EyesBrows01_Low_JNT
+    400070: Yvan_L_EyesBrows02_High_JNT
+    400072: Yvan_L_EyesBrows02_Low_JNT
+    400074: Yvan_L_Hand_IK_CTRL
+    400076: Yvan_L_Hand_IK_GRP
+    400078: Yvan_L_Hand_IK_IKHL
+    400080: Yvan_L_IKFK_Switches
+    400082: Yvan_L_IKFK_Switches_CTRL
+    400084: Yvan_L_IKFK_Switches_GRP
+    400086: Yvan_L_Index01_JNT
+    400088: Yvan_L_Index02_JNT
+    400090: Yvan_L_Index03_JNT
+    400092: Yvan_L_Knee_JNT
+    400094: Yvan_L_Knee_LCT
+    400096: Yvan_L_Leg_IKHL
+    400098: Yvan_L_Little01_JNT
+    400100: Yvan_L_Little02_JNT
+    400102: Yvan_L_Little03_JNT
+    400104: Yvan_L_Middle01_JNT
+    400106: Yvan_L_Middle02_JNT
+    400108: Yvan_L_Middle03_JNT
+    400110: Yvan_L_PeelHeel
+    400112: Yvan_L_Ring01_JNT
+    400114: Yvan_L_Ring02_JNT
+    400116: Yvan_L_Ring03_JNT
+    400118: Yvan_L_Shoulder_CTRL
+    400120: Yvan_L_Shoulder_GRP
+    400122: Yvan_L_Shoulder_JNT
+    400124: Yvan_L_TapToe
+    400126: Yvan_L_Thumb01_JNT
+    400128: Yvan_L_Thumb02_JNT
+    400130: Yvan_L_Thumb03_JNT
+    400132: Yvan_L_Toe_End_JNT
+    400134: Yvan_L_Toe_IKHL
+    400136: Yvan_L_Toe_JNT
+    400138: Yvan_L_UpArm_CTRL
+    400140: Yvan_L_UpArm_FK
+    400142: Yvan_L_UpArm_GRP
+    400144: Yvan_L_UpArm_IK
+    400146: Yvan_L_UpArm_JNT
+    400148: Yvan_L_Upleg_JNT
+    400150: Yvan_L_Wrist_CTRL
+    400152: Yvan_L_Wrist_GRP
+    400154: Yvan_Neck_CTRL
+    400156: Yvan_Neck_GRP
+    400158: Yvan_Neck_JNT
+    400160: Yvan_Pelvis_CTRL
+    400162: Yvan_Pelvis_GRP
+    400164: Yvan_Pelvis_JNT
+    400166: Yvan_R_Ankle_CTRL
+    400168: Yvan_R_Ankle_GRP
+    400170: Yvan_R_Ankle_JNT
+    400172: Yvan_R_Ball_IKHL
+    400174: Yvan_R_Elbow_FK
+    400176: Yvan_R_Elbow_GRP
+    400178: Yvan_R_Elbow_IK
+    400180: Yvan_R_Elbow_IK_GRP
+    400182: Yvan_R_Elbow_IK_LCT
+    400184: Yvan_R_Elbow_JNT
+    400186: Yvan_R_Eye_JNT
+    400188: Yvan_R_EyesBrows01_High_JNT
+    400190: Yvan_R_EyesBrows01_Low_JNT
+    400192: Yvan_R_EyesBrows02_High_JNT
+    400194: Yvan_R_EyesBrows02_Low_JNT
+    400196: Yvan_R_Hand_IK_CTRL
+    400198: Yvan_R_Hand_IK_GRP
+    400200: Yvan_R_Hand_IK_IKHL
+    400202: Yvan_R_IKFK_Switches
+    400204: Yvan_R_IKFK_Switches_CTRL
+    400206: Yvan_R_IKFK_Switches_GRP
+    400208: Yvan_R_Index01_JNT
+    400210: Yvan_R_Index02_JNT
+    400212: Yvan_R_Index03_JNT
+    400214: Yvan_R_Knee_JNT
+    400216: Yvan_R_Knee_LCT
+    400218: Yvan_R_Leg_IKHL
+    400220: Yvan_R_Little01_JNT
+    400222: Yvan_R_Little02_JNT
+    400224: Yvan_R_Little03_JNT
+    400226: Yvan_R_Middle01_JNT
+    400228: Yvan_R_Middle02_JNT
+    400230: Yvan_R_Middle03_JNT
+    400232: Yvan_R_PeelHeel
+    400234: Yvan_R_Ring01_JNT
+    400236: Yvan_R_Ring02_JNT
+    400238: Yvan_R_Ring03_JNT
+    400240: Yvan_R_Shoulder_CTRL
+    400242: Yvan_R_Shoulder_GRP
+    400244: Yvan_R_Shoulder_JNT
+    400246: Yvan_R_TapToe
+    400248: Yvan_R_Thumb01_JNT
+    400250: Yvan_R_Thumb02_JNT
+    400252: Yvan_R_Thumb03_JNT
+    400254: Yvan_R_Toe_End_JNT
+    400256: Yvan_R_Toe_IKHL
+    400258: Yvan_R_Toe_JNT
+    400260: Yvan_R_UpArm_CTRL
+    400262: Yvan_R_UpArm_FK
+    400264: Yvan_R_UpArm_GRP
+    400266: Yvan_R_UpArm_IK
+    400268: Yvan_R_UpArm_JNT
+    400270: Yvan_R_Upleg_JNT
+    400272: Yvan_R_Wrist_CTRL
+    400274: Yvan_R_Wrist_GRP
+    400276: //RootNode
+    400278: Yvan_Spine01_CTRL
+    400280: Yvan_Spine01_GRP
+    400282: Yvan_Spine01_JNT
+    400284: Yvan_Spine02_CTRL
+    400286: Yvan_Spine02_GRP
+    400288: Yvan_Spine02_JNT
+    400290: Yvan_Spine03_CTRL
+    400292: Yvan_Spine03_GRP
+    400294: Yvan_Spine03_JNT
+    400296: Yvan_Ultimate_CTRL
+    400298: Yvan_Ultimate_GRP
+    400300: YvanBag
+    400302: YvanBag_CTRL
+    2300000: Yvan_L_Hand_IK_CTRL
+    2300002: Yvan_R_Hand_IK_CTRL
+    2300004: YvanBag_CTRL
+    3300000: Yvan_L_Hand_IK_CTRL
+    3300002: Yvan_R_Hand_IK_CTRL
+    3300004: YvanBag_CTRL
+    4300000: Yvan
+    4300002: YvanBag
+    4300004: YvanBag_CTRL
+    4300006: Yvan_L_Hand_IK_CTRL
+    4300008: Yvan_R_Hand_IK_CTRL
+    7400000: RunYvan
+    9500000: //RootNode
+    13700000: Yvan 1
+    13700002: YvanBag
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: RunYvan
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: MESH
+        weight: 1
+      - path: MESH/Yvan 1
+        weight: 1
+      - path: MESH/YvanBag
+        weight: 1
+      - path: RIG
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_L_Ankle_GRP
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_L_Ankle_GRP/Yvan_L_Ankle_CTRL
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_L_Ankle_GRP/Yvan_L_Ankle_CTRL/Yvan_L_Ball_IKHL
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_L_Ankle_GRP/Yvan_L_Ankle_CTRL/Yvan_L_PeelHeel
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_L_Ankle_GRP/Yvan_L_Ankle_CTRL/Yvan_L_PeelHeel/Yvan_L_Leg_IKHL
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_L_Ankle_GRP/Yvan_L_Ankle_CTRL/Yvan_L_TapToe
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_L_Ankle_GRP/Yvan_L_Ankle_CTRL/Yvan_L_TapToe/Yvan_L_Toe_IKHL
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_L_Hand_IK_GRP
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_L_Hand_IK_GRP/Yvan_L_Hand_IK_CTRL
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_L_Hand_IK_GRP/Yvan_L_Hand_IK_CTRL/Yvan_L_Elbow_IK_GRP
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_L_Hand_IK_GRP/Yvan_L_Hand_IK_CTRL/Yvan_L_Elbow_IK_GRP/Yvan_L_Elbow_IK_LCT
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_L_Hand_IK_GRP/Yvan_L_Hand_IK_CTRL/Yvan_L_Hand_IK_IKHL
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_L_IKFK_Switches
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_L_IKFK_Switches/Yvan_L_IKFK_Switches_GRP
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_L_IKFK_Switches/Yvan_L_IKFK_Switches_GRP/Yvan_L_IKFK_Switches_CTRL
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_L_Knee_LCT
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_Pelvis_GRP
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_Pelvis_GRP/Yvan_Pelvis_CTRL
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_Pelvis_GRP/Yvan_Pelvis_CTRL/Yvan_Bag_GRP
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_Pelvis_GRP/Yvan_Pelvis_CTRL/Yvan_Bag_GRP/YvanBag_CTRL
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_Pelvis_GRP/Yvan_Pelvis_CTRL/Yvan_Spine01_GRP
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_Pelvis_GRP/Yvan_Pelvis_CTRL/Yvan_Spine01_GRP/Yvan_Spine01_CTRL
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_Pelvis_GRP/Yvan_Pelvis_CTRL/Yvan_Spine01_GRP/Yvan_Spine01_CTRL/Yvan_Spine02_GRP
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_Pelvis_GRP/Yvan_Pelvis_CTRL/Yvan_Spine01_GRP/Yvan_Spine01_CTRL/Yvan_Spine02_GRP/Yvan_Spine02_CTRL
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_Pelvis_GRP/Yvan_Pelvis_CTRL/Yvan_Spine01_GRP/Yvan_Spine01_CTRL/Yvan_Spine02_GRP/Yvan_Spine02_CTRL/Yvan_Spine03_GRP
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_Pelvis_GRP/Yvan_Pelvis_CTRL/Yvan_Spine01_GRP/Yvan_Spine01_CTRL/Yvan_Spine02_GRP/Yvan_Spine02_CTRL/Yvan_Spine03_GRP/Yvan_Spine03_CTRL
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_Pelvis_GRP/Yvan_Pelvis_CTRL/Yvan_Spine01_GRP/Yvan_Spine01_CTRL/Yvan_Spine02_GRP/Yvan_Spine02_CTRL/Yvan_Spine03_GRP/Yvan_Spine03_CTRL/Yvan_L_Shoulder_GRP
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_Pelvis_GRP/Yvan_Pelvis_CTRL/Yvan_Spine01_GRP/Yvan_Spine01_CTRL/Yvan_Spine02_GRP/Yvan_Spine02_CTRL/Yvan_Spine03_GRP/Yvan_Spine03_CTRL/Yvan_L_Shoulder_GRP/Yvan_L_Shoulder_CTRL
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_Pelvis_GRP/Yvan_Pelvis_CTRL/Yvan_Spine01_GRP/Yvan_Spine01_CTRL/Yvan_Spine02_GRP/Yvan_Spine02_CTRL/Yvan_Spine03_GRP/Yvan_Spine03_CTRL/Yvan_L_UpArm_GRP
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_Pelvis_GRP/Yvan_Pelvis_CTRL/Yvan_Spine01_GRP/Yvan_Spine01_CTRL/Yvan_Spine02_GRP/Yvan_Spine02_CTRL/Yvan_Spine03_GRP/Yvan_Spine03_CTRL/Yvan_L_UpArm_GRP/Yvan_L_UpArm_CTRL
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_Pelvis_GRP/Yvan_Pelvis_CTRL/Yvan_Spine01_GRP/Yvan_Spine01_CTRL/Yvan_Spine02_GRP/Yvan_Spine02_CTRL/Yvan_Spine03_GRP/Yvan_Spine03_CTRL/Yvan_L_UpArm_GRP/Yvan_L_UpArm_CTRL/Yvan_L_Elbow_GRP
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_Pelvis_GRP/Yvan_Pelvis_CTRL/Yvan_Spine01_GRP/Yvan_Spine01_CTRL/Yvan_Spine02_GRP/Yvan_Spine02_CTRL/Yvan_Spine03_GRP/Yvan_Spine03_CTRL/Yvan_L_UpArm_GRP/Yvan_L_UpArm_CTRL/Yvan_L_Elbow_GRP/Yvan_L_Elbow_CTRL
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_Pelvis_GRP/Yvan_Pelvis_CTRL/Yvan_Spine01_GRP/Yvan_Spine01_CTRL/Yvan_Spine02_GRP/Yvan_Spine02_CTRL/Yvan_Spine03_GRP/Yvan_Spine03_CTRL/Yvan_L_UpArm_GRP/Yvan_L_UpArm_CTRL/Yvan_L_Elbow_GRP/Yvan_L_Elbow_CTRL/Yvan_L_Wrist_GRP
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_Pelvis_GRP/Yvan_Pelvis_CTRL/Yvan_Spine01_GRP/Yvan_Spine01_CTRL/Yvan_Spine02_GRP/Yvan_Spine02_CTRL/Yvan_Spine03_GRP/Yvan_Spine03_CTRL/Yvan_L_UpArm_GRP/Yvan_L_UpArm_CTRL/Yvan_L_Elbow_GRP/Yvan_L_Elbow_CTRL/Yvan_L_Wrist_GRP/Yvan_L_Wrist_CTRL
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_Pelvis_GRP/Yvan_Pelvis_CTRL/Yvan_Spine01_GRP/Yvan_Spine01_CTRL/Yvan_Spine02_GRP/Yvan_Spine02_CTRL/Yvan_Spine03_GRP/Yvan_Spine03_CTRL/Yvan_Neck_GRP
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_Pelvis_GRP/Yvan_Pelvis_CTRL/Yvan_Spine01_GRP/Yvan_Spine01_CTRL/Yvan_Spine02_GRP/Yvan_Spine02_CTRL/Yvan_Spine03_GRP/Yvan_Spine03_CTRL/Yvan_Neck_GRP/Yvan_Neck_CTRL
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_Pelvis_GRP/Yvan_Pelvis_CTRL/Yvan_Spine01_GRP/Yvan_Spine01_CTRL/Yvan_Spine02_GRP/Yvan_Spine02_CTRL/Yvan_Spine03_GRP/Yvan_Spine03_CTRL/Yvan_Neck_GRP/Yvan_Neck_CTRL/Yvan_Eyebrows_GRP
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_Pelvis_GRP/Yvan_Pelvis_CTRL/Yvan_Spine01_GRP/Yvan_Spine01_CTRL/Yvan_Spine02_GRP/Yvan_Spine02_CTRL/Yvan_Spine03_GRP/Yvan_Spine03_CTRL/Yvan_Neck_GRP/Yvan_Neck_CTRL/Yvan_Eyebrows_GRP/Yvan_Eyebrows_CTRL
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_Pelvis_GRP/Yvan_Pelvis_CTRL/Yvan_Spine01_GRP/Yvan_Spine01_CTRL/Yvan_Spine02_GRP/Yvan_Spine02_CTRL/Yvan_Spine03_GRP/Yvan_Spine03_CTRL/Yvan_Neck_GRP/Yvan_Neck_CTRL/Yvan_Eyes_GRP
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_Pelvis_GRP/Yvan_Pelvis_CTRL/Yvan_Spine01_GRP/Yvan_Spine01_CTRL/Yvan_Spine02_GRP/Yvan_Spine02_CTRL/Yvan_Spine03_GRP/Yvan_Spine03_CTRL/Yvan_Neck_GRP/Yvan_Neck_CTRL/Yvan_Eyes_GRP/Yvan_Eyes_CTRL
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_Pelvis_GRP/Yvan_Pelvis_CTRL/Yvan_Spine01_GRP/Yvan_Spine01_CTRL/Yvan_Spine02_GRP/Yvan_Spine02_CTRL/Yvan_Spine03_GRP/Yvan_Spine03_CTRL/Yvan_R_Shoulder_GRP
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_Pelvis_GRP/Yvan_Pelvis_CTRL/Yvan_Spine01_GRP/Yvan_Spine01_CTRL/Yvan_Spine02_GRP/Yvan_Spine02_CTRL/Yvan_Spine03_GRP/Yvan_Spine03_CTRL/Yvan_R_Shoulder_GRP/Yvan_R_Shoulder_CTRL
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_Pelvis_GRP/Yvan_Pelvis_CTRL/Yvan_Spine01_GRP/Yvan_Spine01_CTRL/Yvan_Spine02_GRP/Yvan_Spine02_CTRL/Yvan_Spine03_GRP/Yvan_Spine03_CTRL/Yvan_R_UpArm_GRP
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_Pelvis_GRP/Yvan_Pelvis_CTRL/Yvan_Spine01_GRP/Yvan_Spine01_CTRL/Yvan_Spine02_GRP/Yvan_Spine02_CTRL/Yvan_Spine03_GRP/Yvan_Spine03_CTRL/Yvan_R_UpArm_GRP/Yvan_R_UpArm_CTRL
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_Pelvis_GRP/Yvan_Pelvis_CTRL/Yvan_Spine01_GRP/Yvan_Spine01_CTRL/Yvan_Spine02_GRP/Yvan_Spine02_CTRL/Yvan_Spine03_GRP/Yvan_Spine03_CTRL/Yvan_R_UpArm_GRP/Yvan_R_UpArm_CTRL/Yvan_R_Elbow_GRP
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_Pelvis_GRP/Yvan_Pelvis_CTRL/Yvan_Spine01_GRP/Yvan_Spine01_CTRL/Yvan_Spine02_GRP/Yvan_Spine02_CTRL/Yvan_Spine03_GRP/Yvan_Spine03_CTRL/Yvan_R_UpArm_GRP/Yvan_R_UpArm_CTRL/Yvan_R_Elbow_GRP/Yvan_L_Elbow_CTRL
+          1
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_Pelvis_GRP/Yvan_Pelvis_CTRL/Yvan_Spine01_GRP/Yvan_Spine01_CTRL/Yvan_Spine02_GRP/Yvan_Spine02_CTRL/Yvan_Spine03_GRP/Yvan_Spine03_CTRL/Yvan_R_UpArm_GRP/Yvan_R_UpArm_CTRL/Yvan_R_Elbow_GRP/Yvan_L_Elbow_CTRL
+          1/Yvan_R_Wrist_GRP
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_Pelvis_GRP/Yvan_Pelvis_CTRL/Yvan_Spine01_GRP/Yvan_Spine01_CTRL/Yvan_Spine02_GRP/Yvan_Spine02_CTRL/Yvan_Spine03_GRP/Yvan_Spine03_CTRL/Yvan_R_UpArm_GRP/Yvan_R_UpArm_CTRL/Yvan_R_Elbow_GRP/Yvan_L_Elbow_CTRL
+          1/Yvan_R_Wrist_GRP/Yvan_R_Wrist_CTRL
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_R_Ankle_GRP
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_R_Ankle_GRP/Yvan_R_Ankle_CTRL
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_R_Ankle_GRP/Yvan_R_Ankle_CTRL/Yvan_R_Ball_IKHL
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_R_Ankle_GRP/Yvan_R_Ankle_CTRL/Yvan_R_PeelHeel
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_R_Ankle_GRP/Yvan_R_Ankle_CTRL/Yvan_R_PeelHeel/Yvan_R_Leg_IKHL
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_R_Ankle_GRP/Yvan_R_Ankle_CTRL/Yvan_R_TapToe
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_R_Ankle_GRP/Yvan_R_Ankle_CTRL/Yvan_R_TapToe/Yvan_R_Toe_IKHL
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_R_Hand_IK_GRP
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_R_Hand_IK_GRP/Yvan_R_Hand_IK_CTRL
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_R_Hand_IK_GRP/Yvan_R_Hand_IK_CTRL/Yvan_R_Elbow_IK_GRP
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_R_Hand_IK_GRP/Yvan_R_Hand_IK_CTRL/Yvan_R_Elbow_IK_GRP/Yvan_R_Elbow_IK_LCT
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_R_Hand_IK_GRP/Yvan_R_Hand_IK_CTRL/Yvan_R_Hand_IK_IKHL
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_R_IKFK_Switches
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_R_IKFK_Switches/Yvan_R_IKFK_Switches_GRP
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_R_IKFK_Switches/Yvan_R_IKFK_Switches_GRP/Yvan_R_IKFK_Switches_CTRL
+        weight: 1
+      - path: RIG/Yvan_Ultimate_GRP/Yvan_Ultimate_CTRL/Yvan_R_Knee_LCT
+        weight: 1
+      - path: SKELETON
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Bag_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_L_Upleg_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_L_Upleg_JNT/Yvan_L_Knee_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_L_Upleg_JNT/Yvan_L_Knee_JNT/Yvan_L_Ankle_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_L_Upleg_JNT/Yvan_L_Knee_JNT/Yvan_L_Ankle_JNT/Yvan_L_Toe_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_L_Upleg_JNT/Yvan_L_Knee_JNT/Yvan_L_Ankle_JNT/Yvan_L_Toe_JNT/Yvan_L_Toe_End_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_R_Upleg_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_R_Upleg_JNT/Yvan_R_Knee_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_R_Upleg_JNT/Yvan_R_Knee_JNT/Yvan_R_Ankle_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_R_Upleg_JNT/Yvan_R_Knee_JNT/Yvan_R_Ankle_JNT/Yvan_R_Toe_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_R_Upleg_JNT/Yvan_R_Knee_JNT/Yvan_R_Ankle_JNT/Yvan_R_Toe_JNT/Yvan_R_Toe_End_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_L_Shoulder_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_L_Shoulder_JNT/Yvan_L_UpArm_FK
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_L_Shoulder_JNT/Yvan_L_UpArm_FK/Yvan_L_Elbow_FK
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_L_Shoulder_JNT/Yvan_L_UpArm_FK/Yvan_L_Elbow_FK/Yan_L_Wrist_FK
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_L_Shoulder_JNT/Yvan_L_UpArm_IK
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_L_Shoulder_JNT/Yvan_L_UpArm_IK/Yvan_L_Elbow_IK
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_L_Shoulder_JNT/Yvan_L_UpArm_IK/Yvan_L_Elbow_IK/Yan_L_Wrist_IK
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_L_Shoulder_JNT/Yvan_L_UpArm_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_L_Shoulder_JNT/Yvan_L_UpArm_JNT/Yvan_L_Elbow_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_L_Shoulder_JNT/Yvan_L_UpArm_JNT/Yvan_L_Elbow_JNT/Yan_L_Wrist_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_L_Shoulder_JNT/Yvan_L_UpArm_JNT/Yvan_L_Elbow_JNT/Yan_L_Wrist_JNT/Yvan_L_Index01_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_L_Shoulder_JNT/Yvan_L_UpArm_JNT/Yvan_L_Elbow_JNT/Yan_L_Wrist_JNT/Yvan_L_Index01_JNT/Yvan_L_Index02_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_L_Shoulder_JNT/Yvan_L_UpArm_JNT/Yvan_L_Elbow_JNT/Yan_L_Wrist_JNT/Yvan_L_Index01_JNT/Yvan_L_Index02_JNT/Yvan_L_Index03_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_L_Shoulder_JNT/Yvan_L_UpArm_JNT/Yvan_L_Elbow_JNT/Yan_L_Wrist_JNT/Yvan_L_Little01_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_L_Shoulder_JNT/Yvan_L_UpArm_JNT/Yvan_L_Elbow_JNT/Yan_L_Wrist_JNT/Yvan_L_Little01_JNT/Yvan_L_Little02_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_L_Shoulder_JNT/Yvan_L_UpArm_JNT/Yvan_L_Elbow_JNT/Yan_L_Wrist_JNT/Yvan_L_Little01_JNT/Yvan_L_Little02_JNT/Yvan_L_Little03_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_L_Shoulder_JNT/Yvan_L_UpArm_JNT/Yvan_L_Elbow_JNT/Yan_L_Wrist_JNT/Yvan_L_Middle01_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_L_Shoulder_JNT/Yvan_L_UpArm_JNT/Yvan_L_Elbow_JNT/Yan_L_Wrist_JNT/Yvan_L_Middle01_JNT/Yvan_L_Middle02_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_L_Shoulder_JNT/Yvan_L_UpArm_JNT/Yvan_L_Elbow_JNT/Yan_L_Wrist_JNT/Yvan_L_Middle01_JNT/Yvan_L_Middle02_JNT/Yvan_L_Middle03_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_L_Shoulder_JNT/Yvan_L_UpArm_JNT/Yvan_L_Elbow_JNT/Yan_L_Wrist_JNT/Yvan_L_Ring01_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_L_Shoulder_JNT/Yvan_L_UpArm_JNT/Yvan_L_Elbow_JNT/Yan_L_Wrist_JNT/Yvan_L_Ring01_JNT/Yvan_L_Ring02_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_L_Shoulder_JNT/Yvan_L_UpArm_JNT/Yvan_L_Elbow_JNT/Yan_L_Wrist_JNT/Yvan_L_Ring01_JNT/Yvan_L_Ring02_JNT/Yvan_L_Ring03_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_L_Shoulder_JNT/Yvan_L_UpArm_JNT/Yvan_L_Elbow_JNT/Yan_L_Wrist_JNT/Yvan_L_Thumb01_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_L_Shoulder_JNT/Yvan_L_UpArm_JNT/Yvan_L_Elbow_JNT/Yan_L_Wrist_JNT/Yvan_L_Thumb01_JNT/Yvan_L_Thumb02_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_L_Shoulder_JNT/Yvan_L_UpArm_JNT/Yvan_L_Elbow_JNT/Yan_L_Wrist_JNT/Yvan_L_Thumb01_JNT/Yvan_L_Thumb02_JNT/Yvan_L_Thumb03_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_Neck_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_Neck_JNT/Yvan_Head_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_Neck_JNT/Yvan_Head_JNT/Yvan_Head_End_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_Neck_JNT/Yvan_Head_JNT/Yvan_L_Eye_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_Neck_JNT/Yvan_Head_JNT/Yvan_L_Eye_JNT/joint1
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_Neck_JNT/Yvan_Head_JNT/Yvan_L_EyesBrows01_High_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_Neck_JNT/Yvan_Head_JNT/Yvan_L_EyesBrows01_High_JNT/Yvan_L_EyesBrows02_High_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_Neck_JNT/Yvan_Head_JNT/Yvan_L_EyesBrows01_Low_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_Neck_JNT/Yvan_Head_JNT/Yvan_L_EyesBrows01_Low_JNT/Yvan_L_EyesBrows02_Low_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_Neck_JNT/Yvan_Head_JNT/Yvan_R_Eye_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_Neck_JNT/Yvan_Head_JNT/Yvan_R_Eye_JNT/joint2
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_Neck_JNT/Yvan_Head_JNT/Yvan_R_EyesBrows01_High_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_Neck_JNT/Yvan_Head_JNT/Yvan_R_EyesBrows01_High_JNT/Yvan_R_EyesBrows02_High_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_Neck_JNT/Yvan_Head_JNT/Yvan_R_EyesBrows01_Low_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_Neck_JNT/Yvan_Head_JNT/Yvan_R_EyesBrows01_Low_JNT/Yvan_R_EyesBrows02_Low_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_R_Shoulder_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_R_Shoulder_JNT/Yvan_R_UpArm_FK
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_R_Shoulder_JNT/Yvan_R_UpArm_FK/Yvan_R_Elbow_FK
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_R_Shoulder_JNT/Yvan_R_UpArm_FK/Yvan_R_Elbow_FK/Yan_R_Wrist_FK
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_R_Shoulder_JNT/Yvan_R_UpArm_IK
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_R_Shoulder_JNT/Yvan_R_UpArm_IK/Yvan_R_Elbow_IK
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_R_Shoulder_JNT/Yvan_R_UpArm_IK/Yvan_R_Elbow_IK/Yan_R_Wrist_IK
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_R_Shoulder_JNT/Yvan_R_UpArm_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_R_Shoulder_JNT/Yvan_R_UpArm_JNT/Yvan_R_Elbow_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_R_Shoulder_JNT/Yvan_R_UpArm_JNT/Yvan_R_Elbow_JNT/Yan_R_Wrist_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_R_Shoulder_JNT/Yvan_R_UpArm_JNT/Yvan_R_Elbow_JNT/Yan_R_Wrist_JNT/Yvan_R_Index01_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_R_Shoulder_JNT/Yvan_R_UpArm_JNT/Yvan_R_Elbow_JNT/Yan_R_Wrist_JNT/Yvan_R_Index01_JNT/Yvan_R_Index02_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_R_Shoulder_JNT/Yvan_R_UpArm_JNT/Yvan_R_Elbow_JNT/Yan_R_Wrist_JNT/Yvan_R_Index01_JNT/Yvan_R_Index02_JNT/Yvan_R_Index03_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_R_Shoulder_JNT/Yvan_R_UpArm_JNT/Yvan_R_Elbow_JNT/Yan_R_Wrist_JNT/Yvan_R_Little01_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_R_Shoulder_JNT/Yvan_R_UpArm_JNT/Yvan_R_Elbow_JNT/Yan_R_Wrist_JNT/Yvan_R_Little01_JNT/Yvan_R_Little02_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_R_Shoulder_JNT/Yvan_R_UpArm_JNT/Yvan_R_Elbow_JNT/Yan_R_Wrist_JNT/Yvan_R_Little01_JNT/Yvan_R_Little02_JNT/Yvan_R_Little03_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_R_Shoulder_JNT/Yvan_R_UpArm_JNT/Yvan_R_Elbow_JNT/Yan_R_Wrist_JNT/Yvan_R_Middle01_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_R_Shoulder_JNT/Yvan_R_UpArm_JNT/Yvan_R_Elbow_JNT/Yan_R_Wrist_JNT/Yvan_R_Middle01_JNT/Yvan_R_Middle02_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_R_Shoulder_JNT/Yvan_R_UpArm_JNT/Yvan_R_Elbow_JNT/Yan_R_Wrist_JNT/Yvan_R_Middle01_JNT/Yvan_R_Middle02_JNT/Yvan_R_Middle03_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_R_Shoulder_JNT/Yvan_R_UpArm_JNT/Yvan_R_Elbow_JNT/Yan_R_Wrist_JNT/Yvan_R_Ring01_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_R_Shoulder_JNT/Yvan_R_UpArm_JNT/Yvan_R_Elbow_JNT/Yan_R_Wrist_JNT/Yvan_R_Ring01_JNT/Yvan_R_Ring02_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_R_Shoulder_JNT/Yvan_R_UpArm_JNT/Yvan_R_Elbow_JNT/Yan_R_Wrist_JNT/Yvan_R_Ring01_JNT/Yvan_R_Ring02_JNT/Yvan_R_Ring03_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_R_Shoulder_JNT/Yvan_R_UpArm_JNT/Yvan_R_Elbow_JNT/Yan_R_Wrist_JNT/Yvan_R_Thumb01_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_R_Shoulder_JNT/Yvan_R_UpArm_JNT/Yvan_R_Elbow_JNT/Yan_R_Wrist_JNT/Yvan_R_Thumb01_JNT/Yvan_R_Thumb02_JNT
+        weight: 1
+      - path: SKELETON/Yvan_Pelvis_JNT/Yvan_Spine01_JNT/Yvan_Spine02_JNT/Yvan_Spine03_JNT/Yvan_R_Shoulder_JNT/Yvan_R_UpArm_JNT/Yvan_R_Elbow_JNT/Yan_R_Wrist_JNT/Yvan_R_Thumb01_JNT/Yvan_R_Thumb02_JNT/Yvan_R_Thumb03_JNT
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 100
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
