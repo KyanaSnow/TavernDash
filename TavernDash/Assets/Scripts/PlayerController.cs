@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : Pickable
 {
 
     // properties
@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     public enum States
     {
         Moving,
+		GetHit
     }
     private States previousState;
     private States currentState;
@@ -59,6 +60,8 @@ public class PlayerController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+		Init ();
+
         _transform = this.transform;
 
         dialogue = GetComponentInChildren<Dialogue>();
@@ -129,6 +132,20 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
+	#region get hit
+	private void GetHit_Start () {
+		Throw ( -BodyTransform.forward );
+	}
+	private void GetHit_Update () {
+		if ( timeInState > 4 ) {
+			ChangeState (previousState);
+		}
+	}
+	private void GetHit_Exit () {
+		Reset ();
+	}
+	#endregion
+
     private Vector3 InputDirection
     {
         get
@@ -161,10 +178,14 @@ public class PlayerController : MonoBehaviour
     {
         switch (currentState)
         {
-            case States.Moving:
-                updateState = Moving_Update;
-                Moving_Start();
-                break;
+        case States.Moving:
+            updateState = Moving_Update;
+            Moving_Start();
+            break;
+		case States.GetHit:
+			updateState = GetHit_Update;
+			GetHit_Start ();
+			break;
         }
     }
     private void ExitState()
@@ -221,4 +242,16 @@ public class PlayerController : MonoBehaviour
 			pickable = value;
 		}
 	}
+
+//	void OnCollisionEnter ( Collision c ) {
+//
+//		if ( c.gameObject.tag == "Pickable") {
+//
+//			if ( c.gameObject.GetComponent<Pickable>().Constrained == false ) {
+////				Debug.Log (c.relativeVelocity.magnitude);
+//				ChangeState (States.GetHit);
+//			}
+//
+//		}
+//	}
 }

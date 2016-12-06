@@ -27,21 +27,12 @@ public class CameraBehavior : MonoBehaviour {
     [SerializeField]
     private float zoomSpeed = 1f;
 
-    // Use this for initialization
-    void Start () {
-	
-	}
-
     // Update is called once per frame
     void FixedUpdate()
     {
         Vector3 targetDirection = (targetPoint.position - transform.position).normalized;
 
         transform.forward = Vector3.MoveTowards(transform.forward, targetDirection, speedToRotation * Time.deltaTime);
-
-        transform.position += transform.forward * Input.GetAxis("Vertical2") * zoomSpeed * Time.deltaTime;
-
-        decalToPlayer += Vector3.right * Input.GetAxis("Horizontal2") * moveSpeed * Time.deltaTime;
 
         Vector3 targetPos = Vector3.MoveTowards( transform.position , targetPoint.position + decalToPlayer , speedToPosition * Time.deltaTime );
         targetPos.x = Mathf.Clamp(targetPos.x, minPos.x , maxPos.x );

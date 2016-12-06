@@ -115,11 +115,12 @@ public class Client : Pickable {
 
 			timeInState += Time.deltaTime;
 
+
+
         }
 
-		if ( Input.GetKeyDown (KeyCode.L) ) {
-			ChangeState (States.GetHit);
-		}
+		UIManager.Instance.Place (rageFeedbackImage, dialogue.Anchor.position);
+
     }
 
 	#region go to table
@@ -278,7 +279,7 @@ public class Client : Pickable {
 
 		if ( pickable != null ) {
 
-			if (Vector3.Distance (GetTransform.position, TargetPoint.position) < 2) {
+			if (Vector3.Distance (GetTransform.position, TargetPoint.position) < 3.5f) {
 				if (timeInState > 5) {
 					pickable.Throw ((targetPoint.position-GetTransform.position).normalized);
 					pickable = null;
@@ -291,18 +292,22 @@ public class Client : Pickable {
 
 		} else {
 
-			if (Vector3.Distance (GetTransform.position, targetChair.GetTransform.position) < 1) {
-				targetChair.PickUp (GetTransform);
-				pickable = targetChair;
+			if (timeInState > 2.5f) {
+				if (Vector3.Distance (GetTransform.position, targetChair.GetTransform.position) < 1) {
+					if (timeInState > 3.5f) {
+						targetChair.PickUp (GetTransform);
+						pickable = targetChair;
+					}
 
-			} else {
-				MoveTowards (targetChair.GetTransform);
+
+				} else {
+					MoveTowards (targetChair.GetTransform);
+				}
 			}
 
 
 		}
 
-		UIManager.Instance.Place (rageFeedbackImage, dialogue.Anchor.position);
 
 
 	}
@@ -342,8 +347,6 @@ public class Client : Pickable {
 		rageFeedbackObj.SetActive (false);
 	}
 	private void UpdatePatience () {
-
-		UIManager.Instance.Place (rageFeedbackImage, dialogue.Anchor.position);
 
 		rageTimer += Time.deltaTime;
 
@@ -595,21 +598,21 @@ public class Client : Pickable {
 		}
 	}
 
+	public NavMeshAgent NavMeshAgent {
+		get {
+			return _agent;
+		}
+	}
+
 	void OnCollisionEnter ( Collision c ) {
 
 		if ( c.gameObject.tag == "Pickable") {
 
 			if ( c.gameObject.GetComponent<Pickable>().Constrained == false ) {
-				Debug.Log (c.relativeVelocity.magnitude);
+//				Debug.Log (c.relativeVelocity.magnitude);
 				ChangeState (States.GetHit);
 			}
 
-		}
-	}
-
-	public NavMeshAgent NavMeshAgent {
-		get {
-			return _agent;
 		}
 	}
 
