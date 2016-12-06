@@ -10,6 +10,7 @@ public class Client : Pickable {
     [Header("Components")]
 	[SerializeField]
 	private Transform _bodyTransform;
+	private NavMeshAgent _agent;
 	private Transform _transform;
 	private BoxCollider _boxCollider;
     [SerializeField]
@@ -20,6 +21,8 @@ public class Client : Pickable {
 
 	// states
 	public enum States {
+		None,
+
 		GoToTable,
 		WaitForOrder,
 		WaitForDish,
@@ -92,12 +95,14 @@ public class Client : Pickable {
 		_boxCollider = GetComponentInChildren<BoxCollider> ();
 		playerController = GameObject.FindWithTag ("Player").GetComponent<PlayerController> ();
 		dialogue = GetComponentInChildren<Dialogue> ();
+		_agent = GetComponent<NavMeshAgent> ();
         headRotation = GetComponentInChildren<HeadRotation>();
         headRotation.TargetPoint = GameObject.FindWithTag("Player").transform;
 
 		ChangeState (States.GoToTable);
 
 		CreateRageFeedback ();
+
 
 	}
 	
@@ -113,7 +118,7 @@ public class Client : Pickable {
         }
 
 		if ( Input.GetKeyDown (KeyCode.L) ) {
-			Throw (Vector3.up);
+			ChangeState (States.GetHit);
 		}
     }
 
@@ -155,13 +160,13 @@ public class Client : Pickable {
 
 //		_boxCollider.enabled = false;
 
+		SitOnChair ();
 		targetChair.TurnToTable ();
 
 //        GetAnimator.SetBool("Order", true);
 //        GetAnimator.SetBool("Sit", true);
 	}
 	private void WaitForOrder_Update () {
-
 
 		BodyTransform.rotation = targetChair.GetTransform.rotation;
 		GetTransform.position = Vector3.Lerp( lerpInitialPos , targetChair.ClientAnchor.position , timeInState );
@@ -262,9 +267,6 @@ public class Client : Pickable {
 
 		LeaveChair ();
 
-		targetChair.PickUp (GetTransform);
-		pickable = targetChair;
-
 		dialogue.Speak ("GRRRRRRR");
 		rageFeedbackImage.sprite = lightningSprite;
 		rageFeedbackImage.color = Color.white;
@@ -273,14 +275,35 @@ public class Client : Pickable {
 
 	}
 	private void Enraged_Update () {
-		if (Vector3.Distance (GetTransform.position, TargetPoint.position) < 3) {
-			if ( pickable != null ) {
-				pickable.Throw (BodyTransform.forward);
-				pickable = null;
+
+		if ( pickable != null ) {
+
+			if (Vector3.Distance (GetTransform.position, TargetPoint.position) < 2) {
+				if (timeInState > 5) {
+					pickable.Throw ((targetPoint.position-GetTransform.position).normalized);
+					pickable = null;
+					timeInState = 0f;
+				}
+			} else {
+				MoveTowards (targetPoint);
 			}
+
+
 		} else {
-			MoveTowards (targetPoint);
+
+			if (Vector3.Distance (GetTransform.position, targetChair.GetTransform.position) < 1) {
+				targetChair.PickUp (GetTransform);
+				pickable = targetChair;
+
+			} else {
+				MoveTowards (targetChair.GetTransform);
+			}
+
+
 		}
+
+		UIManager.Instance.Place (rageFeedbackImage, dialogue.Anchor.position);
+
 
 	}
 	private void Enraged_Exit () {
@@ -290,15 +313,25 @@ public class Client : Pickable {
 
 	#region get hit
 	private void GetHit_Start () {
+		_agent.enabled = false;
+		Throw ( -BodyTransform.forward );
 
+		--currentRage;
+
+		UpdateFeedback ();
 	}
 	private void GetHit_Update () {
 		if ( timeInState > 4 ) {
-			
+			if (currentRage == 0) {
+				ChangeState (States.Leaving);
+			} else {
+				ChangeState (previousState);
+			}
 		}
 	}
 	private void GetHit_Exit () {
-		//
+		_agent.enabled = true;
+		Reset ();
 	}
 	#endregion
 
@@ -310,15 +343,6 @@ public class Client : Pickable {
 	}
 	private void UpdatePatience () {
 
-			// activate bubble
-		rageFeedbackObj.SetActive (currentRage > 1);
-
-			// lerp colors
-		float l = (currentRage / rageToEnrage);
-
-		rageFeedbackImage.transform.localScale = Vector3.one * (currentRage/rageToEnrage);
-		rageFeedbackImage.color = Color.Lerp ( Color.white , Color.black , l );
-
 		UIManager.Instance.Place (rageFeedbackImage, dialogue.Anchor.position);
 
 		rageTimer += Time.deltaTime;
@@ -327,12 +351,23 @@ public class Client : Pickable {
 			
 			++currentRage;
 
+			UpdateFeedback ();
+
 			if ( currentRage == rageToEnrage ) {
 				ChangeState (States.Enraged);
 				return;
 			}
 		}
 
+	}
+	public void UpdateFeedback () {
+		// activate bubble
+		rageFeedbackObj.SetActive (currentRage > 1);
+
+		// lerp colors
+		float l = (currentRage / rageToEnrage);
+
+		rageFeedbackImage.transform.localScale = Vector3.one * (currentRage/rageToEnrage);
 	}
 	public Transform Enraged_GetTarget {
 		get {
@@ -353,9 +388,15 @@ public class Client : Pickable {
 			return playerController.transform;
 		}
 	}
+	#endregion
 
+	#region chair
+	public void SitOnChair () {
+
+		Constrained = true;
+
+	}
 	public void LeaveChair () {
-		_boxCollider.enabled = true;
 		targetChair.Occupied = false;
 
 		Vector3 p = transform.position;
@@ -395,27 +436,42 @@ public class Client : Pickable {
             targetPoint = value;
         }
     }
-    private void MoveTowards ( Transform point )
-    {
-        Vector3 direction = -(GetTransform.position - point.position).normalized;
+	#endregion
 
-        float targetSpeed = Vector3.Distance(GetTransform.position, point.position) < distanceToPoint ? 0f : maxSpeed;
-        currentSpeed = Mathf.MoveTowards ( currentSpeed , targetSpeed, acceleration * Time.deltaTime );
+	#region move towards
+	private void MoveTowards ( Transform point )
+	{
+		float targetSpeed = Vector3.Distance(GetTransform.position, point.position) < distanceToPoint ? 0f : maxSpeed;
+		currentSpeed = Mathf.MoveTowards ( currentSpeed , targetSpeed, acceleration * Time.deltaTime );
 
-        if (Vector3.Distance(GetTransform.position, point.position) > distanceToPoint)
-        {
-            BodyTransform.forward = Vector3.Lerp(lerpInitalRot, direction, timeInState / turnDuration);
+		NavMeshAgent.speed = currentSpeed;
+		NavMeshAgent.SetDestination (point.position);
+	}
 
-        }
-
-//        GetAnimator.SetFloat( "Movement" , currentSpeed/ targetSpeed);
-
-        GetTransform.Translate(direction * currentSpeed * Time.deltaTime);
-    }
+//    private void MoveTowards ( Transform point )
+//    {
+//        Vector3 direction = -(GetTransform.position - point.position).normalized;
+//
+//        float targetSpeed = Vector3.Distance(GetTransform.position, point.position) < distanceToPoint ? 0f : maxSpeed;
+//        currentSpeed = Mathf.MoveTowards ( currentSpeed , targetSpeed, acceleration * Time.deltaTime );
+//
+//        if (Vector3.Distance(GetTransform.position, point.position) > distanceToPoint)
+//        {
+//            BodyTransform.forward = Vector3.Lerp(lerpInitalRot, direction, timeInState / turnDuration);
+//
+//        }
+//
+//      	GetAnimator.SetFloat( "Movement" , currentSpeed/ targetSpeed);
+//        GetTransform.Translate(direction * currentSpeed * Time.deltaTime);
+//    }
     #endregion
 
     #region state machine
     public void ChangeState ( States newState ) {
+
+		if (CurrentState == newState)
+			return;
+
 		previousState = currentState;
 		currentState = newState;
 
@@ -544,9 +600,17 @@ public class Client : Pickable {
 		if ( c.gameObject.tag == "Pickable") {
 
 			if ( c.gameObject.GetComponent<Pickable>().Constrained == false ) {
-				Debug.Log ("je me suis fait mal avec uh pickable");
+				Debug.Log (c.relativeVelocity.magnitude);
+				ChangeState (States.GetHit);
 			}
 
 		}
 	}
+
+	public NavMeshAgent NavMeshAgent {
+		get {
+			return _agent;
+		}
+	}
+
 }

@@ -81,13 +81,23 @@ public class Pickable : MonoBehaviour {
 		}
 	}
 
+	public void Reset () {
+
+		transform.rotation = Quaternion.LookRotation ( Vector3.forward , Vector3.up );
+
+		Vector3 p = transform.position;
+		p.y = 0f;
+		transform.position = p;
+
+		Constrained = true;
+	}
+
 	public bool Constrained {
 		get {
-			if ( Rigidbody.constraints == RigidbodyConstraints.FreezeAll ) {
+			if ( Rigidbody.constraints == RigidbodyConstraints.FreezeAll )
 				return true;
-			} else {
+			else
 				return false;
-			}
 		}
 		set {
 			if (value == true) {

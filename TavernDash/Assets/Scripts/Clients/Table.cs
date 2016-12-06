@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class Table : Pickable {
+public class Table : MonoBehaviour {
 
 	private Transform _transform;
 
@@ -15,18 +15,11 @@ public class Table : Pickable {
 	[SerializeField]
 	private int maxChairAmount = 4;
 
-
 	// Use this for initialization
 	void Start () {
-		Init ();
-
 		_transform = this.transform;
 
 		TableManager.Instance.AddTable (this);
-	}
-
-	void Update () {
-//		WaitForPlayerPickUp ();
 	}
 
 	public Transform GetTransform {
