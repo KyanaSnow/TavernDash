@@ -100,6 +100,17 @@ public class PlayerController : Pickable
 
 			}
 		}
+
+		if ( Input.GetKeyDown(KeyCode.O) ) {
+			if ( pickable != null && timeInState > 1 ) {
+				pickable.Drop ();
+
+				timeInState = 0f;
+
+				pickable = null;
+
+			}
+		}
     }
     private void Moving_Exit()
     {
@@ -243,15 +254,23 @@ public class PlayerController : Pickable
 		}
 	}
 
-//	void OnCollisionEnter ( Collision c ) {
-//
-//		if ( c.gameObject.tag == "Pickable") {
-//
-//			if ( c.gameObject.GetComponent<Pickable>().Constrained == false ) {
-////				Debug.Log (c.relativeVelocity.magnitude);
-//				ChangeState (States.GetHit);
-//			}
-//
-//		}
-//	}
+	void OnCollisionEnter ( Collision c ) {
+
+		if ( c.gameObject.tag == "Pickable") {
+
+			if ( c.gameObject.GetComponent<Pickable>().Constrained == false ) {
+				if (c.relativeVelocity.magnitude > 5) {
+					ChangeState (States.GetHit);
+				}
+			}
+		}
+	}
+
+	void OnMouseOver () {
+
+		if ( Input.GetMouseButtonDown (0) ) {
+			Debug.Log ("bonjour");
+		}
+
+	}
 }

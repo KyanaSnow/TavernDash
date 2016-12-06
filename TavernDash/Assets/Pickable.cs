@@ -25,7 +25,6 @@ public class Pickable : MonoBehaviour {
 
 	public void Init () {
 
-
 		rigidbody = GetComponent<Rigidbody> ();
 		playerControl = GameObject.FindWithTag ("Player").GetComponent<PlayerController> ();
 		Constrained = true;
@@ -34,10 +33,15 @@ public class Pickable : MonoBehaviour {
 	}
 
 	public void WaitForPlayerPickUp () {
+		
 		t += Time.deltaTime;
+
 		if (Input.GetKeyDown (KeyCode.P) && playerControl.Pickable == null && t > 0.5f) {
 			if (Vector3.Distance (playerControl.GetTransform.position, transform.position) < distanceToPickUp) {
+				
 				PickUp (playerControl.BodyTransform);
+				playerControl.Pickable = this;
+
 			}
 		}
 	}
@@ -46,9 +50,9 @@ public class Pickable : MonoBehaviour {
 
 		transform.SetParent (target);
 
-		transform.Translate (Vector3.up * 0.2f);
+		transform.position = target.position + (target.forward * 0.72f) + Vector3.up * 1f;
 
-		playerControl.Pickable = this;
+		Constrained = true;
 	}
 
 	public void Throw ( Vector3 direction ) {
@@ -103,7 +107,6 @@ public class Pickable : MonoBehaviour {
 			if (value == true) {
 				Rigidbody.constraints = RigidbodyConstraints.FreezeAll;
 			} else {
-				Debug.Log ("unfreeze");
 				Rigidbody.constraints = RigidbodyConstraints.None;
 			}
 		}

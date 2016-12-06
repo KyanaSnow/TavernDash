@@ -103,7 +103,6 @@ public class Client : Pickable {
 
 		CreateRageFeedback ();
 
-
 	}
 	
 	// Update is called once per frame
@@ -115,9 +114,11 @@ public class Client : Pickable {
 
 			timeInState += Time.deltaTime;
 
-
-
         }
+
+		if ( Input.GetKeyDown(KeyCode.L)) {
+			ChangeState ( States.Enraged );
+		}
 
 		UIManager.Instance.Place (rageFeedbackImage, dialogue.Anchor.position);
 
@@ -145,6 +146,7 @@ public class Client : Pickable {
 		targetTable = TableManager.Instance.GetTable ();
 
 		if (targetTable == null) {
+			Debug.Log ("snig?");
 			ChangeState (States.Leaving);
 			return;
 		} else {
@@ -277,6 +279,10 @@ public class Client : Pickable {
 	}
 	private void Enraged_Update () {
 
+		if ( TargetPoint == null ) {
+			TargetPoint = Enraged_GetTarget;
+		}
+
 		if ( pickable != null ) {
 
 			if (Vector3.Distance (GetTransform.position, TargetPoint.position) < 3.5f) {
@@ -291,6 +297,21 @@ public class Client : Pickable {
 
 
 		} else {
+
+
+			if ( targetChair == null ) {
+
+				if ( timeInState > 3 ) {
+					LookForTable ();
+					if ( targetChair == null ) {
+						dialogue.Speak ("Je n'ai meme pas de chaise !");
+						return;
+					}
+
+					timeInState = 0f;
+				}
+
+			}
 
 			if (timeInState > 2.5f) {
 				if (Vector3.Distance (GetTransform.position, targetChair.GetTransform.position) < 1) {
@@ -321,17 +342,25 @@ public class Client : Pickable {
 		_agent.enabled = false;
 		Throw ( -BodyTransform.forward );
 
-		--currentRage;
+		if (previousState == States.Enraged) {
+			--currentRage;
+		} else {
+			++currentRage;
+		}
 
 		UpdateFeedback ();
 	}
 	private void GetHit_Update () {
 		if ( timeInState > 4 ) {
-			if (currentRage == 0) {
-				ChangeState (States.Leaving);
-			} else {
-				ChangeState (previousState);
+
+			if (previousState == States.Enraged) {
+				if (currentRage == 0) {
+					ChangeState (States.Leaving);
+					return;
+				}
 			}
+
+			ChangeState (previousState);
 		}
 	}
 	private void GetHit_Exit () {
@@ -609,11 +638,10 @@ public class Client : Pickable {
 		if ( c.gameObject.tag == "Pickable") {
 
 			if ( c.gameObject.GetComponent<Pickable>().Constrained == false ) {
-//				Debug.Log (c.relativeVelocity.magnitude);
-				ChangeState (States.GetHit);
+				if (c.relativeVelocity.magnitude > 5) {
+					ChangeState (States.GetHit);
+				}
 			}
-
 		}
 	}
-
 }
