@@ -46,6 +46,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private LayerMask collisionLayerMask;
 
+	// pickable
+	private Pickable pickable;
+
+	Vector3 initRot = Vector3.zero;
+	float lerpTimer = 0f;
+	public float runMoveSpeed = 1f;
+	public float runAnimSpeed = 1.5f;
+	float targetAnimSpeed = 0f;
+	float currentAnimSpeed = 0f;
+
     // Use this for initialization
     void Start()
     {
@@ -67,44 +77,26 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    #region go to table
-    Vector3 initRot = Vector3.zero;
-    float lerpTimer = 0f;
-    private void Moving_Start()
-    {
-        //
-    }
-	public float runMoveSpeed = 1f;
-	public float runAnimSpeed = 1.5f;
-	float targetAnimSpeed = 0f;
-	float currentAnimSpeed = 0f;
+	#region go to table
+	private void Moving_Start()
+	{
+		//
+	}
 
     private void Moving_Update()
     {
-        Vector3 direction = InputDirection;
-        float targetSpeed = moveSpeed;
-		if ( Input.GetKey(KeyCode.LeftShift) ) {
-			targetSpeed = runMoveSpeed;
+		ApplyMovement ();
+
+		if ( Input.GetKeyDown(KeyCode.P) ) {
+			if ( pickable != null && timeInState > 1 ) {
+				pickable.Throw (BodyTransform.forward);
+
+				timeInState = 0f;
+
+				pickable = null;
+
+			}
 		}
-
-        if (PressingInput)
-        {
-            BodyTransform.forward = Vector3.MoveTowards(BodyTransform.forward, direction, rotationSpeed*Time.deltaTime);
-        }
-        else
-        {
-            targetSpeed = 0f;
-        }
-
-        if (Physics.Raycast(GetTransform.position + Vector3.up * 0.5f, direction, collisionDistance, collisionLayerMask))
-            targetSpeed = 0f;
-
-        currentSpeed = Mathf.MoveTowards(currentSpeed, targetSpeed, acceleration * Time.deltaTime);
-
-        GetAnimator.SetFloat( "Movement", currentSpeed / moveSpeed );
-		GetAnimator.speed = Input.GetKey(KeyCode.LeftShift) ? runAnimSpeed : 1f;
-
-        GetTransform.Translate(BodyTransform.forward * currentSpeed * Time.deltaTime);
     }
     private void Moving_Exit()
     {
@@ -112,7 +104,28 @@ public class PlayerController : MonoBehaviour
     }
     private void ApplyMovement ()
     {
-        
+		Vector3 direction = InputDirection;
+		float targetSpeed = moveSpeed;
+		if ( Input.GetKey(KeyCode.LeftShift) )
+			targetSpeed = runMoveSpeed;
+		if ( PressingInput == false )
+			targetSpeed = 0f;
+
+		if (Vector3.Dot (BodyTransform.forward, direction) > -0.9f) {
+			BodyTransform.forward = Vector3.MoveTowards (BodyTransform.forward, direction, rotationSpeed * Time.deltaTime);
+		} else {
+			BodyTransform.forward = direction;
+		}
+
+		if (Physics.Raycast(GetTransform.position + Vector3.up * 0.5f, direction, collisionDistance, collisionLayerMask))
+			targetSpeed = 0f;
+
+		currentSpeed = Mathf.MoveTowards(currentSpeed, targetSpeed, acceleration * Time.deltaTime);
+
+		//      GetAnimator.SetFloat( "Movement", currentSpeed / moveSpeed );
+		//		GetAnimator.speed = Input.GetKey(KeyCode.LeftShift) ? runAnimSpeed : 1f;
+
+		GetTransform.Translate(BodyTransform.forward * currentSpeed * Time.deltaTime);
     }
     #endregion
 
@@ -125,8 +138,7 @@ public class PlayerController : MonoBehaviour
     }
     private bool PressingInput
     {
-        get
-        {
+        get {
             return Input.GetAxis ("Horizontal") != 0 || Input.GetAxis("Vertical") != 0;
         }
     }
@@ -201,4 +213,12 @@ public class PlayerController : MonoBehaviour
     }
     #endregion
 
+	public Pickable Pickable {
+		get {
+			return pickable;
+		}
+		set {
+			pickable = value;
+		}
+	}
 }

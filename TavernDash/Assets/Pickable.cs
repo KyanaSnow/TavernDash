@@ -1,0 +1,101 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class Pickable : MonoBehaviour {
+
+	[Header("Pickable Params")]
+	[SerializeField]
+	private float distanceToPickUp = 1f;
+
+	private Rigidbody rigidbody;
+
+	[SerializeField]
+	private float force = 500f;
+
+	[SerializeField]
+	private float torque = 250f;
+
+	private Transform initParent;
+
+	PlayerController playerControl;
+
+	bool carried = false;
+
+	float t = 0f;
+
+	public void Init () {
+
+
+		rigidbody = GetComponent<Rigidbody> ();
+		playerControl = GameObject.FindWithTag ("Player").GetComponent<PlayerController> ();
+		Constrained = true;
+
+		initParent = transform.parent;
+	}
+
+	public void WaitForPlayerPickUp () {
+		t += Time.deltaTime;
+		if (Input.GetKeyDown (KeyCode.P) && playerControl.Pickable == null && t > 0.5f) {
+			if (Vector3.Distance (playerControl.GetTransform.position, transform.position) < distanceToPickUp) {
+				PickUp (playerControl.BodyTransform);
+			}
+		}
+	}
+
+	public virtual void PickUp (Transform target) {
+
+		transform.SetParent (target);
+
+		transform.Translate (Vector3.up * 0.2f);
+
+		playerControl.Pickable = this;
+	}
+
+	public void Throw ( Vector3 direction ) {
+
+		Constrained = false;
+
+		rigidbody.AddTorque ( direction * torque );
+		rigidbody.AddForce ( direction * force);
+
+		carried = false;
+		transform.parent = initParent;
+
+
+		t = 0f;
+	}
+
+	public void Drop () {
+
+		Constrained = false;
+
+		carried = false;
+		transform.parent = initParent;
+
+		t = 0f;
+	}
+
+	public Rigidbody Rigidbody {
+		get {
+			return rigidbody;
+		}
+	}
+
+	public bool Constrained {
+		get {
+			if ( Rigidbody.constraints == RigidbodyConstraints.FreezeAll ) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+		set {
+			if (value == true) {
+				Rigidbody.constraints = RigidbodyConstraints.FreezeAll;
+			} else {
+				Debug.Log ("unfreeze");
+				Rigidbody.constraints = RigidbodyConstraints.None;
+			}
+		}
+	}
+}

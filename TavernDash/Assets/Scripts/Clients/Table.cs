@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class Table : MonoBehaviour {
+public class Table : Pickable {
 
 	private Transform _transform;
 
@@ -11,15 +11,22 @@ public class Table : MonoBehaviour {
 
 		// CHAIRS
 	private List<Chair> chairs = new List<Chair>();
+	[Header("Chairs")]
 	[SerializeField]
 	private int maxChairAmount = 4;
 
 
 	// Use this for initialization
 	void Start () {
+		Init ();
+
 		_transform = this.transform;
 
 		TableManager.Instance.AddTable (this);
+	}
+
+	void Update () {
+//		WaitForPlayerPickUp ();
 	}
 
 	public Transform GetTransform {
@@ -27,22 +34,17 @@ public class Table : MonoBehaviour {
 			return _transform;
 		}
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 
 	#region chairs
 	public bool HasFreeChairs () {
-		
-		if (chairs.Count == clients.Count && chairs.Count > 0 ) {
-			Debug.Log ("TABLE : too much client for client");
-			return false;
-		}
 
 		if (chairs.Count == 0) {
 			Debug.Log ("TABLE : no chairs for client");
+			return false;
+		}
+
+		if (chairs.Count == clients.Count ) {
+			Debug.Log ("TABLE : too much client for client");
 			return false;
 		}
 
@@ -62,6 +64,7 @@ public class Table : MonoBehaviour {
 	public Chair GetChair () {
 
 		int n = chairs.Count;  
+
 		while (n > 1) {  
 			n--;  
 			int k = Random.Range (0, n + 1);
@@ -82,6 +85,9 @@ public class Table : MonoBehaviour {
 	}
 	public void AddChair ( Chair chair ) {
 		chairs.Add (chair);
+	}
+	public void RemoveChair ( Chair chair )  {
+		chairs.Remove (chair);
 	}
 	#endregion
 

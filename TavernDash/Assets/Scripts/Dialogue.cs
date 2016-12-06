@@ -20,7 +20,7 @@ public class Dialogue : MonoBehaviour {
 	private Transform anchor;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		CreateBubble ();
 	}
 
@@ -28,7 +28,7 @@ public class Dialogue : MonoBehaviour {
 		bubbleObj = UIManager.Instance.CreateElement (bubblePrefab, UIManager.CanvasType.Dialogue);
 		bubbleImage = bubbleObj.GetComponent<Image> ();
 		bubbleText = bubbleObj.GetComponentInChildren<Text> ();
-
+		Debug.Log (bubbleText.name);
 		Exit ();
 	}
 	

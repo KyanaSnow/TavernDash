@@ -2,17 +2,21 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class Client : MonoBehaviour {
+public class Client : Pickable {
+
+	private int id = 0;
 
 	// properties
     [Header("Components")]
 	[SerializeField]
 	private Transform _bodyTransform;
 	private Transform _transform;
+	private BoxCollider _boxCollider;
     [SerializeField]
     private Animator animator;
     private Dialogue dialogue;
     private HeadRotation headRotation;
+	private PlayerController playerController;
 
 	// states
 	public enum States {
@@ -22,6 +26,7 @@ public class Client : MonoBehaviour {
 		Eating,
 		Leaving,
 		Enraged,
+		GetHit,
 		Dead,
 	}
 	private States previousState;
@@ -80,8 +85,12 @@ public class Client : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+		Init ();
+
 		_transform = this.transform;
-        
+		_boxCollider = GetComponentInChildren<BoxCollider> ();
+		playerController = GameObject.FindWithTag ("Player").GetComponent<PlayerController> ();
 		dialogue = GetComponentInChildren<Dialogue> ();
         headRotation = GetComponentInChildren<HeadRotation>();
         headRotation.TargetPoint = GameObject.FindWithTag("Player").transform;
@@ -101,17 +110,21 @@ public class Client : MonoBehaviour {
 
 			timeInState += Time.deltaTime;
 
-            MoveTowards(targetPoint);
         }
+
+		if ( Input.GetKeyDown (KeyCode.L) ) {
+			Throw (Vector3.up);
+		}
     }
 
 	#region go to table
 	private void GoToTable_Start () {
 		LookForTable ();
 		dialogue.Speak ("Bonjour !");
-        
 	}
 	private void GoToTable_Update () {
+
+		MoveTowards(targetPoint);
 
 		if ( Vector3.Distance ( GetTransform.position , targetChair.GetTransform.position ) < distanceToSitDown ) {
 			ChangeState (States.WaitForOrder);
@@ -139,12 +152,18 @@ public class Client : MonoBehaviour {
 
 	#region wait for order
 	private void WaitForOrder_Start () {
-        GetAnimator.SetBool("Order", true);
-        GetAnimator.SetBool("Sit", true);
+
+//		_boxCollider.enabled = false;
+
+		targetChair.TurnToTable ();
+
+//        GetAnimator.SetBool("Order", true);
+//        GetAnimator.SetBool("Sit", true);
 	}
 	private void WaitForOrder_Update () {
 
-        BodyTransform.forward = Vector3.Lerp(lerpInitalRot, targetChair.GetTransform.forward, timeInState);
+
+		BodyTransform.rotation = targetChair.GetTransform.rotation;
 		GetTransform.position = Vector3.Lerp( lerpInitialPos , targetChair.ClientAnchor.position , timeInState );
 
 		if ( timeInState > timeToOrder ) {
@@ -157,7 +176,7 @@ public class Client : MonoBehaviour {
 		}
 	}
 	private void WaitForOrder_Exit () {
-        GetAnimator.SetTrigger("Eat");
+//        GetAnimator.SetTrigger("Eat");
     }
     public void TakeOrder () {
 		dialogue.Speak ("apportez moi un café!");
@@ -205,16 +224,25 @@ public class Client : MonoBehaviour {
 
 	#region leaving
 	private void Leaving_Start () {
+
+		_boxCollider.enabled = true;
+
         TargetPoint = ClientManager.Instance.DoorTransform;
+
+		Vector3 targetPos = transform.position;
+		targetPos.y = 0f;
+		transform.position = targetPos;
 	}
 	private void Leaving_Update () {
-		
-		if (timeInState > 3f) {
 
+
+		if (timeInState > 3f) {
             
+			MoveTowards(targetPoint);
+
 			dialogue.Speak ("au revoir");
 
-			if (Vector3.Distance (GetTransform.position, ClientManager.Instance.DoorTransform.position) < 0.2f) {
+			if (Vector3.Distance (GetTransform.position, ClientManager.Instance.DoorTransform.position) < 0.7f) {
 				ClientManager.Instance.RemoveClient (this);
 				Destroy (this.gameObject);
 			}
@@ -227,20 +255,49 @@ public class Client : MonoBehaviour {
 	#endregion
 
 	#region enraged
+
+	Pickable pickable;
+
 	private void Enraged_Start () {
+
+		LeaveChair ();
+
+		targetChair.PickUp (GetTransform);
+		pickable = targetChair;
+
 		dialogue.Speak ("GRRRRRRR");
 		rageFeedbackImage.sprite = lightningSprite;
 		rageFeedbackImage.color = Color.white;
+
+		TargetPoint = Enraged_GetTarget;
+
 	}
 	private void Enraged_Update () {
-		
-		if (timeInState > 2) {
-			rageFeedbackImage.transform.localScale = Vector3.one * (currentRage / rageToEnrage);
-			UIManager.Instance.Place (rageFeedbackImage, dialogue.Anchor.position);
+		if (Vector3.Distance (GetTransform.position, TargetPoint.position) < 3) {
+			if ( pickable != null ) {
+				pickable.Throw (BodyTransform.forward);
+				pickable = null;
+			}
+		} else {
+			MoveTowards (targetPoint);
 		}
 
 	}
 	private void Enraged_Exit () {
+		//
+	}
+	#endregion
+
+	#region get hit
+	private void GetHit_Start () {
+
+	}
+	private void GetHit_Update () {
+		if ( timeInState > 4 ) {
+			
+		}
+	}
+	private void GetHit_Exit () {
 		//
 	}
 	#endregion
@@ -277,6 +334,34 @@ public class Client : MonoBehaviour {
 		}
 
 	}
+	public Transform Enraged_GetTarget {
+		get {
+			if (ClientManager.Instance.Clients.Count > 1) {
+
+				int randomClientIndex = Random.Range (0,ClientManager.Instance.Clients.Count);
+				if ( ClientManager.Instance.Clients [randomClientIndex].Id == Id ) {
+					if (randomClientIndex + 1 == ClientManager.Instance.Clients.Count)
+						--randomClientIndex;
+					else
+						++randomClientIndex;
+				}
+
+				return ClientManager.Instance.Clients [randomClientIndex].GetTransform;
+
+			}
+
+			return playerController.transform;
+		}
+	}
+
+	public void LeaveChair () {
+		_boxCollider.enabled = true;
+		targetChair.Occupied = false;
+
+		Vector3 p = transform.position;
+		p.y = 0f;
+		transform.position = p;
+	}
     #endregion
 
     #region movement
@@ -312,8 +397,6 @@ public class Client : MonoBehaviour {
     }
     private void MoveTowards ( Transform point )
     {
-       
-
         Vector3 direction = -(GetTransform.position - point.position).normalized;
 
         float targetSpeed = Vector3.Distance(GetTransform.position, point.position) < distanceToPoint ? 0f : maxSpeed;
@@ -325,7 +408,7 @@ public class Client : MonoBehaviour {
 
         }
 
-        GetAnimator.SetFloat( "Movement" , currentSpeed/ targetSpeed);
+//        GetAnimator.SetFloat( "Movement" , currentSpeed/ targetSpeed);
 
         GetTransform.Translate(direction * currentSpeed * Time.deltaTime);
     }
@@ -370,6 +453,10 @@ public class Client : MonoBehaviour {
 			updateState = Enraged_Update;
 			Enraged_Start ();
 			break;
+		case States.GetHit:
+			updateState = GetHit_Update;
+			GetHit_Start ();
+			break;
 		case States.Dead :
 			//la meme pour tous les états
 			break;
@@ -394,6 +481,9 @@ public class Client : MonoBehaviour {
 			break;
 		case States.Enraged:
 			Enraged_Exit ();
+			break;
+		case States.GetHit:
+			GetHit_Exit ();
 			break;
 		case States.Dead :
 			//
@@ -440,4 +530,23 @@ public class Client : MonoBehaviour {
 	}
 	#endregion
 
+	public int Id {
+		get {
+			return id;
+		}
+		set {
+			id = value;
+		}
+	}
+
+	void OnCollisionEnter ( Collision c ) {
+
+		if ( c.gameObject.tag == "Pickable") {
+
+			if ( c.gameObject.GetComponent<Pickable>().Constrained == false ) {
+				Debug.Log ("je me suis fait mal avec uh pickable");
+			}
+
+		}
+	}
 }
