@@ -19,6 +19,8 @@ public class Client : Pickable {
     private HeadRotation headRotation;
 	private PlayerController playerController;
 
+	private int[] dish;
+
 	// states
 	public enum States {
 		None,
@@ -181,6 +183,12 @@ public class Client : Pickable {
 			}
 
 			UpdatePatience ();
+		}
+
+		if ( Input.GetKeyDown (KeyCode.L) ) {
+
+//			dialogue.Speak ("");
+
 		}
 	}
 	private void WaitForOrder_Exit () {

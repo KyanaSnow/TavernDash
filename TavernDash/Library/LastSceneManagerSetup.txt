@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Scene Sucre.unity
+- path: Assets/Scenes/Scene Test Cuisine.unity
   isLoaded: 1
   isActive: 1

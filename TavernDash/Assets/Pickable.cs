@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Holoville.HOTween;
 
 public class Pickable : MonoBehaviour {
 
@@ -23,13 +24,37 @@ public class Pickable : MonoBehaviour {
 
 	float t = 0f;
 
+	float timer = 0f;
+	[SerializeField]
+	private float lerpDuration = 1f;
+	private bool lerping = false;
+
+	Transform target;
+
+	Vector3 lerp_InitPos = Vector3.zero;
+	Vector3 lerp_InitRot = Vector3.zero;
+
+	public void LerpObject () {
+		if ( lerping ) {
+
+			Vector3 targetPos = target.position + (target.forward * 0.72f) + Vector3.up * 1f;
+			transform.position = Vector3.Lerp (lerp_InitPos, targetPos, timer/lerpDuration);
+			transform.up = Vector3.Lerp (lerp_InitRot, Vector3.up, timer/lerpDuration);
+
+			timer += Time.deltaTime;
+
+			if (timer >= lerpDuration)
+				lerping = false;
+		}
+	}
+
 	public void Init () {
+		initParent = transform.parent;
 
 		rigidbody = GetComponent<Rigidbody> ();
 		playerControl = GameObject.FindWithTag ("Player").GetComponent<PlayerController> ();
 		Constrained = true;
 
-		initParent = transform.parent;
 	}
 
 	public void WaitForPlayerPickUp () {
@@ -46,13 +71,19 @@ public class Pickable : MonoBehaviour {
 		}
 	}
 
-	public virtual void PickUp (Transform target) {
+	public virtual void PickUp (Transform _target) {
+
+		target = _target;
 
 		transform.SetParent (target);
 
-		transform.position = target.position + (target.forward * 0.72f) + Vector3.up * 1f;
-
 		Constrained = true;
+
+		lerping = true;
+		timer = 0f;
+
+		lerp_InitRot = transform.up;
+		lerp_InitPos = transform.position;
 	}
 
 	public void Throw ( Vector3 direction ) {
@@ -64,7 +95,6 @@ public class Pickable : MonoBehaviour {
 
 		carried = false;
 		transform.parent = initParent;
-
 
 		t = 0f;
 	}
@@ -104,11 +134,10 @@ public class Pickable : MonoBehaviour {
 				return false;
 		}
 		set {
-			if (value == true) {
+			if (value == true)
 				Rigidbody.constraints = RigidbodyConstraints.FreezeAll;
-			} else {
+			else
 				Rigidbody.constraints = RigidbodyConstraints.None;
-			}
 		}
 	}
 }

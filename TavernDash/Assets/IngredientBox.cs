@@ -17,7 +17,8 @@ public class IngredientBox : MonoBehaviour {
 
 			Vector3 dir = (transform.position - playerController.GetTransform.position).normalized;
 
-			if ( Vector3.Dot ( playerController.BodyTransform.forward , dir ) > 0.5f ) {
+			if ( Vector3.Dot ( playerController.BodyTransform.forward , dir ) > 0.7f
+				&& Vector3.Distance (playerController.GetTransform.position , transform.position ) < 1.5f ) {
 				GetIndredient ();
 			}
 
@@ -26,9 +27,7 @@ public class IngredientBox : MonoBehaviour {
 
 	private void GetIndredient () {
 
-		GameObject ingredient_Instance = Instantiate (ingredient_Prefabs[0], transform.position, Quaternion.identity) as GameObject;
-
-		ingredient_Instance.transform.position = playerController.GetTransform.position + Vector3.up * 1.5f;
+		GameObject ingredient_Instance = Instantiate (ingredient_Prefabs[id], transform.position + (Vector3.up), Quaternion.identity) as GameObject;
 
 		ingredient_Instance.GetComponent<Pickable> ().Init ();
 
