@@ -28,7 +28,6 @@ public class Dialogue : MonoBehaviour {
 		bubbleObj = UIManager.Instance.CreateElement (bubblePrefab, UIManager.CanvasType.Dialogue);
 		bubbleImage = bubbleObj.GetComponent<Image> ();
 		bubbleText = bubbleObj.GetComponentInChildren<Text> ();
-		Debug.Log (bubbleText.name);
 		Exit ();
 	}
 	
