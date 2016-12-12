@@ -19,13 +19,11 @@ public class Chair : Pickable {
 	private float timeToTurn = 0.7f;
     Vector3 initialTurn = Vector3.zero;
     bool turningToTable = false;
-	[SerializeField]
-	private float angleToStand = 0.8f;
 
     [SerializeField]
     private Transform clientAnchor;
 
-    float timer = 0f;
+    float lerpTimer = 0f;
 
     void Start() {
         _transform = this.transform;
@@ -50,8 +48,12 @@ public class Chair : Pickable {
 	#region pick up
 	public override void PickUp (Transform target)
 	{
-		if (Occupied)
+		if (Occupied) {
+			Debug.Log ("OCCUPE");
 			return;
+		}
+
+		Debug.Log ("pick chair");
 
 		base.PickUp (target);
 
@@ -68,15 +70,15 @@ public class Chair : Pickable {
 
 		initialTurn = GetTransform.forward;
 
-		timer = 0f;
+		lerpTimer = 0f;
 	}
 
 	private void TurnToTableUpdate () {
 		if (turningToTable) {
-			float l = timer / timeToTurn;
+			float l = lerpTimer / timeToTurn;
 			GetTransform.forward = Vector3.Lerp(initialTurn, (assignedTable.GetTransform.position - GetTransform.position).normalized, l);
 
-			timer += Time.deltaTime;
+			lerpTimer += Time.deltaTime;
 
 			if (l >= 1)
 				turningToTable = false;
@@ -89,19 +91,18 @@ public class Chair : Pickable {
 		if (Assigned) {
 
 			bool closeToTable = Vector3.Distance (GetTransform.position, assignedTable.GetTransform.position) < distanceToAssignTable;
-			bool standing = Vector3.Dot (GetTransform.up, Vector3.up) > angleToStand;
 
-			if (!closeToTable || !standing) {
+			if (!closeToTable || !Straight) {
 				UnassignTable ();
 			}
 
 		} else {
 
-			timer += Time.deltaTime;
+			lerpTimer += Time.deltaTime;
 
-			if (timer > 1f) {
+			if (lerpTimer > 1f) {
 
-				timer = 0f;
+				lerpTimer = 0f;
 
 				LookForTable ();
 //				if ( Assigned )

@@ -13,7 +13,7 @@ public class IngredientBox : MonoBehaviour {
 	}
 
 	void Update () {
-		if ( Input.GetKeyDown (KeyCode.L) ) {
+		if ( Input.GetButtonDown("Action") ) {
 
 			Vector3 dir = (transform.position - playerController.GetTransform.position).normalized;
 

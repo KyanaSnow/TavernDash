@@ -15,11 +15,9 @@ public class Client : Pickable {
 	private BoxCollider _boxCollider;
     [SerializeField]
     private Animator animator;
-    private Dialogue dialogue;
+	private Dialogue dialogue;
     private HeadRotation headRotation;
 	private PlayerController playerController;
-
-	private int[] dish;
 
 	// states
 	public enum States {
@@ -50,12 +48,12 @@ public class Client : Pickable {
 	private float moveSpeed = 2f;
 
 	// wait for order
-	bool spoke = false;
 	public float timeToOrder = 4f;
+	private Dish wantedDish;
 
 	// lerps
 	Vector3 lerpInitialPos;
-	Vector3 lerpInitalRot;
+	Quaternion lerpInitalRot;
 
 	// eating
 	[SerializeField]
@@ -64,8 +62,13 @@ public class Client : Pickable {
     [Header("Tables")]
 	// tables
 	private Table targetTable;
+
+	[Header("Chair")]
 	private Chair targetChair;
 	[SerializeField] private float distanceToSitDown = 1f;
+	[SerializeField] private float sitDuration = 0.5f;
+	private float sitTimer = 0f;
+	private bool sitting = false;
 
     [Header("Rage")]
 	// patience
@@ -116,11 +119,13 @@ public class Client : Pickable {
 
 			timeInState += Time.deltaTime;
 
-        }
+			if ( Sitting ) {
 
-		if ( Input.GetKeyDown(KeyCode.L)) {
-			ChangeState ( States.Enraged );
-		}
+				SitUpdate ();
+
+			}
+
+        }
 
 		UIManager.Instance.Place (rageFeedbackImage, dialogue.Anchor.position);
 
@@ -165,7 +170,7 @@ public class Client : Pickable {
 
 //		_boxCollider.enabled = false;
 
-		SitOnChair ();
+		Sitting = true;
 		targetChair.TurnToTable ();
 
 //        GetAnimator.SetBool("Order", true);
@@ -173,33 +178,33 @@ public class Client : Pickable {
 	}
 	private void WaitForOrder_Update () {
 
-		BodyTransform.rotation = targetChair.GetTransform.rotation;
-		GetTransform.position = Vector3.Lerp( lerpInitialPos , targetChair.ClientAnchor.position , timeInState );
+		UpdatePatience ();
 
-		if ( timeInState > timeToOrder ) {
-			if (!spoke) {
-				dialogue.Speak ("J'ai faim !");
-				spoke = true;
+		if ( Vector3.Distance ( playerController.GetTransform.position , transform.position ) < 1.5f ) {
+			if ( Input.GetButtonDown ("Action") ) {
+				TakeOrder ();
 			}
-
-			UpdatePatience ();
-		}
-
-		if ( Input.GetKeyDown (KeyCode.L) ) {
-
-//			dialogue.Speak ("");
-
 		}
 	}
 	private void WaitForOrder_Exit () {
 //        GetAnimator.SetTrigger("Eat");
     }
     public void TakeOrder () {
-		dialogue.Speak ("apportez moi un café!");
 
 		ChangeState (States.WaitForDish);
 
-		currentRage -= stepsWhenOrdering;
+		wantedDish = DishManager.Instance.GetRandomDish;
+
+		string phrase = "";
+		foreach ( Ingredient ing in wantedDish.Ingredients ) {
+			phrase += ing.ingredientName + " ";
+		}
+
+		dialogue.Speak (phrase);
+
+		ChangeState (States.WaitForDish);
+
+		CurrentRage -= stepsWhenOrdering;
 		UpdatePatience ();
 	}
 	#endregion
@@ -217,8 +222,15 @@ public class Client : Pickable {
 	private void WaitForDish_Exit () {
 		//
 	}
-	public void Serve () {
-		dialogue.Speak ( "miam !" );
+	public void Serve (Plate plate) {
+
+		CurrentRage = 0;
+		UpdateFeedback ();
+
+		plate.PickUp (GetTransform);
+		pickable = plate.GetComponent<Pickable> ();
+
+		dialogue.Speak ( "Miam !" );
 
 		ChangeState (States.Eating);
 	}
@@ -241,6 +253,8 @@ public class Client : Pickable {
 	#region leaving
 	private void Leaving_Start () {
 
+		Sitting = false;
+
 		_boxCollider.enabled = true;
 
         TargetPoint = ClientManager.Instance.DoorTransform;
@@ -250,7 +264,6 @@ public class Client : Pickable {
 		transform.position = targetPos;
 	}
 	private void Leaving_Update () {
-
 
 		if (timeInState > 3f) {
             
@@ -276,7 +289,7 @@ public class Client : Pickable {
 
 	private void Enraged_Start () {
 
-		LeaveChair ();
+		Sitting = false;
 
 		dialogue.Speak ("GRRRRRRR");
 		rageFeedbackImage.sprite = lightningSprite;
@@ -348,12 +361,12 @@ public class Client : Pickable {
 	#region get hit
 	private void GetHit_Start () {
 		_agent.enabled = false;
-		Throw ( -BodyTransform.forward );
+		Throw ( -GetTransform.forward );
 
 		if (previousState == States.Enraged) {
-			--currentRage;
+			--CurrentRage;
 		} else {
-			++currentRage;
+			++CurrentRage;
 		}
 
 		UpdateFeedback ();
@@ -362,7 +375,7 @@ public class Client : Pickable {
 		if ( timeInState > 4 ) {
 
 			if (previousState == States.Enraged) {
-				if (currentRage == 0) {
+				if (CurrentRage == 0) {
 					ChangeState (States.Leaving);
 					return;
 				}
@@ -387,13 +400,13 @@ public class Client : Pickable {
 
 		rageTimer += Time.deltaTime;
 
-		if ( rageTimer >= (currentRage*timeToNextStep) ) {
+		if ( rageTimer >= (CurrentRage*timeToNextStep) ) {
 			
-			++currentRage;
+			++CurrentRage;
 
 			UpdateFeedback ();
 
-			if ( currentRage == rageToEnrage ) {
+			if ( CurrentRage == rageToEnrage ) {
 				ChangeState (States.Enraged);
 				return;
 			}
@@ -402,12 +415,12 @@ public class Client : Pickable {
 	}
 	public void UpdateFeedback () {
 		// activate bubble
-		rageFeedbackObj.SetActive (currentRage > 1);
+		rageFeedbackObj.SetActive (CurrentRage > 1);
 
 		// lerp colors
-		float l = (currentRage / rageToEnrage);
+		float l = (CurrentRage / rageToEnrage);
 
-		rageFeedbackImage.transform.localScale = Vector3.one * (currentRage/rageToEnrage);
+		rageFeedbackImage.transform.localScale = Vector3.one * (CurrentRage/rageToEnrage);
 	}
 	public Transform Enraged_GetTarget {
 		get {
@@ -431,17 +444,35 @@ public class Client : Pickable {
 	#endregion
 
 	#region chair
-	public void SitOnChair () {
+	public bool Sitting {
+		get {
+			return sitting;
+		}
+		set {
+			sitting = value;
 
-		Constrained = true;
+			sitTimer = 0f;
 
+			Constrained = true;
+
+			_agent.enabled = !value;
+
+			targetChair.Occupied = value;
+
+			if (pickable != null)
+				pickable.Drop ();
+
+		}
 	}
-	public void LeaveChair () {
-		targetChair.Occupied = false;
+	private void SitUpdate () {
+		sitTimer += Time.deltaTime;
 
-		Vector3 p = transform.position;
-		p.y = 0f;
-		transform.position = p;
+		GetTransform.rotation = Quaternion.Lerp (lerpInitalRot , targetChair.GetTransform.rotation, sitTimer/sitDuration);
+		GetTransform.position = Vector3.Lerp( lerpInitialPos , targetChair.ClientAnchor.position , sitTimer / sitDuration );
+
+		if (sitTimer >= sitDuration)
+			sitting = false;
+
 	}
     #endregion
 
@@ -487,23 +518,6 @@ public class Client : Pickable {
 		NavMeshAgent.speed = currentSpeed;
 		NavMeshAgent.SetDestination (point.position);
 	}
-
-//    private void MoveTowards ( Transform point )
-//    {
-//        Vector3 direction = -(GetTransform.position - point.position).normalized;
-//
-//        float targetSpeed = Vector3.Distance(GetTransform.position, point.position) < distanceToPoint ? 0f : maxSpeed;
-//        currentSpeed = Mathf.MoveTowards ( currentSpeed , targetSpeed, acceleration * Time.deltaTime );
-//
-//        if (Vector3.Distance(GetTransform.position, point.position) > distanceToPoint)
-//        {
-//            BodyTransform.forward = Vector3.Lerp(lerpInitalRot, direction, timeInState / turnDuration);
-//
-//        }
-//
-//      	GetAnimator.SetFloat( "Movement" , currentSpeed/ targetSpeed);
-//        GetTransform.Translate(direction * currentSpeed * Time.deltaTime);
-//    }
     #endregion
 
     #region state machine
@@ -515,7 +529,7 @@ public class Client : Pickable {
 		previousState = currentState;
 		currentState = newState;
 
-		lerpInitalRot = BodyTransform.forward;
+		lerpInitalRot = GetTransform.rotation;
 		lerpInitialPos = GetTransform.position;
 
 		timeInState = 0f;
@@ -652,4 +666,26 @@ public class Client : Pickable {
 			}
 		}
 	}
+
+	public Dish WantedDish {
+		get {
+			return wantedDish;
+		}
+	}
+
+	public Dialogue Dialogue {
+		get {
+			return dialogue;
+		}
+	}
+
+	public float CurrentRage {
+		get {
+			return currentRage;
+		}
+		set {
+			currentRage = Mathf.Clamp (value, 0, value);
+		}
+	}
+
 }

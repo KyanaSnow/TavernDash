@@ -26,7 +26,7 @@ public class PlayerController : Pickable
     public delegate void UpdateState();
     UpdateState updateState;
 
-    private float timeInState = 0f;
+	private float timeInState = 0f;
 
     // lerps
     Vector3 lerpInitialPos;
@@ -49,6 +49,8 @@ public class PlayerController : Pickable
 
 	// pickable
 	private Pickable pickable;
+	float pickableTimer = 0f;
+	[SerializeField] private float pickableRate = 0.5f;
 
 	Vector3 initRot = Vector3.zero;
 	float lerpTimer = 0f;
@@ -90,7 +92,7 @@ public class PlayerController : Pickable
     {
 		ApplyMovement ();
 
-		if ( Input.GetKeyDown(KeyCode.P) ) {
+		if ( Input.GetButtonDown("Hit") ) {
 			if ( pickable != null && timeInState > 1 ) {
 				pickable.Throw (BodyTransform.forward);
 
@@ -101,7 +103,7 @@ public class PlayerController : Pickable
 			}
 		}
 
-		if ( Input.GetKeyDown(KeyCode.O) ) {
+		if ( Input.GetButtonDown("Action")  ) {
 			if ( pickable != null && timeInState > 1 ) {
 				pickable.Drop ();
 
@@ -120,7 +122,7 @@ public class PlayerController : Pickable
     {
 		Vector3 direction = InputDirection;
 		float targetSpeed = moveSpeed;
-		if ( Input.GetKey(KeyCode.LeftShift) )
+		if ( Input.GetButton("Run") )
 			targetSpeed = runMoveSpeed;
 		if ( PressingInput == false )
 			targetSpeed = 0f;
@@ -135,9 +137,9 @@ public class PlayerController : Pickable
 			targetSpeed = 0f;
 
 		currentSpeed = Mathf.MoveTowards(currentSpeed, targetSpeed, acceleration * Time.deltaTime);
-
-		//      GetAnimator.SetFloat( "Movement", currentSpeed / moveSpeed );
-		//		GetAnimator.speed = Input.GetKey(KeyCode.LeftShift) ? runAnimSpeed : 1f;
+////
+//		GetAnimator.SetFloat( "Movement", currentSpeed / moveSpeed );
+//		GetAnimator.speed = Input.GetKey(KeyCode.LeftShift) ? runAnimSpeed : 1f;
 
 		GetTransform.Translate(BodyTransform.forward * currentSpeed * Time.deltaTime);
     }
@@ -266,11 +268,18 @@ public class PlayerController : Pickable
 		}
 	}
 
-	void OnMouseOver () {
-
-		if ( Input.GetMouseButtonDown (0) ) {
-			Debug.Log ("bonjour");
+	public float PickableTimer {
+		get {
+			return pickableTimer;
 		}
+	}
 
+	public float TimeInState {
+		get {
+			return timeInState;
+		}
+		set {
+			timeInState = value;
+		}
 	}
 }

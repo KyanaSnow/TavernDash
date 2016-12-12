@@ -41,4 +41,26 @@ public class CameraBehavior : MonoBehaviour {
 
         transform.position = targetPos;
     }
+
+	public bool drawGizmos = true;
+
+	void OnDrawGizmos () {
+		if ( drawGizmos ) {
+
+			Color c = Color.blue;
+//			c.a = 0.5f;
+
+			Gizmos.color = c;
+
+			float x = minPos.x/2;
+			float y = minPos.y/2;
+			float z = minPos.z ;
+
+			Vector3 p = new Vector3 (x,y,z);
+
+			Gizmos.DrawWireCube ( (minPos+maxPos)/2 , maxPos-minPos );
+//				Gizmos.DrawWireCube ( (maxPos)/2 , maxPos );
+
+		}
+	}
 }

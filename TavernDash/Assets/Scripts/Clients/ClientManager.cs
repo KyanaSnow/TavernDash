@@ -10,6 +10,9 @@ public class ClientManager : MonoBehaviour {
 
 	private List<Client> clients = new List<Client>();
 
+	float timer = 0f;
+	private float rate = 23f;
+
 	void Awake () {
 		Instance = this;
 	}
@@ -30,9 +33,16 @@ public class ClientManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if ( Input.GetKeyDown (KeyCode.A) ) {
+//		if ( Input.GetKeyDown (KeyCode.A) ) {
+//			NewClient ();
+//		}
+
+		if ( timer <= 0 ) {
 			NewClient ();
+			timer = rate;
 		}
+
+		timer -= Time.deltaTime;
 
 //		if ( Input.GetKeyDown (KeyCode.Z) ) {
 ////			int randomIndex = Random.Range ( 0 , clients.Count );

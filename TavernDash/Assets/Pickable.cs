@@ -4,6 +4,16 @@ using Holoville.HOTween;
 
 public class Pickable : MonoBehaviour {
 
+	public enum PickableStates {
+		Pickable,
+		Unpickable,
+
+		Carried,
+		Thrown,
+		Dropped
+	}
+	PickableStates pickableState = PickableStates.Pickable;
+
 	[Header("Pickable Params")]
 	[SerializeField]
 	private float distanceToPickUp = 1f;
@@ -20,8 +30,6 @@ public class Pickable : MonoBehaviour {
 
 	PlayerController playerControl;
 
-	bool carried = false;
-
 	float t = 0f;
 
 	float timer = 0f;
@@ -29,15 +37,26 @@ public class Pickable : MonoBehaviour {
 	private float lerpDuration = 1f;
 	private bool lerping = false;
 
+	[SerializeField]
+	private BoxCollider boxCollider;
+
 	Transform target;
 
 	Vector3 lerp_InitPos = Vector3.zero;
 	Vector3 lerp_InitRot = Vector3.zero;
 
+	[SerializeField]
+	private Vector3 decalToTarget = new Vector3 (0f, 1.2f , 0.7f);
+
+	[SerializeField]
+	private float angleToStand = 0.8f;
+
 	public void LerpObject () {
 		if ( lerping ) {
 
-			Vector3 targetPos = target.position + (target.forward * 0.72f) + Vector3.up * 1f;
+//			Vector3 decal = new Vector3 ( target.right * decalToTarget.x , target.up * decalToTarget.y , target.forward * decalToTarget.z);
+			Vector3 decal = target.TransformDirection (decalToTarget);
+			Vector3 targetPos = target.position + decal;
 			transform.position = Vector3.Lerp (lerp_InitPos, targetPos, timer/lerpDuration);
 			transform.up = Vector3.Lerp (lerp_InitRot, Vector3.up, timer/lerpDuration);
 
@@ -49,9 +68,13 @@ public class Pickable : MonoBehaviour {
 	}
 
 	public void Init () {
+		pickableState = PickableStates.Pickable;
+
 		initParent = transform.parent;
 
 		rigidbody = GetComponent<Rigidbody> ();
+		boxCollider = GetComponentInChildren<BoxCollider> ();
+
 		playerControl = GameObject.FindWithTag ("Player").GetComponent<PlayerController> ();
 		Constrained = true;
 
@@ -61,17 +84,27 @@ public class Pickable : MonoBehaviour {
 		
 		t += Time.deltaTime;
 
-		if (Input.GetKeyDown (KeyCode.P) && playerControl.Pickable == null && t > 0.5f) {
+		if (Input.GetButtonDown("Action") && playerControl.Pickable == null && t > 0.5f) {
 			if (Vector3.Distance (playerControl.GetTransform.position, transform.position) < distanceToPickUp) {
 				
-				PickUp (playerControl.BodyTransform);
-				playerControl.Pickable = this;
+				if (pickableState != PickableStates.Unpickable && playerControl.TimeInState > 0.5f ) {
+					PickUp (playerControl.BodyTransform);
+					playerControl.Pickable = this;
+
+					playerControl.TimeInState = 0f;
+				}
 
 			}
 		}
 	}
 
 	public virtual void PickUp (Transform _target) {
+
+		if ( PickableState == PickableStates.Unpickable ) {
+			return;
+		}
+
+		pickableState = PickableStates.Carried;
 
 		target = _target;
 
@@ -87,23 +120,24 @@ public class Pickable : MonoBehaviour {
 	}
 
 	public void Throw ( Vector3 direction ) {
+		pickableState = PickableStates.Thrown;
 
 		Constrained = false;
 
 		rigidbody.AddTorque ( direction * torque );
 		rigidbody.AddForce ( direction * force);
 
-		carried = false;
 		transform.parent = initParent;
 
 		t = 0f;
 	}
 
-	public void Drop () {
+	public virtual void Drop () {
+
+		pickableState = PickableStates.Dropped;
 
 		Constrained = false;
 
-		carried = false;
 		transform.parent = initParent;
 
 		t = 0f;
@@ -138,6 +172,27 @@ public class Pickable : MonoBehaviour {
 				Rigidbody.constraints = RigidbodyConstraints.FreezeAll;
 			else
 				Rigidbody.constraints = RigidbodyConstraints.None;
+		}
+	}
+
+	public PickableStates PickableState {
+		get {
+			return pickableState;
+		}
+		set {
+			pickableState = value;
+		}
+	}
+
+	public BoxCollider BoxCollider {
+		get {
+			return boxCollider;
+		}
+	}
+
+	public bool Straight {
+		get {
+			return Vector3.Dot (transform.up, Vector3.up) > angleToStand;
 		}
 	}
 }

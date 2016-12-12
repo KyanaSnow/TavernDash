@@ -89,4 +89,10 @@ public class Table : MonoBehaviour {
 		clients.Add (client);
 	}
 	#endregion
+
+	public List<Client> Clients {
+		get {
+			return clients;
+		}
+	}
 }
