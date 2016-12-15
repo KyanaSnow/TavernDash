@@ -13,7 +13,7 @@ public class CameraBehavior : MonoBehaviour {
     private float speedToRotation = 10f;
 
     [SerializeField]
-    private Transform targetPoint;
+	private Transform targetPoint;
 
     [SerializeField]
     private Vector3 minPos;
@@ -61,6 +61,15 @@ public class CameraBehavior : MonoBehaviour {
 			Gizmos.DrawWireCube ( (minPos+maxPos)/2 , maxPos-minPos );
 //				Gizmos.DrawWireCube ( (maxPos)/2 , maxPos );
 
+		}
+	}
+
+	public Transform TargetPoint {
+		get {
+			return targetPoint;
+		}
+		set {
+			targetPoint = value;
 		}
 	}
 }
