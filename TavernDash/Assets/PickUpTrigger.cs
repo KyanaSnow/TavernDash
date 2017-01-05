@@ -11,8 +11,12 @@ public class PickUpTrigger : MonoBehaviour {
 
 	bool inside = false;
 
+	[SerializeField]
+	private float angleToFeedback = 0.5f;
+
 	// Use this for initialization
 	void Start () {
+
 		feedbackObj = UIManager.Instance.CreateElement (feedbackPrefab, UIManager.CanvasType.Dialogue);
 		feedbackObj.SetActive (false);
 	}
@@ -24,18 +28,44 @@ public class PickUpTrigger : MonoBehaviour {
 		}
 	}
 
-	void OnTriggerEnter ( Collider other ) {
-		if (other.tag == "Player") {
-			feedbackObj.SetActive (true);
-			inside = true;
-			UIManager.Instance.Place (feedbackObj.GetComponent<Image>(), this.transform.position + Vector3.up * 0.5f );
+	void OnTriggerStay ( Collider other ) {
+		if (other.tag == "Player" ) {
+
+			Vector3 dir = ( transform.position - other.transform.position );
+
+			if (Vector3.Dot (other.GetComponent<PlayerController> ().BodyTransform.forward, dir) > angleToFeedback) {
+				if (other.GetComponent<PlayerController> ().Pickable == null) {
+
+					Enter ();
+
+				}
+			} else {
+				Exit ();
+			}
+
+			
+			if (other.GetComponent<PlayerController> ().Pickable != null) {
+				Exit ();
+			}
 		}
 	}
 
 	void OnTriggerExit ( Collider other ) {
 		if (other.tag == "Player") {
-			feedbackObj.SetActive (false);
-			inside = false;
+			Exit ();
 		}
+	}
+
+	private void Enter () {
+
+		feedbackObj.SetActive (true);
+		inside = true;
+		UIManager.Instance.Place (feedbackObj.GetComponent<Image>(), this.transform.position + Vector3.up * 0.5f );
+
+	}
+
+	private void Exit () {
+		feedbackObj.SetActive (false);
+		inside = false;
 	}
 }
