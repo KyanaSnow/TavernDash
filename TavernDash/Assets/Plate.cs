@@ -16,13 +16,18 @@ public class Plate : Pickable {
 	// Update is called once per frame
 	void Update () {
 
-		WaitForPlayerPickUp ();
-
 		LerpObject ();
 
 		if (dish.Ingredients.Count > 0 && !Straight) {
 			DropIngredients ();
 		}
+	}
+
+	public override void PickUp (Transform _target)
+	{
+		GetComponentInParent<PlateDispenser> ().PlateCount -= 1;
+
+		base.PickUp (_target);
 	}
 
 	private void DropIngredients () {

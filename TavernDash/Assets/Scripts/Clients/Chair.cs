@@ -39,7 +39,6 @@ public class Chair : Pickable {
 
 		CheckTable ();
 
-		WaitForPlayerPickUp ();
 		LerpObject ();
 
 		TurnToTableUpdate ();

@@ -17,7 +17,6 @@ public class Client : Pickable {
     private Animator animator;
 	private Dialogue dialogue;
     private HeadRotation headRotation;
-	private PlayerController playerController;
 
 	// states
 	public enum States {
@@ -98,11 +97,11 @@ public class Client : Pickable {
 
 		_transform = this.transform;
 		_boxCollider = GetComponentInChildren<BoxCollider> ();
-		playerController = GameObject.FindWithTag ("Player").GetComponent<PlayerController> ();
 		dialogue = GetComponentInChildren<Dialogue> ();
 		_agent = GetComponent<NavMeshAgent> ();
-        headRotation = GetComponentInChildren<HeadRotation>();
-        headRotation.TargetPoint = GameObject.FindWithTag("Player").transform;
+
+//        headRotation = GetComponentInChildren<HeadRotation>();
+//        headRotation.TargetPoint = GameObject.FindWithTag("Player").transform;
 
 		ChangeState (States.GoToTable);
 
@@ -153,7 +152,7 @@ public class Client : Pickable {
 		targetTable = TableManager.Instance.GetTable ();
 
 		if (targetTable == null) {
-			Debug.Log ("snig?");
+			Debug.Log ("no tables ?");
 			ChangeState (States.Leaving);
 			return;
 		} else {
@@ -168,23 +167,13 @@ public class Client : Pickable {
 	#region wait for order
 	private void WaitForOrder_Start () {
 
-//		_boxCollider.enabled = false;
-
 		Sitting = true;
 		targetChair.TurnToTable ();
-
-//        GetAnimator.SetBool("Order", true);
-//        GetAnimator.SetBool("Sit", true);
 	}
 	private void WaitForOrder_Update () {
 
 		UpdatePatience ();
 
-		if ( Vector3.Distance ( playerController.GetTransform.position , transform.position ) < 1.5f ) {
-			if ( Input.GetButtonDown ("Action") ) {
-				TakeOrder ();
-			}
-		}
 	}
 	private void WaitForOrder_Exit () {
 //        GetAnimator.SetTrigger("Eat");
@@ -215,9 +204,8 @@ public class Client : Pickable {
 	}
 	private void WaitForDish_Update () {
 		
-		//
-
 		UpdatePatience ();
+
 	}
 	private void WaitForDish_Exit () {
 		//
@@ -438,7 +426,7 @@ public class Client : Pickable {
 
 			}
 
-			return playerController.transform;
+			return transform;
 		}
 	}
 	#endregion

@@ -68,6 +68,7 @@ public class Pickable : MonoBehaviour {
 	}
 
 	public void Init () {
+		
 		pickableState = PickableStates.Pickable;
 
 		initParent = transform.parent;
@@ -78,24 +79,6 @@ public class Pickable : MonoBehaviour {
 		playerControl = GameObject.FindWithTag ("Player").GetComponent<PlayerController> ();
 		Constrained = true;
 
-	}
-
-	public void WaitForPlayerPickUp () {
-		
-		t += Time.deltaTime;
-
-		if (Input.GetButtonDown("Action") && playerControl.Pickable == null && t > 0.5f) {
-			if (Vector3.Distance (playerControl.GetTransform.position, transform.position) < distanceToPickUp) {
-				
-				if (pickableState != PickableStates.Unpickable && playerControl.TimeInState > 0.5f ) {
-					PickUp (playerControl.BodyTransform);
-					playerControl.Pickable = this;
-
-					playerControl.TimeInState = 0f;
-				}
-
-			}
-		}
 	}
 
 	public virtual void PickUp (Transform _target) {

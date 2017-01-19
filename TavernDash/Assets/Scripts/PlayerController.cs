@@ -59,6 +59,13 @@ public class PlayerController : Pickable
 	float targetAnimSpeed = 0f;
 	float currentAnimSpeed = 0f;
 
+	// input
+	[SerializeField] private string input_Action 		= "";
+	[SerializeField] private string input_Run 			= "";
+	[SerializeField] private string input_Hit 			= "";
+	[SerializeField] private string input_Horizontal 	= "";
+	[SerializeField] private string input_Vertical 		= "";
+
     // Use this for initialization
     void Start()
     {
@@ -92,7 +99,7 @@ public class PlayerController : Pickable
     {
 		ApplyMovement ();
 
-		if ( Input.GetButtonDown("Hit") ) {
+		if ( Input.GetButtonDown(input_Hit) ) {
 			if ( pickable != null && timeInState > 1 ) {
 				pickable.Throw (BodyTransform.forward);
 
@@ -103,7 +110,7 @@ public class PlayerController : Pickable
 			}
 		}
 
-		if ( Input.GetButtonDown("Action")  ) {
+		if ( Input.GetButtonDown(input_Action)  ) {
 			if ( pickable != null && timeInState > 1 ) {
 				pickable.Drop ();
 
@@ -137,9 +144,6 @@ public class PlayerController : Pickable
 			targetSpeed = 0f;
 
 		currentSpeed = Mathf.MoveTowards(currentSpeed, targetSpeed, acceleration * Time.deltaTime);
-////
-//		GetAnimator.SetFloat( "Movement", currentSpeed / moveSpeed );
-//		GetAnimator.speed = Input.GetKey(KeyCode.LeftShift) ? runAnimSpeed : 1f;
 
 		GetTransform.Translate(BodyTransform.forward * currentSpeed * Time.deltaTime);
     }
@@ -163,13 +167,13 @@ public class PlayerController : Pickable
     {
         get
         {
-            return new Vector3( Input.GetAxis("Horizontal") , 0f , Input.GetAxis ("Vertical") );
+            return new Vector3( Input.GetAxis(input_Horizontal) , 0f , Input.GetAxis (input_Vertical) );
         }
     }
     private bool PressingInput
     {
         get {
-            return Input.GetAxis ("Horizontal") != 0 || Input.GetAxis("Vertical") != 0;
+            return Input.GetAxis (input_Horizontal) != 0 || Input.GetAxis(input_Vertical) != 0;
         }
     }
 
@@ -280,6 +284,12 @@ public class PlayerController : Pickable
 		}
 		set {
 			timeInState = value;
+		}
+	}
+
+	public string Input_Action {
+		get {
+			return input_Action;
 		}
 	}
 }

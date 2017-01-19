@@ -14,11 +14,14 @@ public class PickUpTrigger : MonoBehaviour {
 	[SerializeField]
 	private float angleToFeedback = 0.5f;
 
+	Pickable linkedPickable = null;
+
 	// Use this for initialization
 	void Start () {
-
 		feedbackObj = UIManager.Instance.CreateElement (feedbackPrefab, UIManager.CanvasType.Dialogue);
 		feedbackObj.SetActive (false);
+
+		linkedPickable = GetComponentInParent<Pickable> ();
 	}
 	
 	// Update is called once per frame
@@ -29,24 +32,42 @@ public class PickUpTrigger : MonoBehaviour {
 	}
 
 	void OnTriggerStay ( Collider other ) {
+		
 		if (other.tag == "Player" ) {
+
+			if (linkedPickable.PickableState == Pickable.PickableStates.Unpickable
+				|| linkedPickable.PickableState == Pickable.PickableStates.Thrown )
+				return;
+
+			PlayerController playerControl = other.GetComponent<PlayerController> ();
+
+			if (playerControl.Pickable != null) {
+				Exit ();
+				return;
+			}
 
 			Vector3 dir = ( transform.position - other.transform.position );
 
-			if (Vector3.Dot (other.GetComponent<PlayerController> ().BodyTransform.forward, dir) > angleToFeedback) {
-				if (other.GetComponent<PlayerController> ().Pickable == null) {
+			if (Vector3.Dot (playerControl.BodyTransform.forward, dir) > angleToFeedback) {
+				
+				if (playerControl.Pickable == null) {
 
 					Enter ();
 
+					if (Input.GetButtonDown (playerControl.Input_Action)
+						&& playerControl.TimeInState > 0.5f ) {
+						linkedPickable.PickUp (playerControl.BodyTransform);
+						playerControl.Pickable = linkedPickable;
+
+						playerControl.TimeInState = 0;
+					}
+
 				}
+
 			} else {
 				Exit ();
 			}
 
-			
-			if (other.GetComponent<PlayerController> ().Pickable != null) {
-				Exit ();
-			}
 		}
 	}
 
