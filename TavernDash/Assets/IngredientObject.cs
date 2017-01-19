@@ -17,15 +17,19 @@ public class IngredientObject : Pickable {
 
 		ingredient = IngredientManager.Instance.Ingredients [ingredientID];
 
-		playerController = GameObject.FindWithTag ("Player").GetComponent<PlayerController> ();
-		playerController.Pickable = this;
-		PickUp (playerController.BodyTransform);
-
 	}
 
 	void Update (){
 		LerpObject ();
 	}
+
+	public override void PickUp (Transform _target)
+	{
+		GetComponentInParent<IngredientBox> ().NewIngredient ();
+
+		base.PickUp (_target);
+	}
+
 
 	void OnTriggerStay ( Collider other ) {
 

@@ -42,7 +42,7 @@ public class PickUpTrigger : MonoBehaviour {
 			PlayerController playerControl = other.GetComponent<PlayerController> ();
 
 			if (playerControl.Pickable != null) {
-				Exit ();
+				Exit (playerControl);
 				return;
 			}
 
@@ -52,7 +52,7 @@ public class PickUpTrigger : MonoBehaviour {
 				
 				if (playerControl.Pickable == null) {
 
-					Enter ();
+					Enter (playerControl);
 
 					if (Input.GetButtonDown (playerControl.Input_Action)
 						&& playerControl.TimeInState > 0.5f ) {
@@ -65,7 +65,7 @@ public class PickUpTrigger : MonoBehaviour {
 				}
 
 			} else {
-				Exit ();
+				Exit (playerControl);
 			}
 
 		}
@@ -73,20 +73,38 @@ public class PickUpTrigger : MonoBehaviour {
 
 	void OnTriggerExit ( Collider other ) {
 		if (other.tag == "Player") {
-			Exit ();
+			Exit (other.GetComponent<PlayerController>());
 		}
 	}
 
-	private void Enter () {
+	private void Enter (PlayerController playerController) {
+
+		playerController.GetComponent<PickableManager> ().PickableTriggers.Add (this);
 
 		feedbackObj.SetActive (true);
 		inside = true;
-		UIManager.Instance.Place (feedbackObj.GetComponent<Image>(), this.transform.position + Vector3.up * 0.5f );
 
 	}
 
-	private void Exit () {
+	private void Exit (PlayerController playerController) {
+
+		playerController.GetComponent<PickableManager> ().PickableTriggers.Remove (this);
+
 		feedbackObj.SetActive (false);
 		inside = false;
+	}
+
+	public void Forward() {
+		feedbackObj.transform.localScale = Vector3.one * 2;
+	}
+
+	public void Back () {
+		feedbackObj.transform.localScale = Vector3.one;
+	}
+
+	public Pickable LinkedPickable {
+		get {
+			return linkedPickable;
+		}
 	}
 }

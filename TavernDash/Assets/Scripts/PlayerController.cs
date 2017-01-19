@@ -129,7 +129,7 @@ public class PlayerController : Pickable
     {
 		Vector3 direction = InputDirection;
 		float targetSpeed = moveSpeed;
-		if ( Input.GetButton("Run") )
+		if ( Input.GetButton(input_Run) )
 			targetSpeed = runMoveSpeed;
 		if ( PressingInput == false )
 			targetSpeed = 0f;

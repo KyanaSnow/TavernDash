@@ -5,29 +5,17 @@ public class IngredientBox : MonoBehaviour {
 
 	public GameObject ingredient_Prefab;
 
-	void OnTriggerStay (Collider other ) {
-		if (other.tag == "Player") {
+	public float decalY = 1f;
 
-			PlayerController playerController = other.GetComponent<PlayerController> ();
-
-			if (Input.GetButtonDown (playerController.Input_Action)) {
-
-				Vector3 dir = (transform.position - playerController.GetTransform.position).normalized;
-
-				if (Vector3.Dot (playerController.BodyTransform.forward, dir) > 0.7f
-				    && Vector3.Distance (playerController.GetTransform.position, transform.position) < 1.5f) {
-					GetIndredient ();
-				}
-
-			}
-		}
+	void Start () {
+		NewIngredient ();
 	}
 
-	private void GetIndredient () {
+	public void NewIngredient () {
 
 		GameObject ingredient_Instance = Instantiate (ingredient_Prefab, transform.position + (Vector3.up), Quaternion.identity) as GameObject;
-
-		ingredient_Instance.GetComponent<Pickable> ().Init ();
+//		ingredient_Instance.GetComponent<Pickable> ().Init ();
+		ingredient_Instance.transform.SetParent (ingredient_Instance.transform);
 
 	}
 }

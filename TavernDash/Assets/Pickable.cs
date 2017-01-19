@@ -52,9 +52,9 @@ public class Pickable : MonoBehaviour {
 	private float angleToStand = 0.8f;
 
 	public void LerpObject () {
+		
 		if ( lerping ) {
 
-//			Vector3 decal = new Vector3 ( target.right * decalToTarget.x , target.up * decalToTarget.y , target.forward * decalToTarget.z);
 			Vector3 decal = target.TransformDirection (decalToTarget);
 			Vector3 targetPos = target.position + decal;
 			transform.position = Vector3.Lerp (lerp_InitPos, targetPos, timer/lerpDuration);
@@ -65,6 +65,7 @@ public class Pickable : MonoBehaviour {
 			if (timer >= lerpDuration)
 				lerping = false;
 		}
+
 	}
 
 	public void Init () {
@@ -83,9 +84,8 @@ public class Pickable : MonoBehaviour {
 
 	public virtual void PickUp (Transform _target) {
 
-		if ( PickableState == PickableStates.Unpickable ) {
+		if ( PickableState == PickableStates.Unpickable )
 			return;
-		}
 
 		pickableState = PickableStates.Carried;
 
