@@ -168,6 +168,7 @@ public class Client : Pickable {
 	private void WaitForOrder_Start () {
 
 		Sitting = true;
+
 		targetChair.TurnToTable ();
 	}
 	private void WaitForOrder_Update () {
@@ -242,8 +243,6 @@ public class Client : Pickable {
 	private void Leaving_Start () {
 
 		Sitting = false;
-
-		_boxCollider.enabled = true;
 
         TargetPoint = ClientManager.Instance.DoorTransform;
 
@@ -443,9 +442,13 @@ public class Client : Pickable {
 
 			Constrained = true;
 
-			_agent.enabled = !value;
+			_agent.enabled = !sitting;
 
-			targetChair.Occupied = value;
+			targetChair.Occupied = sitting;
+
+			targetChair.PickableState = sitting ? PickableStates.Unpickable : PickableStates.Pickable;
+
+			_boxCollider.enabled = !sitting;
 
 			if (pickable != null)
 				pickable.Drop ();

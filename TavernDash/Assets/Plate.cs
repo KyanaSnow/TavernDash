@@ -25,7 +25,8 @@ public class Plate : Pickable {
 
 	public override void PickUp (Transform _target)
 	{
-		GetComponentInParent<PlateDispenser> ().PlateCount -= 1;
+		if ( GetComponentInParent<PlateDispenser> () )
+			GetComponentInParent<PlateDispenser> ().PlateCount -= 1;
 
 		base.PickUp (_target);
 	}

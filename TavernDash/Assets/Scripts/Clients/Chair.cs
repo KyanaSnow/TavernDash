@@ -52,8 +52,6 @@ public class Chair : Pickable {
 			return;
 		}
 
-		Debug.Log ("pick chair");
-
 		base.PickUp (target);
 
 		UnassignTable ();

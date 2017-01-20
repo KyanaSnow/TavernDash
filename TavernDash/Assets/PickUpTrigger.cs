@@ -35,11 +35,14 @@ public class PickUpTrigger : MonoBehaviour {
 		
 		if (other.tag == "Player" ) {
 
-			if (linkedPickable.PickableState == Pickable.PickableStates.Unpickable
-				|| linkedPickable.PickableState == Pickable.PickableStates.Thrown )
-				return;
-
 			PlayerController playerControl = other.GetComponent<PlayerController> ();
+
+			if (linkedPickable.PickableState == Pickable.PickableStates.Unpickable
+			    || linkedPickable.PickableState == Pickable.PickableStates.Thrown) {
+				Exit (playerControl);
+				return;
+			}
+
 
 			if (playerControl.Pickable != null) {
 				Exit (playerControl);
@@ -56,6 +59,9 @@ public class PickUpTrigger : MonoBehaviour {
 
 					if (Input.GetButtonDown (playerControl.Input_Action)
 						&& playerControl.TimeInState > 0.5f ) {
+
+						Exit (playerControl);
+
 						linkedPickable.PickUp (playerControl.BodyTransform);
 						playerControl.Pickable = linkedPickable;
 
@@ -86,7 +92,7 @@ public class PickUpTrigger : MonoBehaviour {
 
 	}
 
-	private void Exit (PlayerController playerController) {
+	public void Exit (PlayerController playerController) {
 
 		playerController.GetComponent<PickableManager> ().PickableTriggers.Remove (this);
 

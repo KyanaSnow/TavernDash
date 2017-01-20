@@ -30,8 +30,6 @@ public class PlateCheck : MonoBehaviour {
 		foreach ( Client client in table.Clients ) {
 			if (plate.Dish == client.WantedDish) {
 				client.Serve (plate);
-			} else {
-				client.Dialogue.Speak ("Je veux pas ça");
 			}
 		}
 

@@ -55,6 +55,11 @@ public class Pickable : MonoBehaviour {
 		
 		if ( lerping ) {
 
+			if (target == null) {
+				lerping = false;
+				return;
+			}
+
 			Vector3 decal = target.TransformDirection (decalToTarget);
 			Vector3 targetPos = target.position + decal;
 			transform.position = Vector3.Lerp (lerp_InitPos, targetPos, timer/lerpDuration);

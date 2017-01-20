@@ -17,8 +17,8 @@ public class Table : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		
 		_transform = this.transform;
-
 		TableManager.Instance.AddTable (this);
 	}
 
