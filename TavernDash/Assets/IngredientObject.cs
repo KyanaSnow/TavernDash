@@ -36,6 +36,9 @@ public class IngredientObject : Pickable {
 		if ( other.tag == "Plate") {
 
 			if ( PickableState == PickableStates.Dropped ) {
+
+				Debug.Log ("bonour");
+
 				Constrained = true;
 
 				BoxCollider.enabled = false;

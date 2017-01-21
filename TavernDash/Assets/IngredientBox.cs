@@ -15,7 +15,7 @@ public class IngredientBox : MonoBehaviour {
 
 		GameObject ingredient_Instance = Instantiate (ingredient_Prefab, transform.position + (Vector3.up), Quaternion.identity) as GameObject;
 //		ingredient_Instance.GetComponent<Pickable> ().Init ();
-		ingredient_Instance.transform.SetParent (ingredient_Instance.transform);
+		ingredient_Instance.transform.SetParent (transform);
 
 	}
 }
