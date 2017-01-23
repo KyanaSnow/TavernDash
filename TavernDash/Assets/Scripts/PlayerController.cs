@@ -155,7 +155,7 @@ public class PlayerController : Pickable
 	}
 	private void GetHit_Update () {
 		if ( timeInState > 4 ) {
-			ChangeState (previousState);
+			ChangeState (States.Moving);
 		}
 	}
 	private void GetHit_Exit () {
@@ -212,6 +212,9 @@ public class PlayerController : Pickable
             case States.Moving:
                 Moving_Exit();
                 break;
+			case States.GetHit:
+				GetHit_Exit ();
+				break;
         }
     }
     #endregion
@@ -266,6 +269,11 @@ public class PlayerController : Pickable
 
 			if ( c.gameObject.GetComponent<Pickable>().Constrained == false ) {
 				if (c.relativeVelocity.magnitude > 5) {
+
+					Vector3 dir = (c.transform.position - GetTransform.position).normalized;
+					dir.y = 0f;
+
+					GetTransform.forward = dir;
 					ChangeState (States.GetHit);
 				}
 			}

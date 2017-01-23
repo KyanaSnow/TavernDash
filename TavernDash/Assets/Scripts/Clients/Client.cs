@@ -283,8 +283,6 @@ public class Client : Pickable {
 		rageFeedbackImage.sprite = lightningSprite;
 		rageFeedbackImage.color = Color.white;
 
-		TargetPoint = Enraged_GetTarget;
-
 	}
 	private void Enraged_Update () {
 
@@ -295,9 +293,11 @@ public class Client : Pickable {
 		if ( pickable != null ) {
 
 			if (Vector3.Distance (GetTransform.position, TargetPoint.position) < 3.5f) {
-				if (timeInState > 5) {
+				if (timeInState > 2.5f) {
 					pickable.Throw ((targetPoint.position-GetTransform.position).normalized);
 					pickable = null;
+
+					TargetPoint = Enraged_GetTarget;
 					timeInState = 0f;
 				}
 			} else {
@@ -321,20 +321,22 @@ public class Client : Pickable {
 				}
 
 			}
+				
+			if (timeInState > 3) {
+				
+				if (Vector3.Distance (GetTransform.position, targetChair.GetTransform.position) < 1.5f) {
 
-			if (timeInState > 2.5f) {
-				if (Vector3.Distance (GetTransform.position, targetChair.GetTransform.position) < 1) {
-					if (timeInState > 3.5f) {
-						targetChair.PickUp (GetTransform);
-						pickable = targetChair;
-					}
+					targetChair.PickUp (GetTransform);
+					pickable = targetChair;
 
+					timeInState = 0f;
 
 				} else {
+
 					MoveTowards (targetChair.GetTransform);
+
 				}
 			}
-
 
 		}
 
@@ -426,7 +428,7 @@ public class Client : Pickable {
 
 			}
 
-			return transform;
+			return PlayerManager.Instance.getClosestToPoint (GetTransform.position).GetTransform;
 		}
 	}
 	#endregion
@@ -649,6 +651,10 @@ public class Client : Pickable {
 
 			if ( c.gameObject.GetComponent<Pickable>().Constrained == false ) {
 				if (c.relativeVelocity.magnitude > 5) {
+					Vector3 dir = (c.transform.position - GetTransform.position).normalized;
+					dir.y = 0f;
+
+					GetTransform.forward = dir;
 					ChangeState (States.GetHit);
 				}
 			}

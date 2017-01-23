@@ -53,14 +53,6 @@ public class PickUpTrigger : MonoBehaviour {
 
 					Enter (playerControl);
 
-					if (Input.GetButtonDown (playerControl.Input_Action)
-						&& playerControl.TimeInState > 0.5f ) {
-						linkedPickable.PickUp (playerControl.BodyTransform);
-						playerControl.Pickable = linkedPickable;
-
-						playerControl.TimeInState = 0;
-					}
-
 				}
 
 			} else {

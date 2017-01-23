@@ -6,10 +6,10 @@ public class PickableManager : MonoBehaviour {
 
 	List<PickUpTrigger> pickableTriggers = new List<PickUpTrigger> ();
 
-	PlayerController playerController;
+	PlayerController playerControl;
 
 	void Start () {
-		playerController = GetComponent<PlayerController> ();
+		playerControl = GetComponent<PlayerController> ();
 	}
 
 	void Update () {
@@ -20,8 +20,8 @@ public class PickableManager : MonoBehaviour {
 
 			foreach ( PickUpTrigger trigger in pickableTriggers ) {
 
-				float newDot = Vector3.Dot ( playerController.BodyTransform.forward , (trigger.transform.position - transform.position).normalized );
-				float initDot = Vector3.Dot ( playerController.BodyTransform.forward , (closestTrigger.transform.position - transform.position).normalized );
+				float newDot = Vector3.Dot ( playerControl.BodyTransform.forward , (trigger.transform.position - transform.position).normalized );
+				float initDot = Vector3.Dot ( playerControl.BodyTransform.forward , (closestTrigger.transform.position - transform.position).normalized );
 
 				if (newDot > initDot)
 					closestTrigger = trigger;
@@ -31,6 +31,14 @@ public class PickableManager : MonoBehaviour {
 			}
 
 			closestTrigger.Forward ();
+
+			if (Input.GetButtonDown (playerControl.Input_Action)
+				&& playerControl.TimeInState > 0.5f ) {
+				closestTrigger.LinkedPickable.PickUp (playerControl.BodyTransform);
+				playerControl.Pickable = closestTrigger.LinkedPickable;
+
+				playerControl.TimeInState = 0;
+			}
 
 		}
 
