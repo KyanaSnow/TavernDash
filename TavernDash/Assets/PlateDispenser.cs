@@ -34,10 +34,10 @@ public class PlateDispenser : MonoBehaviour {
 
 		GameObject plate = Instantiate (platePrefab);
 
-		plate.transform.position = plateAnchors[plateCount].position;
+		plate.transform.position = transform.position;
+//		plate.transform.position = plateAnchors[plateCount].position;
+		plate.transform.transform.forward = transform.forward;
 		plate.transform.SetParent (transform);
-
-		plate.GetComponent<Pickable> ().Init ();
 
 		plateCount++;
 		timer = 0f;

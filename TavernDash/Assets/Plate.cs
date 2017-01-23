@@ -6,13 +6,12 @@ public class Plate : Pickable {
 
 	private Dish dish;
 
-	// Use this for initialization
 	void Start () {
 		Init ();
-
 		dish = new Dish ();
+		Throw (transform.forward);
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 

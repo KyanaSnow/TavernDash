@@ -35,8 +35,7 @@ public class PickUpTrigger : MonoBehaviour {
 		
 		if (other.tag == "Player" ) {
 
-			if (linkedPickable.PickableState == Pickable.PickableStates.Unpickable
-				|| linkedPickable.PickableState == Pickable.PickableStates.Thrown )
+			if (linkedPickable.PickableState == Pickable.PickableStates.Unpickable )
 				return;
 
 			PlayerController playerControl = other.GetComponent<PlayerController> ();

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PlateCheck : MonoBehaviour {
 
@@ -28,11 +29,31 @@ public class PlateCheck : MonoBehaviour {
 	private void CheckPlate (Plate plate) {
 
 		foreach ( Client client in table.Clients ) {
-			if (plate.Dish == client.WantedDish) {
-				client.Serve (plate);
-			} else {
-				client.Dialogue.Speak ("Je veux pas ça");
+			
+			if ( client.WantedDish == null ) {
+				Debug.Log ("pas de plat client");
+				continue;
 			}
+
+			if ( plate.Dish == null ) {
+				Debug.Log ("pas de plat assiete");
+				continue;
+			}
+
+			bool match = true;
+
+			List<Ingredient> tmp = client.WantedDish.Ingredients;
+
+			foreach ( Ingredient ingredient in plate.Dish.Ingredients ) {
+				int result = tmp.FindIndex (x => x == ingredient);
+				if (result != -1)
+					tmp.RemoveAt (result);
+				else
+					match = false;
+			}
+
+			if ( match )
+				client.Serve (plate);
 		}
 
 	}
