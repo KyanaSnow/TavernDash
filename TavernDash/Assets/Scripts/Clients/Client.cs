@@ -100,9 +100,6 @@ public class Client : Pickable {
 		dialogue = GetComponentInChildren<Dialogue> ();
 		_agent = GetComponent<NavMeshAgent> ();
 
-//        headRotation = GetComponentInChildren<HeadRotation>();
-//        headRotation.TargetPoint = GameObject.FindWithTag("Player").transform;
-
 		ChangeState (States.GoToTable);
 
 		CreateRageFeedback ();
@@ -283,6 +280,8 @@ public class Client : Pickable {
 		rageFeedbackImage.sprite = lightningSprite;
 		rageFeedbackImage.color = Color.white;
 
+		timeInState = 3f;
+
 	}
 	private void Enraged_Update () {
 
@@ -293,13 +292,16 @@ public class Client : Pickable {
 		if ( pickable != null ) {
 
 			if (Vector3.Distance (GetTransform.position, TargetPoint.position) < 3.5f) {
+				
 				if (timeInState > 2.5f) {
+					
 					pickable.Throw ((targetPoint.position-GetTransform.position).normalized);
 					pickable = null;
 
 					TargetPoint = Enraged_GetTarget;
 					timeInState = 0f;
 				}
+
 			} else {
 				MoveTowards (targetPoint);
 			}

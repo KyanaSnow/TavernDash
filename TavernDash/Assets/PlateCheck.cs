@@ -14,7 +14,7 @@ public class PlateCheck : MonoBehaviour {
 		dish = DishManager.Instance.GetRandomDish;
 	}
 
-	void OnTriggerStay ( Collider other ) {
+	void OnTriggerEnter ( Collider other ) {
 		
 		var tmp = other.GetComponent<Plate> ();
 

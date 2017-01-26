@@ -146,6 +146,7 @@ public class PlayerController : Pickable
 		currentSpeed = Mathf.MoveTowards(currentSpeed, targetSpeed, acceleration * Time.deltaTime);
 
 		GetTransform.Translate(BodyTransform.forward * currentSpeed * Time.deltaTime);
+
     }
     #endregion
 
