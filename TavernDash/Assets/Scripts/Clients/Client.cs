@@ -9,7 +9,6 @@ public class Client : Pickable {
 	// properties
     [Header("Components")]
 	[SerializeField]
-	private Transform _bodyTransform;
 	private NavMeshAgent _agent;
 	private Transform _transform;
 	private BoxCollider _boxCollider;
@@ -69,15 +68,7 @@ public class Client : Pickable {
 	private float sitTimer = 0f;
 	private bool sitting = false;
 
-    [Header("Rage")]
-	// patience
-	[SerializeField]
-	private GameObject rageFeedbackPrefab;
-	private GameObject rageFeedbackObj;
-	private Image rageFeedbackImage;
-	[SerializeField]
-	private Sprite lightningSprite;
-
+	[Header ("Rage")]
 	private float rageTimer = 1f;
 	[SerializeField]
 	private float timeToNextStep = 5f;
@@ -89,6 +80,17 @@ public class Client : Pickable {
 	private int stepsWhenOrdering = 1;
 	[SerializeField]
 	private int stepsWhenServed = 2;
+
+	[Header("Feedbacks")]
+	// patience
+	[SerializeField]
+	private GameObject rageFeedbackPrefab;
+	private GameObject rageFeedbackObj;
+	[SerializeField]
+	private GameObject knockedOutFeedbackPrefab;
+	private GameObject knockedOutFeedbackObj;
+	[SerializeField]
+	private Sprite lightningSprite;
 
 	// Use this for initialization
 	void Start () {
@@ -102,7 +104,7 @@ public class Client : Pickable {
 
 		ChangeState (States.GoToTable);
 
-		CreateRageFeedback ();
+		CreateFeedbacks ();
 
 	}
 	
@@ -123,7 +125,7 @@ public class Client : Pickable {
 
         }
 
-		UIManager.Instance.Place (rageFeedbackImage, dialogue.Anchor.position);
+		UIManager.Instance.Place (rageFeedbackObj.GetComponent<RectTransform>(), dialogue.Anchor.position);
 
     }
 
@@ -277,10 +279,10 @@ public class Client : Pickable {
 		Sitting = false;
 
 		dialogue.Speak ("GRRRRRRR");
-		rageFeedbackImage.sprite = lightningSprite;
-		rageFeedbackImage.color = Color.white;
+		rageFeedbackObj.GetComponentInChildren<Image>().sprite = lightningSprite;
+		rageFeedbackObj.GetComponentInChildren<Image>().color = Color.white;
 
-		timeInState = 3f;
+		TargetPoint = Enraged_GetTarget;
 
 	}
 	private void Enraged_Update () {
@@ -291,21 +293,23 @@ public class Client : Pickable {
 
 		if ( pickable != null ) {
 
-			if (Vector3.Distance (GetTransform.position, TargetPoint.position) < 3.5f) {
-				
-				if (timeInState > 2.5f) {
-					
-					pickable.Throw ((targetPoint.position-GetTransform.position).normalized);
+			if (timeInState > 2.5f) {
+
+				if (Vector3.Distance (GetTransform.position, TargetPoint.position) < 3f) {
+					Vector3 dir = (TargetPoint.position - GetTransform.position).normalized;
+					dir.y = 0f;
+
+					GetTransform.forward = dir;
+					pickable.Throw (dir);
 					pickable = null;
 
 					TargetPoint = Enraged_GetTarget;
 					timeInState = 0f;
+				} else {
+					MoveTowards (TargetPoint);
 				}
 
-			} else {
-				MoveTowards (targetPoint);
 			}
-
 
 		} else {
 
@@ -326,7 +330,7 @@ public class Client : Pickable {
 				
 			if (timeInState > 3) {
 				
-				if (Vector3.Distance (GetTransform.position, targetChair.GetTransform.position) < 1.5f) {
+				if (Vector3.Distance (GetTransform.position, targetChair.GetTransform.position) < 1f) {
 
 					targetChair.PickUp (GetTransform);
 					pickable = targetChair;
@@ -342,8 +346,6 @@ public class Client : Pickable {
 
 		}
 
-
-
 	}
 	private void Enraged_Exit () {
 		//
@@ -352,6 +354,7 @@ public class Client : Pickable {
 
 	#region get hit
 	private void GetHit_Start () {
+		
 		_agent.enabled = false;
 		Throw ( -GetTransform.forward );
 
@@ -361,9 +364,16 @@ public class Client : Pickable {
 			++CurrentRage;
 		}
 
+		knockedOutFeedbackObj.SetActive (true);
+
 		UpdateFeedback ();
+
 	}
+
 	private void GetHit_Update () {
+
+		UIManager.Instance.Place (knockedOutFeedbackObj.GetComponent<RectTransform>(), dialogue.Anchor.position);
+
 		if ( timeInState > 4 ) {
 
 			if (previousState == States.Enraged) {
@@ -375,18 +385,26 @@ public class Client : Pickable {
 
 			ChangeState (previousState);
 		}
+
 	}
+
 	private void GetHit_Exit () {
+
+		knockedOutFeedbackObj.SetActive (false);
+
 		_agent.enabled = true;
 		Reset ();
+
 	}
 	#endregion
 
 	#region rage
-	private void CreateRageFeedback () {
+	private void CreateFeedbacks () {
 		rageFeedbackObj = UIManager.Instance.CreateElement (rageFeedbackPrefab, UIManager.CanvasType.Patience);
-		rageFeedbackImage = rageFeedbackObj.GetComponentInChildren<Image> ();
 		rageFeedbackObj.SetActive (false);
+
+		knockedOutFeedbackObj = UIManager.Instance.CreateElement (knockedOutFeedbackPrefab, UIManager.CanvasType.Patience);
+		knockedOutFeedbackObj.SetActive (false);
 	}
 	private void UpdatePatience () {
 
@@ -412,7 +430,7 @@ public class Client : Pickable {
 		// lerp colors
 		float l = (CurrentRage / rageToEnrage);
 
-		rageFeedbackImage.transform.localScale = Vector3.one * (CurrentRage/rageToEnrage);
+		rageFeedbackObj.transform.localScale = Vector3.one * (CurrentRage/rageToEnrage);
 	}
 	public Transform Enraged_GetTarget {
 		get {
@@ -490,12 +508,10 @@ public class Client : Pickable {
 
     private Transform TargetPoint
     {
-        get
-        {
+        get {
             return targetPoint;
         }
-        set
-        {
+        set {
             targetPoint = value;
         }
     }
@@ -617,11 +633,6 @@ public class Client : Pickable {
             return animator;
         }
     }
-	public Transform BodyTransform {
-		get {
-			return _bodyTransform;
-		}
-	}
 	public States CurrentState {
 		get {
 			return currentState;

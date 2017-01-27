@@ -35,7 +35,7 @@ public class Dialogue : MonoBehaviour {
 	void LateUpdate () {
 		if ( speaking ) {
 
-			UIManager.Instance.Place (bubbleImage, anchor.position);
+			UIManager.Instance.Place (bubbleImage.GetComponent<RectTransform>(), anchor.position);
 
 			if ( timer > duration )
 				Exit ();

@@ -59,6 +59,10 @@ public class PlayerController : Pickable
 	float targetAnimSpeed = 0f;
 	float currentAnimSpeed = 0f;
 
+	[SerializeField]
+	private GameObject knockedOutFeedbackPrefab;
+	private GameObject knockedOutFeedbackObj;
+
 	// input
 	[SerializeField] private string input_Action 		= "";
 	[SerializeField] private string input_Run 			= "";
@@ -77,8 +81,14 @@ public class PlayerController : Pickable
 
         ChangeState(States.Moving);
 
+		CreateFeedbacks ();
+
     }
 
+	private void CreateFeedbacks () {
+		knockedOutFeedbackObj = UIManager.Instance.CreateElement (knockedOutFeedbackPrefab, UIManager.CanvasType.Patience);
+		knockedOutFeedbackObj.SetActive (false);
+	}
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -127,7 +137,11 @@ public class PlayerController : Pickable
     }
     private void ApplyMovement ()
     {
-		Vector3 direction = InputDirection;
+		Vector3 direction = Camera.main.transform.TransformDirection (InputDirection);
+		direction.y = 0f;
+//		Vector3 direction = InputDirection;
+
+
 		float targetSpeed = moveSpeed;
 		if ( Input.GetButton(input_Run) )
 			targetSpeed = runMoveSpeed;
@@ -153,13 +167,19 @@ public class PlayerController : Pickable
 	#region get hit
 	private void GetHit_Start () {
 		Throw ( -BodyTransform.forward );
+
+		knockedOutFeedbackObj.SetActive (true);
 	}
 	private void GetHit_Update () {
+
+		UIManager.Instance.Place (knockedOutFeedbackObj.GetComponent<RectTransform>(), Vector3.up * 1.2f);
+
 		if ( timeInState > 4 ) {
 			ChangeState (States.Moving);
 		}
 	}
 	private void GetHit_Exit () {
+		knockedOutFeedbackObj.SetActive (false);
 		Reset ();
 	}
 	#endregion
@@ -274,7 +294,7 @@ public class PlayerController : Pickable
 					Vector3 dir = (c.transform.position - GetTransform.position).normalized;
 					dir.y = 0f;
 
-					GetTransform.forward = dir;
+					BodyTransform.forward = dir;
 					ChangeState (States.GetHit);
 				}
 			}

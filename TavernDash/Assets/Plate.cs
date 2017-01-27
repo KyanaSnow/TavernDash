@@ -25,6 +25,7 @@ public class Plate : Pickable {
 	public override void PickUp (Transform _target)
 	{
 		GetComponentInParent<PlateDispenser> ().PlateCount -= 1;
+		transform.parent = null;
 
 		base.PickUp (_target);
 	}
@@ -40,6 +41,7 @@ public class Plate : Pickable {
 		}
 
 		dish.ClearIngredients ();
+
 	}
 
 	public void AddIngredientToDish ( Ingredient ingredient ) {

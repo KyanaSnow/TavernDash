@@ -13,17 +13,12 @@ public class PlateDispenser : MonoBehaviour {
 	public float rate = 1f;
 	float timer = 0f;
 
-	void Start () {
-		
-	}
-
 	void Update () {
 		
 		if ( plateCount < maxPlate ) {
 
-			if ( timer > rate ) {
+			if ( timer > rate )
 				newPlate ();
-			}
 
 			timer += Time.deltaTime;
 
@@ -35,7 +30,6 @@ public class PlateDispenser : MonoBehaviour {
 		GameObject plate = Instantiate (platePrefab);
 
 		plate.transform.position = transform.position;
-//		plate.transform.position = plateAnchors[plateCount].position;
 		plate.transform.transform.forward = transform.forward;
 		plate.transform.SetParent (transform);
 

@@ -74,6 +74,13 @@ public class Chair : Pickable {
 
 	private void TurnToTableUpdate () {
 		if (turningToTable) {
+
+			if (assignedTable == null) {
+				Debug.Log ("exit table");
+				turningToTable = false;
+				return;
+			}
+
 			float l = lerpTimer / timeToTurn;
 			GetTransform.forward = Vector3.Lerp(initialTurn, (assignedTable.GetTransform.position - GetTransform.position).normalized, l);
 

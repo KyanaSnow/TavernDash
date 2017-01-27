@@ -8,6 +8,8 @@ public class PickableManager : MonoBehaviour {
 
 	PlayerController playerControl;
 
+	bool showFeedbacks = false;
+
 	void Start () {
 		playerControl = GetComponent<PlayerController> ();
 	}
@@ -16,6 +18,13 @@ public class PickableManager : MonoBehaviour {
 
 		if (pickableTriggers.Count > 0) {
 		
+			if ( playerControl.Pickable != null || ShowFeedbacks == false) {
+				for (int i = 0; i < pickableTriggers.Count; ++i)
+					pickableTriggers [i].Hide ();
+
+				return;
+			}
+
 			PickUpTrigger closestTrigger = pickableTriggers [0];
 
 			foreach ( PickUpTrigger trigger in pickableTriggers ) {
@@ -32,12 +41,15 @@ public class PickableManager : MonoBehaviour {
 
 			closestTrigger.Forward ();
 
-			if (Input.GetButtonDown (playerControl.Input_Action)
-				&& playerControl.TimeInState > 0.5f ) {
+			if (Input.GetButtonDown (playerControl.Input_Action) && playerControl.TimeInState > 0.5f ) {
+
 				closestTrigger.LinkedPickable.PickUp (playerControl.BodyTransform);
 				playerControl.Pickable = closestTrigger.LinkedPickable;
 
+				closestTrigger.Exit (playerControl);
+
 				playerControl.TimeInState = 0;
+
 			}
 
 		}
@@ -53,5 +65,12 @@ public class PickableManager : MonoBehaviour {
 		}
 	}
 
-
+	public bool ShowFeedbacks {
+		get {
+			return showFeedbacks;
+		}
+		set {
+			showFeedbacks = value;
+		}
+	}
 }

@@ -28,12 +28,12 @@ public class UIManager : MonoBehaviour {
 	
 	}
 
-	public void Place ( Image image, Vector3 worldPos ) {
+	public void Place ( RectTransform recTransform, Vector3 worldPos ) {
 
 		Vector3 v = Camera.main.WorldToViewportPoint (worldPos);
 
-		image.GetComponent<RectTransform> ().anchorMin = new Vector2 (v.x , v.y);
-		image.GetComponent<RectTransform> ().anchorMax = new Vector2 (v.x , v.y);
+		recTransform.anchorMin = new Vector2 (v.x , v.y);
+		recTransform.anchorMax = new Vector2 (v.x , v.y);
 
 
 	}

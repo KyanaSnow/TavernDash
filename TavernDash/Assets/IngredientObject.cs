@@ -27,6 +27,8 @@ public class IngredientObject : Pickable {
 	{
 		GetComponentInParent<IngredientBox> ().NewIngredient ();
 
+		GetComponentInChildren<PickUpTrigger> ().GetComponent<BoxCollider>().enabled = false;
+
 		base.PickUp (_target);
 	}
 
@@ -37,7 +39,7 @@ public class IngredientObject : Pickable {
 
 			if ( PickableState == PickableStates.Dropped ) {
 
-				Debug.Log ("bonour");
+				Debug.Log ("dropped");
 
 				Constrained = true;
 

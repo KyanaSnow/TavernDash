@@ -27,11 +27,11 @@ public class PickUpTrigger : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if ( inside ) {
-			UIManager.Instance.Place (feedbackObj.GetComponent<Image>(), this.transform.position + Vector3.up * 0.5f );
+			UIManager.Instance.Place (feedbackObj.GetComponent<RectTransform>(), this.transform.position + Vector3.up * 0.5f );
 		}
 	}
 
-	void OnTriggerStay ( Collider other ) {
+	void OnTriggerEnter ( Collider other ) {
 		
 		if (other.tag == "Player" ) {
 
@@ -77,7 +77,7 @@ public class PickUpTrigger : MonoBehaviour {
 
 	}
 
-	private void Exit (PlayerController playerController) {
+	public void Exit (PlayerController playerController) {
 
 		playerController.GetComponent<PickableManager> ().PickableTriggers.Remove (this);
 
@@ -86,11 +86,17 @@ public class PickUpTrigger : MonoBehaviour {
 	}
 
 	public void Forward() {
+		feedbackObj.SetActive (true);
 		feedbackObj.transform.localScale = Vector3.one * 2;
 	}
 
 	public void Back () {
+		feedbackObj.SetActive (true);
 		feedbackObj.transform.localScale = Vector3.one;
+	}
+
+	public void Hide () {
+		feedbackObj.SetActive (false);
 	}
 
 	public Pickable LinkedPickable {
