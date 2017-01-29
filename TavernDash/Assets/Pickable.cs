@@ -84,9 +84,6 @@ public class Pickable : MonoBehaviour {
 
 	public virtual void PickUp (Transform _target) {
 
-		if ( PickableState == PickableStates.Unpickable )
-			return;
-
 		pickableState = PickableStates.Carried;
 
 		target = _target;

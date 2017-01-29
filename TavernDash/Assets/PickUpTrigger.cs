@@ -23,40 +23,37 @@ public class PickUpTrigger : MonoBehaviour {
 
 		linkedPickable = GetComponentInParent<Pickable> ();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		if ( inside ) {
-			UIManager.Instance.Place (feedbackObj.GetComponent<RectTransform>(), this.transform.position + Vector3.up * 0.5f );
-		}
-	}
 
-	void OnTriggerEnter ( Collider other ) {
+	void OnTriggerStay ( Collider other ) {
 		
 		if (other.tag == "Player" ) {
 
-			if (linkedPickable.PickableState == Pickable.PickableStates.Unpickable )
-				return;
-
 			PlayerController playerControl = other.GetComponent<PlayerController> ();
 
-			if (playerControl.Pickable != null) {
-				Exit (playerControl);
-				return;
-			}
+			if (inside == false) {
 
-			Vector3 dir = ( transform.position - other.transform.position );
-
-			if (Vector3.Dot (playerControl.BodyTransform.forward, dir) > angleToFeedback) {
-				
-				if (playerControl.Pickable == null) {
-
-					Enter (playerControl);
-
+				if (linkedPickable.PickableState == Pickable.PickableStates.Unpickable
+					|| linkedPickable.PickableState == Pickable.PickableStates.Carried) {
+					return;
 				}
 
+
+				if (playerControl.Pickable != null) {
+					Exit (playerControl);
+					return;
+				}
+
+				Enter (playerControl);
+
 			} else {
-				Exit (playerControl);
+
+				UIManager.Instance.Place (feedbackObj.GetComponent<RectTransform> (), this.transform.position + Vector3.up * 0.5f);
+
+				if (linkedPickable.PickableState == Pickable.PickableStates.Unpickable
+					|| linkedPickable.PickableState == Pickable.PickableStates.Carried) {
+					Exit (playerControl);
+				}
+
 			}
 
 		}

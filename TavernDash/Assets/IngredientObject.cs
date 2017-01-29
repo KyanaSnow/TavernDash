@@ -39,8 +39,6 @@ public class IngredientObject : Pickable {
 
 			if ( PickableState == PickableStates.Dropped ) {
 
-				Debug.Log ("dropped");
-
 				Constrained = true;
 
 				BoxCollider.enabled = false;
