@@ -32,12 +32,12 @@ public class Table : MonoBehaviour {
 	public bool HasFreeChairs () {
 
 		if (chairs.Count == 0) {
-			Debug.Log ("TABLE : no chairs for client");
+//			Debug.Log ("TABLE : no chairs for client");
 			return false;
 		}
 
 		if (chairs.Count == clients.Count ) {
-			Debug.Log ("TABLE : too much client for client");
+//			Debug.Log ("TABLE : too much client for client");
 			return false;
 		}
 
@@ -67,13 +67,12 @@ public class Table : MonoBehaviour {
 		}
 
 		foreach ( Chair chair in chairs ) {
-			if (!chair.Occupied) {
-				chair.Occupied = true;
+			if (chair.PickableState == Pickable.PickableStates.Pickable) {
 				return chair;
 			}
 		}
 
-		Debug.LogError ("la chaise est nulle ?");
+		Debug.LogError ("le client n'a pas trouvé de chaise");
 		return null;
 	}
 	public void AddChair ( Chair chair ) {

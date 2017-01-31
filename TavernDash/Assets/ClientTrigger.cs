@@ -20,7 +20,7 @@ public class ClientTrigger : MonoBehaviour {
 
 		if (other.tag == "Player" ) {
 
-			if (client.CurrentState == Client.States.WaitForOrder) {
+			if (client.CurrentState == Client.States.WaitForOrder || client.CurrentState == Client.States.WaitForDish) {
 
 				if ( inside == false ) {
 					other.GetComponent<PickableManager> ().ShowFeedbacks = false;
@@ -35,7 +35,11 @@ public class ClientTrigger : MonoBehaviour {
 
 				if ( Input.GetButtonDown (playerControl.Input_Action) ) {
 
-					client.TakeOrder ();
+					if (client.CurrentState == Client.States.WaitForDish) {
+						client.SayDish ();
+					} else {
+						client.TakeOrder ();
+					}
 					Exit (other);
 
 				}

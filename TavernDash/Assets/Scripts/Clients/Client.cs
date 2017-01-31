@@ -67,6 +67,7 @@ public class Client : Pickable {
 	[SerializeField] private float sitDuration = 0.5f;
 	private float sitTimer = 0f;
 	private bool sitting = false;
+	private bool sitLerping = false;
 
 	[Header ("Rage")]
 	private float rageTimer = 1f;
@@ -117,7 +118,7 @@ public class Client : Pickable {
 
 			timeInState += Time.deltaTime;
 
-			if ( Sitting ) {
+			if ( sitLerping ) {
 
 				SitUpdate ();
 
@@ -151,7 +152,7 @@ public class Client : Pickable {
 		targetTable = TableManager.Instance.GetTable ();
 
 		if (targetTable == null) {
-			Debug.Log ("no tables ?");
+//			Debug.Log ("no tables ?");
 			ChangeState (States.Leaving);
 			return;
 		} else {
@@ -180,20 +181,20 @@ public class Client : Pickable {
     public void TakeOrder () {
 
 		ChangeState (States.WaitForDish);
-
 		wantedDish = DishManager.Instance.GetRandomDish;
 
+		CurrentRage -= stepsWhenOrdering;
+		UpdatePatience ();
+
+		SayDish ();
+	}
+	public void SayDish () {
 		string phrase = "";
 		foreach ( Ingredient ing in wantedDish.Ingredients ) {
 			phrase += ing.ingredientName + " ";
 		}
 
 		dialogue.Speak (phrase);
-
-		ChangeState (States.WaitForDish);
-
-		CurrentRage -= stepsWhenOrdering;
-		UpdatePatience ();
 	}
 	#endregion
 
@@ -216,6 +217,7 @@ public class Client : Pickable {
 
 		plate.PickUp (GetTransform);
 		pickable = plate.GetComponent<Pickable> ();
+//		pickable.PickableState = PickableStates.Unpickable;
 
 		dialogue.Speak ( "Miam !" );
 
@@ -229,18 +231,17 @@ public class Client : Pickable {
 	}
 	private void Eating_Update () {
 		if ( timeInState > eatingDuration ) {
+			Sitting = false;
 			ChangeState (States.Leaving);
 		}
 	}
 	private void Eating_Exit () {
-		//
+		
 	}
 	#endregion
 
 	#region leaving
 	private void Leaving_Start () {
-
-		Sitting = false;
 
 		_boxCollider.enabled = true;
 
@@ -258,7 +259,7 @@ public class Client : Pickable {
 
 			dialogue.Speak ("au revoir");
 
-			if (Vector3.Distance (GetTransform.position, ClientManager.Instance.DoorTransform.position) < 0.7f) {
+			if (Vector3.Distance (GetTransform.position, ClientManager.Instance.DoorTransform.position) < 1.5f) {
 				ClientManager.Instance.RemoveClient (this);
 				Destroy (this.gameObject);
 			}
@@ -378,6 +379,7 @@ public class Client : Pickable {
 
 			if (previousState == States.Enraged) {
 				if (CurrentRage == 0) {
+					Debug.Log ("leaving à cause de rage");
 					ChangeState (States.Leaving);
 					return;
 				}
@@ -459,15 +461,20 @@ public class Client : Pickable {
 			return sitting;
 		}
 		set {
+
+			if (sitting == value)
+				return;
+
 			sitting = value;
 
+			sitLerping = true;
 			sitTimer = 0f;
 
 			Constrained = true;
 
 			_agent.enabled = !value;
 
-			targetChair.Occupied = value;
+			targetChair.PickableState = value ? PickableStates.Unpickable : PickableStates.Pickable;
 
 			if (pickable != null)
 				pickable.Drop ();
@@ -481,7 +488,7 @@ public class Client : Pickable {
 		GetTransform.position = Vector3.Lerp( lerpInitialPos , targetChair.ClientAnchor.position , sitTimer / sitDuration );
 
 		if (sitTimer >= sitDuration)
-			sitting = false;
+			sitLerping = false;
 
 	}
     #endregion

@@ -8,7 +8,7 @@ public class PickableManager : MonoBehaviour {
 
 	PlayerController playerControl;
 
-	bool showFeedbacks = false;
+	bool showFeedbacks = true;
 
 	void Start () {
 		playerControl = GetComponent<PlayerController> ();
@@ -19,8 +19,12 @@ public class PickableManager : MonoBehaviour {
 		if (pickableTriggers.Count > 0) {
 		
 			if ( playerControl.Pickable != null || ShowFeedbacks == false) {
-				for (int i = 0; i < pickableTriggers.Count; ++i)
+				
+				for (int i = 0; i < pickableTriggers.Count; ++i) {
 					pickableTriggers [i].Hide ();
+				}
+
+//				Debug.Log ("hiding feedbacks");
 
 				return;
 			}

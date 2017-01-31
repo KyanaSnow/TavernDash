@@ -5,8 +5,6 @@ public class Chair : Pickable {
 	
     private Transform _transform;
 
-    private bool occupied = false;
-
 	bool hasClient = false;
 
 	[Header("Table")]
@@ -47,13 +45,6 @@ public class Chair : Pickable {
 	#region pick up
 	public override void PickUp (Transform target)
 	{
-		if (Occupied) {
-			Debug.Log ("OCCUPE");
-			return;
-		}
-
-		Debug.Log ("pick chair");
-
 		base.PickUp (target);
 
 		UnassignTable ();
@@ -144,15 +135,6 @@ public class Chair : Pickable {
     public Transform GetTransform {
         get {
             return _transform;
-        }
-    }
-
-    public bool Occupied {
-        get {
-            return occupied;
-        }
-        set {
-            occupied = value;
         }
     }
 

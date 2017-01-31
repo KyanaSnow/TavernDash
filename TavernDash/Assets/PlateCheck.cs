@@ -14,12 +14,15 @@ public class PlateCheck : MonoBehaviour {
 		dish = DishManager.Instance.GetRandomDish;
 	}
 
-	void OnTriggerEnter ( Collider other ) {
+	void OnTriggerStay( Collider other ) {
 		
 		var tmp = other.GetComponent<Plate> ();
 
 		if ( tmp != null ) {
+
+//			Debug.Log (tmp.GetComponent<Pickable>().PickableState);
 			if ( tmp.GetComponent<Pickable>().PickableState == Pickable.PickableStates.Dropped ) {
+				
 				CheckPlate (tmp);
 			}
 		}
@@ -52,8 +55,10 @@ public class PlateCheck : MonoBehaviour {
 					match = false;
 			}
 
-			if ( match )
+			if (match)
 				client.Serve (plate);
+//			else
+//				client.Dialogue.Speak ("je veux pas ça");
 		}
 
 	}
