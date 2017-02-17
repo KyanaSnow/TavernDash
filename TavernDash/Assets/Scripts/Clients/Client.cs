@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class Client : Pickable {
+public class Client : MonoBehaviour {
 
 	private int id = 0;
 
@@ -96,8 +96,6 @@ public class Client : Pickable {
 
 	// Use this for initialization
 	void Start () {
-
-		Init ();
 
 		_transform = this.transform;
 		_boxCollider = GetComponentInChildren<BoxCollider> ();
@@ -235,7 +233,6 @@ public class Client : Pickable {
 		}
 	}
 	private void Eating_Exit () {
-<<<<<<< HEAD
 
 		foreach ( IngredientObject ingredient in pickable.GetComponentsInChildren<IngredientObject>() ) {
 			Destroy (ingredient.gameObject);
@@ -243,9 +240,6 @@ public class Client : Pickable {
 
 		pickable.Throw (Vector3.up*10f);
 		Destroy (pickable.gameObject, 5);
-=======
-		
->>>>>>> 1ac3a55293fb3196c09c14a4f99defedbb5d7d9f
 	}
 	#endregion
 
@@ -366,7 +360,8 @@ public class Client : Pickable {
 	private void GetHit_Start () {
 		
 		_agent.enabled = false;
-		Throw ( -GetTransform.forward );
+		Debug.Log ("must have phsyic throw");
+//		Throw ( -GetTransform.forward );
 
 		if (previousState == States.Enraged) {
 			--CurrentRage;
@@ -404,7 +399,6 @@ public class Client : Pickable {
 		knockedOutFeedbackObj.SetActive (false);
 
 		_agent.enabled = true;
-		Reset ();
 
 	}
 	#endregion
@@ -479,11 +473,11 @@ public class Client : Pickable {
 			sitLerping = true;
 			sitTimer = 0f;
 
-			Constrained = true;
+//			Constrained = true;
 
 			_agent.enabled = !value;
 
-			targetChair.PickableState = value ? PickableStates.Unpickable : PickableStates.Pickable;
+			targetChair.PickableState = value ? Pickable.PickableStates.Unpickable : Pickable.PickableStates.Pickable;
 
 			if (pickable != null)
 				pickable.Drop ();

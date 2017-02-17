@@ -21,12 +21,8 @@ public class PlateCheck : MonoBehaviour {
 		if ( tmp != null ) {
 
 //			Debug.Log (tmp.GetComponent<Pickable>().PickableState);
-<<<<<<< HEAD
 			if ( tmp.GetComponent<Pickable>().PickableState == Pickable.PickableStates.Dropped 
 				|| tmp.GetComponent<Pickable>().PickableState == Pickable.PickableStates.Thrown) {
-=======
-			if ( tmp.GetComponent<Pickable>().PickableState == Pickable.PickableStates.Dropped ) {
->>>>>>> 1ac3a55293fb3196c09c14a4f99defedbb5d7d9f
 				
 				CheckPlate (tmp);
 			}

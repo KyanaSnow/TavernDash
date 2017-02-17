@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class PlayerController : Pickable
+public class PlayerController : MonoBehaviour
 {
 
     // properties
@@ -73,8 +73,6 @@ public class PlayerController : Pickable
     // Use this for initialization
     void Start()
     {
-		Init ();
-
         _transform = this.transform;
 
         dialogue = GetComponentInChildren<Dialogue>();
@@ -163,7 +161,9 @@ public class PlayerController : Pickable
 
 	#region get hit
 	private void GetHit_Start () {
-		Throw ( -BodyTransform.forward );
+//		Throw ( -BodyTransform.forward );
+
+		Debug.Log ("must have phsyic throw");
 
 		knockedOutFeedbackObj.SetActive (true);
 	}
@@ -177,7 +177,7 @@ public class PlayerController : Pickable
 	}
 	private void GetHit_Exit () {
 		knockedOutFeedbackObj.SetActive (false);
-		Reset ();
+//		Reset ();
 	}
 	#endregion
 

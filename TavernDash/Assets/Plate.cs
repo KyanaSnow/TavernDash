@@ -28,11 +28,7 @@ public class Plate : Pickable {
 	public override void PickUp (Transform _target)
 	{
 		if (GetComponentInParent<PlateDispenser> ()) {
-<<<<<<< HEAD
 			GetComponentInParent<PlateDispenser> ().newPlate ();
-=======
-			GetComponentInParent<PlateDispenser> ().PlateCount -= 1;
->>>>>>> 1ac3a55293fb3196c09c14a4f99defedbb5d7d9f
 		
 			transform.parent = null;
 		}
