@@ -360,6 +360,7 @@ public class Client : MonoBehaviour {
 	private void GetHit_Start () {
 		
 		_agent.enabled = false;
+
 		Debug.Log ("must have phsyic throw");
 //		Throw ( -GetTransform.forward );
 
