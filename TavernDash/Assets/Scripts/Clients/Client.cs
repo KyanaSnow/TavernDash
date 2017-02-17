@@ -235,6 +235,7 @@ public class Client : Pickable {
 		}
 	}
 	private void Eating_Exit () {
+<<<<<<< HEAD
 
 		foreach ( IngredientObject ingredient in pickable.GetComponentsInChildren<IngredientObject>() ) {
 			Destroy (ingredient.gameObject);
@@ -242,6 +243,9 @@ public class Client : Pickable {
 
 		pickable.Throw (Vector3.up*10f);
 		Destroy (pickable.gameObject, 5);
+=======
+		
+>>>>>>> 1ac3a55293fb3196c09c14a4f99defedbb5d7d9f
 	}
 	#endregion
 

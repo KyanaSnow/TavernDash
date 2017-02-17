@@ -52,17 +52,23 @@ public class PickUpTrigger : MonoBehaviour {
 
 				UIManager.Instance.Place (feedbackObj.GetComponent<RectTransform> (), this.transform.position + Vector3.up * 0.5f);
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1ac3a55293fb3196c09c14a4f99defedbb5d7d9f
 				if (linkedPickable.PickableState == Pickable.PickableStates.Unpickable
 					|| linkedPickable.PickableState == Pickable.PickableStates.Carried) {
 					Exit (playerControl);
 				}
 
+<<<<<<< HEAD
 //				if (lerp <= 1) {
 //					feedbackObj.GetComponent<Image> ().color = Color.Lerp ( Color.clear , Color.blue , lerp );
 //					lerp += lerpSpeed * Time.deltaTime;
 //				}
 //
+=======
+>>>>>>> 1ac3a55293fb3196c09c14a4f99defedbb5d7d9f
 			}
 
 		}
