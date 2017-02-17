@@ -140,16 +140,19 @@ public class Pickable : MonoBehaviour {
 		Constrained = true;
 	}
 
+	[SerializeField]
+	private RigidbodyConstraints initContraints = RigidbodyConstraints.FreezeAll;
+
 	public bool Constrained {
 		get {
-			if ( Rigidbody.constraints == RigidbodyConstraints.FreezeAll )
+			if ( Rigidbody.constraints == initContraints )
 				return true;
 			else
 				return false;
 		}
 		set {
 			if (value == true)
-				Rigidbody.constraints = RigidbodyConstraints.FreezeAll;
+				Rigidbody.constraints = initContraints;
 			else
 				Rigidbody.constraints = RigidbodyConstraints.None;
 		}

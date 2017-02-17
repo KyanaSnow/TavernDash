@@ -131,16 +131,16 @@ public class PlayerController : Pickable
 			}
 		}
     }
+
     private void Moving_Exit()
     {
         //
     }
+
     private void ApplyMovement ()
     {
 		Vector3 direction = Camera.main.transform.TransformDirection (InputDirection);
 		direction.y = 0f;
-//		Vector3 direction = InputDirection;
-
 
 		float targetSpeed = moveSpeed;
 		if ( Input.GetButton(input_Run) )
@@ -153,9 +153,6 @@ public class PlayerController : Pickable
 		} else {
 			BodyTransform.forward = direction;
 		}
-
-		if (Physics.Raycast(GetTransform.position + Vector3.up * 0.5f, direction, collisionDistance, collisionLayerMask))
-			targetSpeed = 0f;
 
 		currentSpeed = Mathf.MoveTowards(currentSpeed, targetSpeed, acceleration * Time.deltaTime);
 

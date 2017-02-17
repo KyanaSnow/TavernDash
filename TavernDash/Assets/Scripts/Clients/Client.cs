@@ -30,6 +30,7 @@ public class Client : Pickable {
 		GetHit,
 		Dead,
 	}
+
 	private States previousState;
 	private States currentState;
 
@@ -203,9 +204,7 @@ public class Client : Pickable {
 		
 	}
 	private void WaitForDish_Update () {
-		
 		UpdatePatience ();
-
 	}
 	private void WaitForDish_Exit () {
 		//
@@ -236,7 +235,13 @@ public class Client : Pickable {
 		}
 	}
 	private void Eating_Exit () {
-		
+
+		foreach ( IngredientObject ingredient in pickable.GetComponentsInChildren<IngredientObject>() ) {
+			Destroy (ingredient.gameObject);
+		}
+
+		pickable.Throw (Vector3.up*10f);
+		Destroy (pickable.gameObject, 5);
 	}
 	#endregion
 

@@ -4,46 +4,38 @@ using System.Collections;
 public class PlateDispenser : MonoBehaviour {
 
 	public GameObject platePrefab;
+	private GameObject currentPlate;
 
-	public int maxPlate = 3;
-	public Transform [] plateAnchors;
-
-	int plateCount = 0;
-
-	public float rate = 1f;
 	float timer = 0f;
+	[SerializeField]
+	private float distanceToCreate = 1f;
+
+	bool created = false;
+
+	void Start () {
+		createPlate ();
+	}
 
 	void Update () {
-		
-		if ( plateCount < maxPlate ) {
 
-			if ( timer > rate )
-				newPlate ();
-
-			timer += Time.deltaTime;
-
+		if ( !created ) {
+			if (Vector3.Distance (currentPlate.transform.position, transform.position) > distanceToCreate)
+				createPlate ();
 		}
-	}
-
-	void newPlate () {
-
-		GameObject plate = Instantiate (platePrefab);
-
-		plate.transform.position = transform.position;
-		plate.transform.transform.forward = transform.forward;
-		plate.transform.SetParent (transform);
-
-		plateCount++;
-		timer = 0f;
 
 	}
 
-	public int PlateCount {
-		get {
-			return plateCount;
-		}
-		set {
-			plateCount = value;
-		}
+	public void newPlate () {
+		created = false;
+	}
+
+	private void createPlate () {
+		currentPlate = Instantiate (platePrefab);
+
+		currentPlate.transform.position = transform.position;
+		currentPlate.transform.transform.forward = transform.forward;
+		currentPlate.transform.SetParent (transform);
+
+		created = true;
 	}
 }

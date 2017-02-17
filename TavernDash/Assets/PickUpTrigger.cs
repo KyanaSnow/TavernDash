@@ -16,6 +16,9 @@ public class PickUpTrigger : MonoBehaviour {
 
 	Pickable linkedPickable = null;
 
+	float lerp = 0f;
+	private float lerpSpeed = 8.4f;
+
 	// Use this for initialization
 	void Start () {
 		feedbackObj = UIManager.Instance.CreateElement (feedbackPrefab, UIManager.CanvasType.Dialogue);
@@ -49,11 +52,17 @@ public class PickUpTrigger : MonoBehaviour {
 
 				UIManager.Instance.Place (feedbackObj.GetComponent<RectTransform> (), this.transform.position + Vector3.up * 0.5f);
 
+
 				if (linkedPickable.PickableState == Pickable.PickableStates.Unpickable
 					|| linkedPickable.PickableState == Pickable.PickableStates.Carried) {
 					Exit (playerControl);
 				}
 
+//				if (lerp <= 1) {
+//					feedbackObj.GetComponent<Image> ().color = Color.Lerp ( Color.clear , Color.blue , lerp );
+//					lerp += lerpSpeed * Time.deltaTime;
+//				}
+//
 			}
 
 		}
@@ -79,21 +88,25 @@ public class PickUpTrigger : MonoBehaviour {
 		playerController.GetComponent<PickableManager> ().PickableTriggers.Remove (this);
 
 		feedbackObj.SetActive (false);
+		lerp = 0f;
 		inside = false;
 	}
 
 	public void Forward() {
+		UIManager.Instance.Place (feedbackObj.GetComponent<RectTransform> (), this.transform.position + Vector3.up * 0.5f);
 		feedbackObj.SetActive (true);
 		feedbackObj.transform.localScale = Vector3.one * 2;
 	}
 
 	public void Back () {
+		UIManager.Instance.Place (feedbackObj.GetComponent<RectTransform> (), this.transform.position + Vector3.up * 0.5f);
 		feedbackObj.SetActive (true);
 		feedbackObj.transform.localScale = Vector3.one;
 	}
 
 	public void Hide () {
 		feedbackObj.SetActive (false);
+//		lerp = 0f;
 	}
 
 	public Pickable LinkedPickable {

@@ -9,7 +9,10 @@ public class Plate : Pickable {
 	void Start () {
 		Init ();
 		dish = new Dish ();
-		Throw (transform.forward);
+
+		Drop ();
+
+//		Throw (transform.forward);
 	}
 
 	// Update is called once per frame
@@ -25,7 +28,7 @@ public class Plate : Pickable {
 	public override void PickUp (Transform _target)
 	{
 		if (GetComponentInParent<PlateDispenser> ()) {
-			GetComponentInParent<PlateDispenser> ().PlateCount -= 1;
+			GetComponentInParent<PlateDispenser> ().newPlate ();
 		
 			transform.parent = null;
 		}
